@@ -47,18 +47,21 @@ const config: Config = {
         "md": "20px",
         "lg": "24px",
         "xl": "32px",
-        "xl2": "36px",
-        "xl3": "40px",
-        "xl4": "48px",
-        "xl5": "56px",
-        "xl6": "64px",
-        "xl7": "72px",
-        "xl8": "80px",
+        "2xl": "36px",
+        "3xl": "40px",
+        "4xl": "48px",
+        "5xl": "56px",
+        "6xl": "64px",
+        "7xl": "72px",
+        "8xl": "80px",
       },
       fontWeight: {
         "Regular": "400",
         "Bold": "700",
         "BlackItalic": "900"
+      },
+      borderWidth: {
+        "1": "1px"
       },
     },
   },
