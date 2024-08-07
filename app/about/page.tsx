@@ -5,21 +5,15 @@ import User from '@/public/assets/icons/icons/user.svg';
 import Bag from '@/public/assets/icons/icons/Bag.svg';
 import Menu from '@/public/assets/icons/icons/menu.svg';
 import Icon from '@/components/Icon';
-import HeaderImage from '@/public/assets/images/header.png';
-import Image from 'next/image';
-import Button from '@/components/Button';
-import BagCard from '@/public/assets/images/bagCard.png';
-import TshirtCard2 from '@/public/assets/images/TshirtCard2.png';
-import TshirtCard from '@/public/assets/images/TshirtCard.png';
-import blueTshirt from '@/public/assets/images/blueTshirt.png';
-import blackTshirt from '@/public/assets/images/blackTshirt.png';
-import whiteSwet from '@/public/assets/images/whiteSwet.png';
-import blueBag from '@/public/assets/images/blueBag.png';
-import { TextField, Input } from 'react-aria-components';
+import aboutBag from '@/public/assets/images/aboutBag.png';
+import HeaderImage from '@/public/assets/images/headerAbout.png';
+import aboutSide from '@/public/assets/images/aboutSide.png';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-
-export default function Home() {
+import Image from 'next/image';
+import Button from '@/components/Button';
+import { Input, TextField } from 'react-aria-components';
+const page = () => {
   const [bgColor, setBgColor] = useState('bg-transparent');
 
   useEffect(() => {
@@ -38,7 +32,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="h-screen text-center">
+    <main className="">
       <div className={`fixed w-full z-50 bg-${bgColor}`}>
         <div className="py-6 px-8 lg:px-24 max-w-[1440px] mx-auto flex justify-start">
           <Icon
@@ -108,85 +102,98 @@ export default function Home() {
           src={HeaderImage}
           className="object-cover absolute -z-10 h-full w-full"
         ></Image>
-        <h1 className="mt-96 mx-auto w-full px-4 text-xl lg:text-8xl font-BlackItalic italic text-white">
-          Crystal and shine with red
-        </h1>
-        <Button
-          size="responsive"
-          variant="outline"
-          colorScheme="white"
-          className="mx-auto mt-7 lg:mt-12"
-        >
-          Shop now
-        </Button>
-      </div>
-      <div className="mx-8 lg:mx-24 text-left font-BlackItalic italic text-blue-700 ">
-        <h2 className="text-md mt-20 mb-8 lg:text-xl lg:mt-40 lg:mb-16 lg:max-w-xl">
-          Embrace the laid-back allure of street fashion, radiating cool vibes
-          and a dash of chill.
-        </h2>
-      </div>
-      <div className="flex flex-col sm:flex-row mx-auto px-8 lg:px-24 gap-8 lg:gap-16">
-        <div className="flex-1  relative">
-          <Image src={BagCard} alt="img"></Image>
-          <p className="absolute top-2 left-2 lg:top-8 lg:left-8 text-white font-light text-xs lg:text-lg">
-            Fresh new drops
+        <div className="w-full px-8 lg:px-24 text-white max-w-2xl ">
+          <h1 className="mt-20 md:mt-48 text-xl lg:text-4xl font-BlackItalic italic mb-12 ">
+            The world of red
+          </h1>
+          <p className="mb-4 text-base bg-black bg-opacity-15 backdrop-blur-sm rounded">
+            Welcome to Red, where style meets substance. Red is not just a
+            street fashion brand; it's an attitude, a movement, and a way of
+            life. Our passion lies in creating cool, youthful, and chill designs
+            that resonate with the free spirits of today.
           </p>
-        </div>
-        <div className="flex-1 relative">
-          <Image src={TshirtCard} alt="img"></Image>
-          <p className="absolute top-2 left-2 lg:top-8 lg:left-8 text-white font-light text-xs lg:text-lg">
-            Matz digs red
+          <p className="text-base bg-black bg-opacity-15 backdrop-blur-sm rounded">
+            But it doesn't stop there; Red is more than just a brand; it's a
+            philosophy that cherishes slow fashion and sustainability. We are
+            committed to producing fashion with love and care, staying true to
+            our core values of environmental responsibility and ethical
+            practices.
           </p>
-        </div>
-        <div className="flex-1 relative">
-          <Image src={TshirtCard2} alt="img" className="object-cover"></Image>
-          <p className="absolute top-2 left-2 lg:top-8 lg:left-8 text-white font-light text-xs lg:text-lg text-left">
-            Collectors essentials
+          <p className="mt-10 md:mt-36 xl:scroll-mt-60 text-md bg-black bg-opacity-15 backdrop-blur-sm rounded">
+            Embrace the bold and step into the world of Red, where fashion is
+            not just an outfit but an expression of authenticity.
           </p>
         </div>
       </div>
-      <div className="flex flex-wrap  align-middle mx-8 lg:mx-24 mt-20 lg:mt-40 mb-11 text-md lg:text-xl text-left font-BlackItalic italic text-blue-700 ">
-        <h3>The beloved.</h3>
-        <h3 className="text-grayscale-400">
-          Catch yours before they sell out.
-        </h3>
-        <Button
-          colorScheme="blue"
-          variant="outline"
-          className="mx-auto mt-4 sm:mt-0 md:mr-0 md:ml-auto"
-        >
-          Shop all
-        </Button>
+      <div className="px-8 lg:px-24 mb-40 max-w-[1440px] mx-auto">
+        <div>
+          <h2 className="text-lg lg:text-4xl text-blue-700 italic font-BlackItalic mt-24 mb-16">
+            Breaking Boundaries <br /> Unisex Styles for All
+          </h2>
+        </div>
+        <div className="md:flex flex-row-reverse md:gap-10 xl:gap-40 max-w-[1440px] mx-auto">
+          <div className="md:flex-1">
+            <p className="mb-10 xl:mb-40">
+              At Red, we believe fashion should know no boundaries. Our designs
+              break free from traditional gender norms, offering unisex styles
+              that empower everyone to express themselves without limitations.
+              Our collections are thoughtfully crafted, celebrating diversity
+              and individuality. Whether you're rocking the city streets or
+              dancing under the stars, our unisex streetwear is made to fit your
+              vibe effortlessly.
+            </p>
+            <p className="mb-10 md:mb-0">
+              Red is more than just a brand; it's a community that embraces
+              uniqueness, and we invite you to join us in celebrating fashion
+              that knows no boundaries.
+            </p>
+          </div>
+          <div className="flex-1">
+            <Image src={aboutBag} alt="img"></Image>
+          </div>
+        </div>
       </div>
-      <div className="columns-1 md:columns-2 lg:columns-4 mx-8 lg:mx-24 gap:8 lg:gap-12 mb-20 lg:mb-40">
-        <div className="flex flex-col items-center w-full">
-          <Image src={blueTshirt} alt="img"></Image>
-          <div className="flex justify-between w-full">
-            <p>Fresh T Second</p>
-            <p>€60</p>
-          </div>
+      <div className="relative w-full mb-32 ">
+        <div className="px-8 lg:px-16 max-w-[492px] z-20">
+          <h3 className="text-lg lg:text-4xl text-blue-700 italic font-BlackItalic mb-12">
+            Slow Fashion Made with Love
+          </h3>
+          <p className="mb-1">
+            In a world of fast fashion, Red stands out as a beacon of conscious
+            style. We are committed to breaking away from the relentless churn
+            of trends and instead focus on producing timeless pieces that
+            withstand the test of time.
+          </p>
+          <p className="mb-10 md:mb-40">
+            Each garment is carefully curated, from design conception to
+            production, with love and care. We believe that fashion should not
+            only make you look good but also make you feel good about your
+            choices.
+          </p>
+          <p>
+            With Red, you can be confident that your fashion statement goes
+            beyond aesthetics; it's a testament to your commitment to
+            sustainability and the wellbeing of our planet. Embrace slow
+            fashion, celebrate individuality, and discover the magic of Red
+            streetwear.
+          </p>
         </div>
-        <div className="flex flex-col items-center w-full">
-          <Image src={blackTshirt} alt="img"></Image>
-          <div className="flex justify-between w-full">
-            <p>Fresh T Second</p>
-            <p>€60</p>
-          </div>
+        <div className="absolute  scale-50 z-10 object-cover">
+          <Image src={aboutSide} alt="img"></Image>
         </div>
-        <div className="flex flex-col items-center w-full">
-          <Image src={whiteSwet} alt="img" className="object-cover"></Image>
-          <div className="flex justify-between w-full">
-            <p>Base 02 Swet </p>
-            <p>€90</p>
-          </div>
+      </div>
+      <div className="bg-blue-700 w-full px-8">
+        <div className="pt-28 pb-20 mx-auto w-fit">
+          <h3 className="text-lg lg:text-4xl text-white italic font-BlackItalic ">
+            Welcome to red
+          </h3>
         </div>
-        <div className="flex flex-col items-center w-full">
-          <Image src={blueBag} alt="img"></Image>
-          <div className="flex justify-between w-full">
-            <p>Fresh Tote</p>
-            <p>€30</p>
-          </div>
+        <div className="max-w-[492px] mx-auto text-center text-white pb-28">
+          <p>
+            Where boldness meets passion, and style becomes your compass to
+            self-expression. Join us, explore our collections, and be a part of
+            our authentic fashion community.
+          </p>
         </div>
       </div>
       <div className="bg-grayscale-20 text-blue-700">
@@ -249,4 +256,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default page;
