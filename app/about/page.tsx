@@ -13,6 +13,7 @@ import { twMerge } from 'tailwind-merge';
 import Image from 'next/image';
 import Button from '@/components/Button';
 import { Input, TextField } from 'react-aria-components';
+
 const page = () => {
   const [bgColor, setBgColor] = useState('bg-transparent');
 
@@ -33,7 +34,12 @@ const page = () => {
   }, []);
   return (
     <main className="">
-      <div className={`fixed w-full z-50 bg-${bgColor}`}>
+      <div
+        className={twMerge(
+          `fixed w-full z-50 bg-${bgColor} top-0`,
+          bgColor === 'white' && 'border-b-1 border-b-blue-700'
+        )}
+      >
         <div className="py-6 px-8 lg:px-24 max-w-[1440px] mx-auto flex justify-start">
           <Icon
             src={Logo}
@@ -179,10 +185,7 @@ const page = () => {
           </p>
         </div>
         <div className="static ml-auto -mb-6 lg:absolute lg:top-0 lg:right-0 max-w-[500px] xl:max-w-[700px] z-10">
-          <Image
-            src={aboutSide}
-            alt="img"
-          ></Image>
+          <Image src={aboutSide} alt="img"></Image>
         </div>
       </div>
       <div className="bg-blue-700 w-full px-8">
