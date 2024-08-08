@@ -153,8 +153,8 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-full mb-32 ">
-        <div className="px-8 lg:px-16 max-w-[492px] z-20">
+      <div className="relative w-full lg:mb-32 ">
+        <div className="px-8 lg:px-24 max-w-[590px] z-20">
           <h3 className="text-lg lg:text-4xl text-blue-700 italic font-BlackItalic mb-12">
             Slow Fashion Made with Love
           </h3>
@@ -164,7 +164,7 @@ const page = () => {
             of trends and instead focus on producing timeless pieces that
             withstand the test of time.
           </p>
-          <p className="mb-10 md:mb-40">
+          <p className="mb-10 lg:mb-40">
             Each garment is carefully curated, from design conception to
             production, with love and care. We believe that fashion should not
             only make you look good but also make you feel good about your
@@ -178,8 +178,11 @@ const page = () => {
             streetwear.
           </p>
         </div>
-        <div className="absolute  scale-50 z-10 object-cover">
-          <Image src={aboutSide} alt="img"></Image>
+        <div className="static ml-auto -mb-6 lg:absolute lg:top-0 lg:right-0 max-w-[500px] xl:max-w-[700px] z-10">
+          <Image
+            src={aboutSide}
+            alt="img"
+          ></Image>
         </div>
       </div>
       <div className="bg-blue-700 w-full px-8">
