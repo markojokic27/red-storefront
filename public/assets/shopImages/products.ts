@@ -1,46 +1,5 @@
-import bag1black from '@/public/assets/shopImages/bag1black.png';
-import bag1blue from '@/public/assets/shopImages/bag1blue.png';
-import bag1white from '@/public/assets/shopImages/bag1white.png';
-
-import bag2black from '@/public/assets/shopImages/bag2black.png';
-import bag2blue from '@/public/assets/shopImages/bag2blue.png';
-import bag2white from '@/public/assets/shopImages/bag2white.png';
-
-import bag3black from '@/public/assets/shopImages/bag3black.png';
-import bag3blue from '@/public/assets/shopImages/bag3blue.png';
-import bag3white from '@/public/assets/shopImages/bag3white.png';
-
-import bag4white1 from '@/public/assets/shopImages/bag4white1.png';
-import bag4white2 from '@/public/assets/shopImages/bag4white2.png';
-
-import swet1black from '@/public/assets/shopImages/swet1black.png';
-import swet1blue from '@/public/assets/shopImages/swet1blue.png';
-import swet1gray from '@/public/assets/shopImages/swet1gray.png';
-import swet1white from '@/public/assets/shopImages/swet1white.png';
-
-import swet2black from '@/public/assets/shopImages/swet2black.png';
-import swet2blue from '@/public/assets/shopImages/swet2blue.png';
-import swet2gray from '@/public/assets/shopImages/swet2gray.png';
-import swet2white from '@/public/assets/shopImages/swet2white.png';
-
-import t1black from '@/public/assets/shopImages/t1black.png';
-import t1blue from '@/public/assets/shopImages/t1blue.png';
-import t1white from '@/public/assets/shopImages/t1white.png';
-
-import t2black from '@/public/assets/shopImages/t2black.png';
-import t2blue from '@/public/assets/shopImages/t2blue.png';
-import t2white from '@/public/assets/shopImages/t2white.png';
-
-import t3black from '@/public/assets/shopImages/t3black.png';
-import t3blue from '@/public/assets/shopImages/t3blue.png';
-import t3white from '@/public/assets/shopImages/t3white.png';
-
-import t4white1 from '@/public/assets/shopImages/t4white2.png';
-import t4white2 from '@/public/assets/shopImages/t4white1.png';
-import { ColorSlider } from 'react-aria-components';
-
 const products = {
-  imgPath: '@/public/assets/shopImages/',
+  imgPath: '/assets/shopImages/',
   productsItems: [
     {
       id: 1,
@@ -52,7 +11,7 @@ const products = {
           color: 'white',
           img: 'bag3white',
           price: 30,
-          discount: 0,
+          discount: 10,
           hex: '#FFFFFF',
           XS: 23,
           S: 41,
@@ -78,7 +37,7 @@ const products = {
           color: 'black',
           img: 'bag3black',
           price: 30,
-          discount: 0,
+          discount: 50,
           hex: '#000000',
           XS: 15,
           S: 28,
@@ -515,3 +474,4 @@ const products = {
   ],
 };
 
+export default products;

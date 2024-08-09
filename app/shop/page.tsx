@@ -6,6 +6,7 @@ import Bag from '@/public/assets/icons/icons/Bag.svg';
 import Menu from '@/public/assets/icons/icons/menu.svg';
 import Icon from '@/components/Icon';
 import chevronDown from '@/public/assets/icons/icons/chevron-down.svg';
+import products from '@/public/assets/shopImages/products';
 import {
   Button as AriaButton,
   ListBox,
@@ -14,15 +15,19 @@ import {
   Popover,
   Select,
   SelectValue,
+  Input,
+  TextField,
 } from 'react-aria-components';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Button from '@/components/Button';
-import { Input, TextField } from 'react-aria-components';
+import Image from 'next/image';
+
 const page = () => {
   const [bgColor, setBgColor] = useState('white');
   const [selectedValue, setSelectedValue] = useState('Whatever');
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [visibleProducts, setVisibleProducts] = useState(16);
 
   const selectItems = {
     whatever: 'Whatever',
@@ -31,7 +36,7 @@ const page = () => {
     highestPrice: 'Highest price',
     discount: 'Discount',
   };
-
+  console.log(products.productsItems.slice(0, visibleProducts).length);
   return (
     <main className="">
       <div
@@ -102,18 +107,21 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mt-40 mx-8 lg:mx-24 mb-40">
-        <div className="text-xl lg:text-6xl font-BlackItalic italic text-blue-700">
+      <div className="mt-28 md:mt-40 mx-8 lg:mx-24 sm:flex sm:justify-between sm:mb-40">
+        <div className="text-2xl lg:text-6xl font-BlackItalic italic text-blue-700 mb-8 sm:mb-0">
           <h1>Shop</h1>
         </div>
         <Select className="" onOpenChange={setIsOpen} isOpen={isOpen}>
-          <AriaButton className="text-grayscale-400 outline-none">
+          <AriaButton
+            aria-label="menu"
+            className="text-grayscale-400 outline-none color-grayscale-400"
+          >
             <div className={`flex gap-2 ${isOpen ? 'text-black' : ''}`}>
               <Label>Sort by</Label>
               <Icon
                 src={chevronDown}
                 alt="svg"
-                className={` transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                className={`color-grayscale-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
               />
             </div>
             <SelectValue
@@ -126,11 +134,11 @@ const page = () => {
             className={`border border-blue-700 bg-white rounded-sm w-60 flex gap-5 mr-5 lg:mr-[82px] cursor-pointer outline-none transition-[opacity] duration-500 ease-in-out ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
           >
             <ListBox className={`w-full outline-none `}>
-              {Object.values(selectItems).map((item) => {
+              {Object.values(selectItems).map((item, key) => {
                 const capitalItem = item[0].toUpperCase() + item.slice(1);
                 return (
                   <ListBoxItem
-                    key={item}
+                    key={key}
                     onAction={() => {
                       setSelectedValue(capitalItem);
                       setIsOpen(false);
@@ -144,6 +152,71 @@ const page = () => {
             </ListBox>
           </Popover>
         </Select>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-12 mx-8 lg:mx-24 mb-40">
+        {products.productsItems.map((product) => {
+          return product.colors.map((color, key) => {
+            return (
+              <div
+                key={key}
+                className="flex flex-col items-center cursor-pointer group "
+              >
+                <div className="relative">
+                  <Image
+                    src={`${products.imgPath}${color.img}.png`}
+                    alt={`${product.name} - ${color.color}`}
+                    height={400}
+                    width={400}
+                  />
+                  <div className="absolute top-0 -z-20 w-full h-full  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Image
+                      src={`${products.imgPath}background.png`}
+                      alt={`background`}
+                      height={400}
+                      width={400}
+                    />
+                  </div>
+                  {color.discount > 0 && (
+                    <div className="absolute bottom-2 right-2 bg-red-700 text-white text-xs px-1  sm:py-1.5 sm:px-4 rounded-full">
+                      -{color.discount}%
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-col justify-start items-center sm:flex-row sm:justify-between w-full">
+                  <div className="flex items-start h-full">
+                    <p>{product.name}</p>
+                  </div>
+                  <div>
+                    <p className={color.discount > 0 ? 'text-red-700' : ''}>
+                      €{color.price * (1 - color.discount / 100)}
+                    </p>
+                    {color.discount > 0 && (
+                      <p className="text-gray-400 line-through">
+                        €{color.price}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="w-full flex justify-center sm:justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2 mt-4">
+                  {product.colors.map((color, key) => {
+                    return (
+                      <div key={key}>
+                        <Image
+                          src={`${products.imgPath}logo${color.color}.png`}
+                          alt="logo"
+                          height={40}
+                          width={40}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          });
+        })}
       </div>
       <div className="bg-grayscale-20 text-blue-700">
         <div className="border-y-1 border-y-blue-700 text-left py-8 md:py-24 md:flex md:px-24 md:justify-between">

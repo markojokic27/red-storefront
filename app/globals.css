@@ -1,42 +1,24 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 @font-face {
   font-family: 'Mona Sans';
-  src: url('/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
-       url('/fonts/Mona-Sans.woff2') format('woff2-variations');
+  src:
+    url('/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('/fonts/Mona-Sans.woff2') format('woff2-variations');
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
+
 @layer base {
   html {
     font-family: 'Mona Sans', sans-serif;
     font-size: theme('fontSize.base');
   }
-}
-body {
-  margin: 0;
-  padding: 0;
-}
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+  body {
+    margin: 0;
+    padding: 0;
   }
 }

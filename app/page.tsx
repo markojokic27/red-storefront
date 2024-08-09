@@ -1,4 +1,5 @@
 'use client';
+
 import Logo from '@/public/assets/icons/Red_Logo.svg';
 import Search from '@/public/assets/icons/icons/search.svg';
 import User from '@/public/assets/icons/icons/user.svg';
@@ -19,7 +20,7 @@ import { TextField, Input } from 'react-aria-components';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export default function Home() {
+export default function Page() {
   const [bgColor, setBgColor] = useState('bg-transparent');
 
   useEffect(() => {
@@ -37,11 +38,15 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   return (
     <main className="h-screen text-center">
-      <div className={twMerge(`fixed w-full z-50 bg-${bgColor} top-0`,
-      bgColor === 'white' && 'border-b-1 border-b-blue-700'
-      )}>
+      <div
+        className={twMerge(
+          `fixed w-full z-50 bg-${bgColor} top-0`,
+          bgColor === 'white' && 'border-b-1 border-b-blue-700'
+        )}
+      >
         <div className="py-6 px-8 lg:px-24 max-w-[1440px] mx-auto flex justify-start">
           <Icon
             src={Logo}

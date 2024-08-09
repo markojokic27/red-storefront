@@ -1,5 +1,3 @@
-import { error } from "console";
-import { Yellowtail } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -37,7 +35,7 @@ const config: Config = {
           900: "#050505",
         },  
         yellow: {
-          700: "#FFEFB7",
+          400: "#FFEFB7",
         }
       },
       fontSize: {
@@ -67,4 +65,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
