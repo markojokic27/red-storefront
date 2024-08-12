@@ -6,6 +6,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    ...Array.from({ length: 12 }, (_, i) => `w-[${(i + 1) * 100 / 12}%]`),
+    ...Array.from({ length: 12 }, (_, i) => `ml-[${(i + 1) * 100 / 12}%]`),
+
+    ...['sm', 'md', 'lg', 'xl'].flatMap(bp => [
+      ...Array.from({ length: 12 }, (_, i) => `${bp}:w-[${(i + 1) * 100 / 12}%]`),
+      ...Array.from({ length: 12 }, (_, i) => `${bp}:ml-[${(i + 1) * 100 / 12}%]`)
+    ]),
+
+  ],
   theme: {
     extend: {
       colors: {
