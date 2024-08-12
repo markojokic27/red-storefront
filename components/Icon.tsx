@@ -15,7 +15,7 @@ const Icon: React.FC<IconProps> = ({
   ...rest
 }) => {
   return (
-    <div {...rest} className={twMerge("", className)}>
+    <div {...rest} className={twMerge("h-6 w-6", className)}>
       <Image
         src={src}
         alt={alt}

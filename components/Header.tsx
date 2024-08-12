@@ -2,100 +2,112 @@
 
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Icon from '@/components/Icon';
 
-import Logo from '@/public/assets/icons/Red_Logo.svg';
-import Search from '@/public/assets/icons/icons/search.svg';
-import User from '@/public/assets/icons/icons/user.svg';
-import Bag from '@/public/assets/icons/icons/Bag.svg';
-import Menu from '@/public/assets/icons/icons/menu.svg';
+import LogoIcon from '@/components/Icons/LogoIcon';
+import SearchIcon from '@/components/Icons/SearchIcon';
+import UserIcon from '@/components/Icons/UserIcon';
+import CartIcon from '@/components/Icons/CartIcon';
+import MenuIcon from '@/components/Icons/MenuIcon';
+import { Link, Button } from 'react-aria-components';
 
-export default function Header() {
-  const [bgColor, setBgColor] = useState('bg-transparent');
+type HeaderProps = {
+  theme?: string;
+};
+
+export default function Header({ theme }: HeaderProps) {
+  const [headerTheme, setHeaderTheme] = useState(
+    theme === 'white' ? 'white' : 'transparent'
+  );
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > window.innerHeight) {
-        setBgColor('white');
-      } else {
-        setBgColor('transparent');
-      }
-    };
+    if (theme !== 'white') {
+      const handleScroll = () => {
+        if (window.scrollY > window.innerHeight - 84) {
+          setHeaderTheme('white');
+        } else {
+          setHeaderTheme('transparent');
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [theme]);
 
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  return(
+  return (
     <div
-        className={twMerge(
-          `fixed w-full z-50 bg-${bgColor} top-0`,
-          bgColor === 'white' && 'border-b-1 border-b-blue-700'
-        )}
-      >
-        <div className="py-6 px-8 lg:px-24 max-w-[1440px] mx-auto flex justify-start">
-          <Icon
-            src={Logo}
-            alt="logo"
-            className="mr-28 w-16 lg:w-24"
-            colorScheme={bgColor === 'white' ? 'default' : 'white'}
+      className={twMerge(
+        `fixed w-full z-50 bg-${headerTheme} top-0`,
+        headerTheme === 'white' && 'border-b-1 border-b-blue-700'
+      )}
+    >
+      <div className="py-6 px-8 lg:px-24 max-w-[1440px] mx-auto flex justify-start">
+        <Link href="/" className="focus:outline-none md:mr-28">
+          <LogoIcon
+            className="lg:w-24"
+            colorScheme={headerTheme === 'white' ? 'default' : 'white'}
           />
-          <div
+        </Link>
+        <div
+          className={twMerge(
+            'hidden md:flex gap-8',
+            headerTheme === 'white' ? 'text-black' : 'text-white'
+          )}
+        >
+          <Link href="/shop" className="self-center focus:outline-none">
+            Shop
+          </Link>
+          <Link href="/about" className="self-center focus:outline-none">
+            About
+          </Link>
+        </div>
+        <ul className="ml-auto gap-8 flex items-center">
+          <li className="hidden md:flex md:items-center">
+            <Button className="focus:outline-none">
+              <SearchIcon
+                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              />
+            </Button>
+          </li>
+          <li
             className={twMerge(
               'hidden md:flex',
-              bgColor === 'white' ? 'text-black' : 'text-white'
+              headerTheme === 'white' ? 'text-black' : 'text-white'
             )}
           >
-            <a href="" className="self-center mr-8 ">
-              Shop
-            </a>
-            <a href="" className="self-center mr-8">
-              About
-            </a>
-          </div>
-          <div className="ml-auto gap-8 flex items-center">
-            <Icon
-              src={Search}
-              alt="search"
-              colorScheme={bgColor === 'white' ? 'default' : 'white'}
-              className="hidden lg:block"
-            />
-            <div
+            <Button className="uppercase focus:outline-none">hr</Button>
+            <hr
               className={twMerge(
-                'hidden md:flex uppercase',
-                bgColor === 'white' ? 'text-black' : 'text-white'
+                'h-6 mx-2 border-0 w-px',
+                headerTheme === 'white' ? 'bg-black' : 'bg-white'
               )}
-            >
-              hr
-              <hr
-                className={twMerge(
-                  'h-6 mx-2 border-0 w-px',
-                  bgColor === 'white' ? 'bg-black' : 'bg-white'
-                )}
+            />
+            <Button className="uppercase focus:outline-none">eur</Button>
+          </li>
+          <li className="hidden md:block">
+            <Link href="/user" className="focus:outline-none">
+              <UserIcon
+                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
               />
-              eur
-            </div>
-            <Icon
-              src={User}
-              alt="user"
-              colorScheme={bgColor === 'white' ? 'default' : 'white'}
-              className="hidden md:block"
-            />
-            <Icon
-              src={Bag}
-              alt="bag"
-              colorScheme={bgColor === 'white' ? 'default' : 'white'}
-            />
-            <Icon
-              src={Menu}
-              alt="menu"
-              colorScheme={bgColor === 'white' ? 'default' : 'white'}
-              className="md:hidden"
-            />
-          </div>
-        </div>
+            </Link>
+          </li>
+          <li>
+            <Link href="/cart" className="focus:outline-none">
+              <CartIcon
+                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              />
+            </Link>
+          </li>
+          <li className="flex items-center md:hidden">
+            <Button className="focus:outline-none">
+              <MenuIcon
+                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              />
+            </Button>
+          </li>
+        </ul>
       </div>
+    </div>
   );
 }
