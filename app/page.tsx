@@ -1,7 +1,6 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 import { LinkAsButton } from '@/components/LinkAsButton';
 import { Layout } from '@/components/Layout';
@@ -17,17 +16,22 @@ import TshirtCard from '@/public/assets/images/TshirtCard.png';
 import products from '@/public/assets/shopImages/products';
 import ProductCard from '@/components/ProductCard';
 
+export const metadata: Metadata = {
+  title: 'Red shop',
+  description: 'Red shop',
+};
+
 export default function Page() {
   return (
     <main className="h-screen text-center">
       <Header />
-      <div className="w-full h-[100vh] -z-10 overflow-hidden flex flex-col items-center justify-center">
+      <div className="-z-10 flex h-[100vh] w-full flex-col items-center justify-center overflow-hidden">
         <Image
           alt="header"
           src={HeaderImage}
-          className="object-cover absolute -z-10 h-full w-full"
+          className="absolute -z-10 h-full w-full object-cover"
         ></Image>
-        <h1 className="w-full px-4 text-xl lg:text-8xl font-BlackItalic italic text-white mt-12 lg:mt-20">
+        <h1 className="mt-12 w-full px-4 text-xl font-BlackItalic italic text-white lg:mt-20 lg:text-8xl">
           Crystal and shine with red
         </h1>
         <LinkAsButton
@@ -40,8 +44,8 @@ export default function Page() {
           Shop now
         </LinkAsButton>
       </div>
-      <div className="max-w-[1440px] mx-auto">
-        <div className="mx-8 lg:mx-24 text-left font-BlackItalic italic text-blue-700 mt-20 mb-8 lg:mt-40 lg:mb-16">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="mx-8 mb-8 mt-20 text-left font-BlackItalic italic text-blue-700 lg:mx-24 lg:mb-16 lg:mt-40">
           <Layout>
             <LayoutColumn span={12} smSpan={7}>
               <h2 className="text-md lg:text-xl">
@@ -61,7 +65,7 @@ export default function Page() {
             >
               <Link href={''}>
                 <Image src={BagCard} alt="img"></Image>
-                <p className="absolute top-2 left-8 lg:top-8 lg:left-12 text-white font-light text-xs lg:text-lg">
+                <p className="absolute left-8 top-2 text-xs font-light text-white lg:left-12 lg:top-8 lg:text-lg">
                   Fresh new drops
                 </p>
               </Link>
@@ -73,7 +77,7 @@ export default function Page() {
             >
               <Link href={''}>
                 <Image src={TshirtCard} alt="img"></Image>
-                <p className="absolute top-2 left-8 lg:top-8 lg:left-12 text-white font-light text-xs lg:text-lg">
+                <p className="absolute left-8 top-2 text-xs font-light text-white lg:left-12 lg:top-8 lg:text-lg">
                   Matz digs red
                 </p>
               </Link>
@@ -85,14 +89,14 @@ export default function Page() {
                   alt="img"
                   className="object-cover"
                 ></Image>
-                <p className="absolute top-2 left-8 lg:top-8 lg:left-10 text-white font-light text-xs lg:text-lg text-left">
+                <p className="absolute left-8 top-2 text-left text-xs font-light text-white lg:left-10 lg:top-8 lg:text-lg">
                   Collectors essentials
                 </p>
               </Link>
             </LayoutColumn>
           </Layout>
         </div>
-        <div className="flex flex-wrap  align-middle mx-8 lg:mx-24 mt-20 lg:mt-40 mb-11 text-md lg:text-xl text-left font-BlackItalic italic text-blue-700 ">
+        <div className="mx-8 mb-11 mt-20 flex flex-wrap text-left align-middle text-md font-BlackItalic italic text-blue-700 lg:mx-24 lg:mt-40 lg:text-xl">
           <h3>The beloved.</h3>
           <h3 className="text-grayscale-400">
             Catch yours before they sell out.
@@ -100,18 +104,18 @@ export default function Page() {
           <Button
             colorScheme="blue"
             variant="outline"
-            className="mx-auto mt-4 sm:mt-0 md:mr-0 md:ml-auto"
+            className="mx-auto mt-4 sm:mt-0 md:ml-auto md:mr-0"
           >
             Shop all
           </Button>
         </div>
-        <div className="mx-8 lg:mx-24 mb-20 lg:mb-40">
+        <div className="mx-8 mb-20 lg:mx-24 lg:mb-40">
           <Layout>
             <LayoutColumn
               span={12}
               smSpan={6}
               mdSpan={3}
-              className="flex flex-col items-center w-full"
+              className="flex w-full flex-col items-center"
             >
               <ProductCard
                 imgPath={products.imgPath}
@@ -123,7 +127,7 @@ export default function Page() {
               span={12}
               smSpan={6}
               mdSpan={3}
-              className="flex flex-col items-center w-full"
+              className="flex w-full flex-col items-center"
             >
               <ProductCard
                 imgPath={products.imgPath}
@@ -135,7 +139,7 @@ export default function Page() {
               span={12}
               smSpan={6}
               mdSpan={3}
-              className="flex flex-col items-center w-full"
+              className="flex w-full flex-col items-center"
             >
               <ProductCard
                 imgPath={products.imgPath}
@@ -147,7 +151,7 @@ export default function Page() {
               span={12}
               smSpan={6}
               mdSpan={3}
-              className="flex flex-col items-center w-full"
+              className="flex w-full flex-col items-center"
             >
               <ProductCard
                 imgPath={products.imgPath}
