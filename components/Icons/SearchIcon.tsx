@@ -19,15 +19,15 @@ const SearchIcon: React.FC<IconProps> = ({
       >
         <path
           fill={colorScheme === 'white' ? 'white' : 'black'}
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M11 3.75a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5ZM2.25 11a8.75 8.75 0 1 1 17.5 0 8.75 8.75 0 0 1-17.5 0Z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         />
         <path
           fill={colorScheme === 'white' ? 'white' : 'black'}
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="m17 15.94 5.36 5.36-1.06 1.06L15.94 17 17 15.94Z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         />
       </svg>
     </div>

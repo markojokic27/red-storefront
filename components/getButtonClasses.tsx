@@ -12,9 +12,9 @@ export default function getButtonClasses({
   className?: string;
 }) {
   return twMerge(
-    "rounded-sm text-base font-bold italic weight-700 border-20 flex items-center justify-center leading-none",
+    "rounded-sm text-base font-bold italic weight-700 border-20 flex items-center justify-center leading-none w-fit",
     colorScheme === "blue"
-      ? "border-blue-700 text-blue-700 bg-blue-700 hover:bg-blue-900 disabled:bg-blue-100"
+      ? "border-blue-700 text-blue-700 bg-blue-700 hover:bg-blue-900 hover:border-blue-900 disabled:bg-blue-100"
       : colorScheme === "gray"
       ? "border-gray-700 text-gray-400 bg-gray-400 hover:bg-gray-600 disabled:bg-gray-100"
       : colorScheme === "white"

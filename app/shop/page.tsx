@@ -1,8 +1,6 @@
 'use client';
+import { useState } from 'react';
 
-import Icon from '@/components/Icon';
-import chevronDown from '@/public/assets/icons/icons/chevron-down.svg';
-import products from '@/public/assets/shopImages/products';
 import {
   Button as AriaButton,
   ListBox,
@@ -14,10 +12,13 @@ import {
   Input,
   TextField,
 } from 'react-aria-components';
-import { useState } from 'react';
+import Icon from '@/components/Icon';
 import Button from '@/components/Button';
-import Image from 'next/image';
 import Header  from '@/components/Header';
+import ProductCard from '@/components/ProductCard';
+
+import chevronDown from '@/public/assets/icons/icons/chevron-down.svg';
+import products from '@/public/assets/shopImages/products';
 
 const page = () => {
   const [selectedValue, setSelectedValue] = useState('Whatever');
@@ -86,62 +87,8 @@ const page = () => {
         {products.productsItems.map((product) => {
           return product.colors.map((color, key) => {
             return (
-              <div
-                key={key}
-                className="flex flex-col items-center cursor-pointer group "
-              >
-                <div className="relative">
-                  <Image
-                    src={`${products.imgPath}${color.img}.png`}
-                    alt={`${product.name} - ${color.color}`}
-                    height={400}
-                    width={400}
-                  />
-                  <div className="absolute top-0 -z-20 w-full h-full  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Image
-                      src={`${products.imgPath}background.png`}
-                      alt={`background`}
-                      height={400}
-                      width={400}
-                    />
-                  </div>
-                  {color.discount > 0 && (
-                    <div className="absolute bottom-2 right-2 bg-red-700 text-white text-xs px-1  sm:py-1.5 sm:px-4 rounded-full">
-                      -{color.discount}%
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex flex-col justify-start items-center sm:flex-row sm:justify-between w-full">
-                  <div className="flex items-start h-full">
-                    <p>{product.name}</p>
-                  </div>
-                  <div>
-                    <p className={color.discount > 0 ? 'text-red-700' : ''}>
-                      €{color.price * (1 - color.discount / 100)}
-                    </p>
-                    {color.discount > 0 && (
-                      <p className="text-gray-400 line-through">
-                        €{color.price}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div className="w-full flex justify-center sm:justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2 mt-4">
-                  {product.colors.map((color, key) => {
-                    return (
-                      <div key={key}>
-                        <Image
-                          src={`${products.imgPath}logo${color.color}.png`}
-                          alt="logo"
-                          height={40}
-                          width={40}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+              <ProductCard key={key} product={product} color={color} imgPath={products.imgPath}/>
+              
             );
           });
         })}

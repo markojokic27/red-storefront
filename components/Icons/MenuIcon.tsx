@@ -19,9 +19,9 @@ const MenuIcon: React.FC<IconProps> = ({
       >
         <path
           fill={colorScheme === 'white' ? 'white' : 'black'}
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M2.25 5.25h19.5v1.5H2.25v-1.5Zm0 6h19.5v1.5H2.25v-1.5Zm0 6h19.5v1.5H2.25v-1.5Z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         />
       </svg>
     </div>
