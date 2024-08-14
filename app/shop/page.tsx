@@ -15,7 +15,7 @@ import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
 import { Layout, LayoutColumn } from '@/components/Layout';
 import Footer from '@/components/Footer';
-import ChevronDown from '@/components/icons/ChevronDown';
+import ChevronDown from '@/components/Icons/ChevronDown';
 
 import products from '@/public/assets/shopImages/products';
 

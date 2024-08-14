@@ -1,36 +1,38 @@
-import * as React from "react";
-import Link from "next/link";
-import  getButtonClasses  from "./getButtonClasses"; 
-import Icon from "./Icon";
+'use client';
 
-type LinkAsButtonProps = React.ComponentPropsWithoutRef<"a"> & {
-  variant?: "solid" | "outline";
-  colorScheme?: "blue" | "gray" | "white";
-  size?: "sm" | "md" | "responsive";
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
-};
+// External components
+import * as React from 'react';
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
-export const LinkAsButton: React.FC<LinkAsButtonProps> = ({
-  variant,
-  colorScheme,
-  size,
+// Components
+import { getButtonClassNames, ButtonOwnProps } from '@/components/Button';
+import Icon from '@/components/Icon';
+
+export const LinkAsButton: React.FC<
+  React.ComponentPropsWithoutRef<'a'> & NextLinkProps & ButtonOwnProps
+> = ({
+  variant = 'solid',
+  colorScheme = 'blue',
+  size = 'md',
+  isVisuallyDisabled,
   iconLeft,
   iconRight,
   className,
   children,
   href,
   ...rest
-}) => {
-  return (
-    <Link 
-      href={href!}
-      {...rest}
-      className={getButtonClasses({ variant, colorScheme, size, className })}
-    >
-      {Boolean(iconLeft) && <Icon src={iconLeft} className="mr-2" />}
-      {children}
-      {Boolean(iconRight) && <Icon src={iconRight} className="ml-2" />}
-    </Link>
-  );
-};
+}) => (
+  <NextLink
+    {...rest}
+    href={href!}
+    className={twMerge(
+      getButtonClassNames({ size, colorScheme, variant, isVisuallyDisabled }),
+      className
+    )}
+  >
+    {Boolean(iconLeft) && <Icon src={iconLeft} className="mr-2" />}
+    {children}
+    {Boolean(iconRight) && <Icon src={iconRight} className="ml-2" />}
+  </NextLink>
+);

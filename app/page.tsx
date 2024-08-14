@@ -6,7 +6,7 @@ import { LinkAsButton } from '@/components/LinkAsButton';
 import { Layout, LayoutColumn } from '@/components/Layout';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Button from '@/components/Button';
+import { Button } from '@/components/Button';
 
 import HeaderImage from '@/public/assets/images/header.png';
 import BagCard from '@/public/assets/images/bagCard.png';
@@ -104,6 +104,7 @@ export default function Page() {
             colorScheme="blue"
             variant="outline"
             className="mx-auto mt-4 sm:mt-0 md:ml-auto md:mr-0"
+            
           >
             Shop all
           </Button>

@@ -1,6 +1,6 @@
 "use client";
 import { TextField, Input } from 'react-aria-components';
-import Button from '@/components/Button';
+import { Button } from '@/components/Button';
 import Link from 'next/link';
 
 export default function Footer() {
