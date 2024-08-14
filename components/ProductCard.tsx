@@ -1,8 +1,7 @@
 import Image from 'next/image';
-import LogoIcon from './Icons/LogoIcon';
+import LogoIcon from './icons/LogoIcon';
 
 type ProductCardProps = {
-  key?: number;
   imgPath: string;
   product: {
     name: string;
@@ -14,23 +13,24 @@ type ProductCardProps = {
     price: number;
     discount: number;
   };
+  cardKey?: number;
 };
 
 export default function ProductCard(props: ProductCardProps) {
   return (
     <div
-      key={props.key}
-      className="flex flex-col items-center cursor-pointer group "
+      key={props.cardKey}
+      className="group flex cursor-pointer flex-col items-center"
     >
       <div className="relative">
         <Image
-          className='object-cover'
+          className="object-cover"
           src={`${props.imgPath}${props.color.img}.png`}
           alt={`${props.product.name} - ${props.color.color}`}
           height={400}
           width={400}
         />
-        <div className="absolute top-0 -z-20 w-full h-full  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-0 -z-20 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <Image
             src={`${props.imgPath}background.png`}
             alt={`background`}
@@ -39,14 +39,14 @@ export default function ProductCard(props: ProductCardProps) {
           />
         </div>
         {props.color.discount > 0 && (
-          <div className="absolute bottom-2 right-2 bg-red-700 text-white text-xs px-1  sm:py-1.5 sm:px-4 rounded-full">
+          <div className="absolute bottom-2 right-2 rounded-full bg-red-700 px-1 text-xs text-white sm:px-4 sm:py-1.5">
             -{props.color.discount}%
           </div>
         )}
       </div>
 
-      <div className="flex flex-col justify-start items-center sm:flex-row sm:justify-between w-full">
-        <div className="flex items-start h-full">
+      <div className="flex w-full flex-col items-center justify-start sm:flex-row sm:justify-between">
+        <div className="flex h-full items-start">
           <p>{props.product.name}</p>
         </div>
         <div>
@@ -58,11 +58,14 @@ export default function ProductCard(props: ProductCardProps) {
           )}
         </div>
       </div>
-      <div className="w-full flex justify-center sm:justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2 mt-4">
+      <div className="mt-4 flex w-full justify-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:justify-start">
         {props.product.colors.map((color, key) => {
           return (
             <div key={key}>
-              <LogoIcon colorScheme={color.color as "white" | "blue" | "gray" | "black"} size='sm'/>
+              <LogoIcon
+                colorScheme={color.color as 'white' | 'blue' | 'gray' | 'black'}
+                size="sm"
+              />
             </div>
           );
         })}

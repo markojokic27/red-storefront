@@ -9,20 +9,19 @@ import {
   Popover,
   Select,
   SelectValue,
-  Input,
-  TextField,
 } from 'react-aria-components';
-import Icon from '@/components/Icon';
+
 import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
+import { Layout, LayoutColumn } from '@/components/Layout';
+import Footer from '@/components/Footer';
+import ChevronDown from '@/components/icons/ChevronDown';
 
-import chevronDown from '@/public/assets/icons/icons/chevron-down.svg';
 import products from '@/public/assets/shopImages/products';
 
 export default function Page() {
   const [selectedValue, setSelectedValue] = React.useState('Whatever');
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [visibleProducts, setVisibleProducts] = React.useState(16);
 
   const selectItems = {
     whatever: 'Whatever',
@@ -31,12 +30,11 @@ export default function Page() {
     highestPrice: 'Highest price',
     discount: 'Discount',
   };
-  console.log(products.productsItems.slice(0, visibleProducts).length);
   return (
     <main className="">
       <Header theme="white" />
-      <div className="mx-8 mt-28 sm:mb-40 sm:flex sm:justify-between md:mt-40 lg:mx-24">
-        <div className="mb-8 text-2xl font-BlackItalic italic text-blue-700 sm:mb-0 lg:text-6xl">
+      <div className="mx-auto mt-28 max-w-[1440px] px-8 sm:flex sm:justify-between md:mb-40 md:mt-40 lg:px-24">
+        <div className="text-2xl font-black italic text-blue-700 lg:text-6xl">
           <h1>Shop</h1>
         </div>
         <Select className="" onOpenChange={setIsOpen} isOpen={isOpen}>
@@ -46,14 +44,13 @@ export default function Page() {
           >
             <div className={`flex gap-2 ${isOpen ? 'text-black' : ''}`}>
               <Label>Sort by</Label>
-              <Icon
-                src={chevronDown}
-                alt="svg"
+              <ChevronDown
+                colorScheme={isOpen ? 'black' : 'gray'}
                 className={`color-grayscale-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
               />
             </div>
             <SelectValue
-              className={`font-BlackItalic italic ${isOpen ? 'text-black' : ''}`}
+              className={`font-black italic ${isOpen ? 'text-black' : ''}`}
             >
               {selectedValue}
             </SelectValue>
@@ -71,7 +68,7 @@ export default function Page() {
                       setSelectedValue(capitalItem);
                       setIsOpen(false);
                     }}
-                    className={`border-none px-4 py-5 outline-none ${capitalItem === selectedValue ? 'font-BlackItalic italic text-blue-700' : ''}`}
+                    className={`border-none px-4 py-5 outline-none ${capitalItem === selectedValue ? 'font-black italic text-blue-700' : ''}`}
                   >
                     {capitalItem}
                   </ListBoxItem>
@@ -82,20 +79,25 @@ export default function Page() {
         </Select>
       </div>
 
-      <div className="mx-8 mb-40 grid grid-cols-2 gap-4 sm:gap-8 md:grid-cols-3 lg:mx-24 lg:grid-cols-4 lg:gap-12">
-        {products.productsItems.map((product) => {
-          return product.colors.map((color, key) => {
-            return (
-              <ProductCard
-                key={key}
-                product={product}
-                color={color}
-                imgPath={products.imgPath}
-              />
-            );
-          });
-        })}
+      <div className="mx-auto mb-40 max-w-[1440px] px-8 lg:px-24">
+        <Layout>
+          {products.productsItems.map((product) => {
+            return product.colors.map((color, key) => {
+              return (
+                <LayoutColumn span={6} mdSpan={3} key={key}>
+                  <ProductCard
+                    cardKey={key}
+                    product={product}
+                    color={color}
+                    imgPath={products.imgPath}
+                  />
+                </LayoutColumn>
+              );
+            });
+          })}
+        </Layout>
       </div>
+      <Footer />
     </main>
   );
 }

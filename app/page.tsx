@@ -3,11 +3,10 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 import { LinkAsButton } from '@/components/LinkAsButton';
-import { Layout } from '@/components/Layout';
+import { Layout, LayoutColumn } from '@/components/Layout';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
-import LayoutColumn from '@/components/LayoutColumn';
 
 import HeaderImage from '@/public/assets/images/header.png';
 import BagCard from '@/public/assets/images/bagCard.png';
@@ -31,7 +30,7 @@ export default function Page() {
           src={HeaderImage}
           className="absolute -z-10 h-full w-full object-cover"
         ></Image>
-        <h1 className="mt-12 w-full px-4 text-xl font-BlackItalic italic text-white lg:mt-20 lg:text-8xl">
+        <h1 className="mt-12 w-full px-4 text-xl font-black italic text-white lg:mt-20 lg:text-8xl">
           Crystal and shine with red
         </h1>
         <LinkAsButton
@@ -45,7 +44,7 @@ export default function Page() {
         </LinkAsButton>
       </div>
       <div className="mx-auto max-w-[1440px]">
-        <div className="mx-8 mb-8 mt-20 text-left font-BlackItalic italic text-blue-700 lg:mx-24 lg:mb-16 lg:mt-40">
+        <div className="mx-8 mb-8 mt-20 text-left font-black italic text-blue-700 lg:mx-24 lg:mb-16 lg:mt-40">
           <Layout>
             <LayoutColumn span={12} smSpan={7}>
               <h2 className="text-md lg:text-xl">
@@ -96,7 +95,7 @@ export default function Page() {
             </LayoutColumn>
           </Layout>
         </div>
-        <div className="mx-8 mb-11 mt-20 flex flex-wrap text-left align-middle text-md font-BlackItalic italic text-blue-700 lg:mx-24 lg:mt-40 lg:text-xl">
+        <div className="mx-8 mb-11 mt-20 flex flex-wrap text-left align-middle text-md font-black italic text-blue-700 lg:mx-24 lg:mt-40 lg:text-xl">
           <h3>The beloved.</h3>
           <h3 className="text-grayscale-400">
             Catch yours before they sell out.

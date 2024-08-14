@@ -4,8 +4,7 @@ import Image from 'next/image';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Layout } from '@/components/Layout';
-import LayoutColumn from '@/components/LayoutColumn';
+import { Layout, LayoutColumn } from '@/components/Layout';
 
 import aboutBag from '@/public/assets/images/aboutBag.png';
 import HeaderImage from '@/public/assets/images/headerAbout.png';
@@ -24,7 +23,7 @@ export default function Page() {
         <div className="mx-auto w-full max-w-[1440px] px-8 text-white lg:px-24">
           <Layout>
             <LayoutColumn span={12} smSpan={6} lgSpan={5}>
-              <h1 className="mb-4 mt-16 text-xl font-BlackItalic italic sm:mb-12 sm:mt-20 md:mt-32 lg:mt-44 lg:text-4xl">
+              <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 lg:mt-44 lg:text-4xl">
                 The world of red
               </h1>
               <p className="mb-4 rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
@@ -51,7 +50,7 @@ export default function Page() {
       </div>
       <div className="mx-auto mb-40 max-w-[1440px] px-8 lg:px-24">
         <div>
-          <h2 className="mb-16 mt-24 text-lg font-BlackItalic italic text-blue-700 lg:text-4xl">
+          <h2 className="mb-16 mt-24 text-lg font-black italic text-blue-700 lg:text-4xl">
             Breaking Boundaries <br /> Unisex Styles for All
           </h2>
         </div>
@@ -84,7 +83,7 @@ export default function Page() {
         <div className="z-20 mx-auto max-w-[1440px] px-8 lg:px-24">
           <Layout>
             <LayoutColumn mdSpan={6} lgSpan={5}>
-              <h3 className="mb-12 text-lg font-BlackItalic italic text-blue-700 lg:text-4xl">
+              <h3 className="mb-12 text-lg font-black italic text-blue-700 lg:text-4xl">
                 Slow Fashion Made with Love
               </h3>
               <p className="mb-4">
@@ -109,12 +108,12 @@ export default function Page() {
             </LayoutColumn>
           </Layout>
         </div>
-        <div className="static z-10 -mb-6 ml-auto max-w-[400px] md:absolute md:right-0 md:top-0 lg:max-w-[500px] xl:max-w-[650px]">
+        <div className="static z-10 -mb-6 ml-auto max-w-[400px] md:absolute md:right-0 md:top-0 lg:max-w-[500px] xl:max-w-[750px]">
           <Image src={aboutSide} alt="img"></Image>
         </div>
       </div>
       <div className="w-full bg-blue-700 px-8 text-center text-white">
-        <h3 className="mb-12 pt-28 text-lg font-BlackItalic italic lg:text-4xl">
+        <h3 className="mb-12 pt-28 text-lg font-black italic lg:text-4xl">
           Welcome to red
         </h3>
         <p className="mx-auto max-w-[492px] pb-32 text-md">

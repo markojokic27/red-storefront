@@ -37,14 +37,6 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   safelist: generateSafelist(),
-  // ...Array.from({ length: 12 }, (_, i) => `w-[${(i + 1) * 100 / 12}%]`),
-  // ...Array.from({ length: 12 }, (_, i) => `ml-[${(i + 1) * 100 / 12}%]`),
-
-  // ...['sm', 'md', 'lg', 'xl'].flatMap(bp => [
-  //   ...Array.from({ length: 12 }, (_, i) => `${bp}:w-[${(i + 1) * 100 / 12}%]`),
-  //   ...Array.from({ length: 12 }, (_, i) => `${bp}:ml-[${(i + 1) * 100 / 12}%]`)
-  // ]),
-
   theme: {
     extend: {
       colors: {
@@ -78,9 +70,9 @@ const config: Config = {
         },
       },
       fontSize: {
-        base: '16px',
         xs2: '12px',
         xs: '14px',
+        base: '16px',
         md: '20px',
         lg: '24px',
         xl: '32px',
@@ -91,11 +83,6 @@ const config: Config = {
         '6xl': '64px',
         '7xl': '72px',
         '8xl': '80px',
-      },
-      fontWeight: {
-        Regular: '400',
-        Bold: '700',
-        BlackItalic: '900',
       },
       borderWidth: {
         '1': '1px',

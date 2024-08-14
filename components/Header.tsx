@@ -38,20 +38,20 @@ export default function Header({ theme }: HeaderProps) {
   return (
     <div
       className={twMerge(
-        `fixed w-full z-50 bg-${headerTheme} top-0`,
+        `fixed z-50 w-full bg-${headerTheme} top-0`,
         headerTheme === 'white' && 'border-b-1 border-b-blue-700'
       )}
     >
-      <div className="py-6 px-8 lg:px-24 max-w-[1440px] mx-auto flex justify-start">
+      <div className="mx-auto flex max-w-[1440px] justify-start px-8 py-6 lg:px-24">
         <Link href="/" className="focus:outline-none md:mr-28">
           <LogoIcon
             className="lg:w-24"
-            colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+            colorScheme={headerTheme === 'white' ? 'blue' : 'white'}
           />
         </Link>
         <div
           className={twMerge(
-            'hidden md:flex gap-8',
+            'hidden gap-8 md:flex',
             headerTheme === 'white' ? 'text-black' : 'text-white'
           )}
         >
@@ -62,7 +62,7 @@ export default function Header({ theme }: HeaderProps) {
             About
           </Link>
         </div>
-        <ul className="ml-auto gap-8 flex items-center">
+        <ul className="ml-auto flex items-center gap-8">
           <li className="hidden md:flex md:items-center">
             <Button className="focus:outline-none">
               <SearchIcon
@@ -79,7 +79,7 @@ export default function Header({ theme }: HeaderProps) {
             <Button className="uppercase focus:outline-none">hr</Button>
             <hr
               className={twMerge(
-                'h-6 mx-2 border-0 w-px',
+                'mx-2 h-6 w-px border-0',
                 headerTheme === 'white' ? 'bg-black' : 'bg-white'
               )}
             />

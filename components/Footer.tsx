@@ -8,7 +8,7 @@ export default function Footer() {
     <div className="bg-grayscale-20 text-blue-700">
       <div className="border-y-1 border-y-blue-700 text-left py-8 md:py-24 md:flex md:px-24 md:justify-between">
         <div className="px-8 md:px-0 max-w-xl">
-          <h3 className="uppercase  font-BlackItalic italic md:-mr-48 lg:mr-0 text-md md:text-lg mb-4 md:mb-6">
+          <h3 className="uppercase  font-black italic md:-mr-48 lg:mr-0 text-md md:text-lg mb-4 md:mb-6">
             Don't be shy. we know you want those discount coupons.
           </h3>
           <p className="mb-8 md:mb-0 text-sm">
@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
       <div className="flex flex-wrap px-8 md:px-24 text-xs">
         <div className="flex-1 py-6 pr-4 text-left lg:flex items-center">
-          <p className="text-xs uppercase font-BlackItalic lg:text-lg lg:max-w-48">
+          <p className="text-xs uppercase font-black lg:text-lg lg:max-w-48">
             Nothing is green here
           </p>
         </div>
