@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import LogoIcon from '@/components/Icons/LogoIcon';
+import Logo from '@/components/Logo';
 import SearchIcon from '@/components/Icons/SearchIcon';
 import UserIcon from '@/components/Icons/UserIcon';
 import CartIcon from '@/components/Icons/CartIcon';
@@ -44,7 +44,7 @@ export default function Header({ theme }: HeaderProps) {
     >
       <div className="mx-auto flex max-w-[1440px] justify-start px-8 py-6 lg:px-24">
         <Link href="/" className="focus:outline-none md:mr-28">
-          <LogoIcon
+          <Logo
             className="lg:w-24"
             colorScheme={headerTheme === 'white' ? 'blue' : 'white'}
           />

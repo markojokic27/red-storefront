@@ -1,13 +1,16 @@
+// external packages
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
+// components
 import { LinkAsButton } from '@/components/LinkAsButton';
 import { Layout, LayoutColumn } from '@/components/Layout';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/Button';
 
+// assets
 import HeaderImage from '@/public/assets/images/header.png';
 import BagCard from '@/public/assets/images/bagCard.png';
 import TshirtCard2 from '@/public/assets/images/TshirtCard2.png';

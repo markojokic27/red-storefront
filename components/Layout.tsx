@@ -1,5 +1,6 @@
 'use client';
 
+import { off } from 'process';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -33,13 +34,11 @@ type LayoutColumnProps = React.ComponentPropsWithoutRef<'div'> & {
 };
 
 const spanClasses = (span: number, prefix: string = '') => {
-  const percentage = (span / 12) * 100;
-  return prefix ? `${prefix}:w-[${percentage}%]` : `w-[${percentage}%]`;
+  return prefix ? `${prefix}:w-column-${span}` : `w-column-${span}`;
 };
 
 const offsetClasses = (offset: number, prefix: string = '') => {
-  const percentage = (offset / 12) * 100;
-  return prefix ? `${prefix}:ml-[${percentage}%]` : `ml-[${percentage}%]`;
+  return prefix ? `${prefix}:offset-${offset}` : `offset-${offset}`;
 };
 
 export const LayoutColumn: React.FC<LayoutColumnProps> = ({

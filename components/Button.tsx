@@ -7,7 +7,7 @@ import {
   ButtonProps as AriaButtonProps,
 } from 'react-aria-components';
 import { twMerge, twJoin } from 'tailwind-merge';
-import Icon from './Icon';
+import Icon from './Icons/Icon';
 
 export const getButtonClassNames = ({
   size,

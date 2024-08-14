@@ -1,42 +1,11 @@
 import type { Config } from 'tailwindcss';
 
-const breakpoints = ['sm', 'md', 'lg', 'xl', '2xl'];
-
-const generateSafelist = () => {
-  const fractionClasses = Array.from(
-    { length: 12 },
-    (_, i: number) => ((i + 1) / 12) * 100
-  );
-  const sizesArr: string[] = [];
-  const offsetArr: string[] = [];
-
-  fractionClasses.forEach((fraction) => {
-    sizesArr.push(fraction === 100 ? `w-full` : `w-[${fraction}%]`);
-    offsetArr.push(fraction === 100 ? `ml-auto` : `ml-[${fraction}%]`);
-  });
-
-  fractionClasses.forEach((fraction) => {
-    sizesArr.push(
-      ...breakpoints.map((bp) =>
-        fraction === 100 ? `${bp}:w-full` : `${bp}:w-[${fraction}%]`
-      )
-    );
-    offsetArr.push(
-      ...breakpoints.map((bp) =>
-        fraction === 100 ? `${bp}:ml-auto` : `${bp}:ml-[${fraction}%]`
-      )
-    );
-  });
-
-  return [...sizesArr, ...offsetArr];
-};
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  safelist: generateSafelist(),
   theme: {
     extend: {
       colors: {
