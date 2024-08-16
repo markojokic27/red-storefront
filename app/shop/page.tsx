@@ -16,8 +16,8 @@ import {
 import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
 import { Layout, LayoutColumn } from '@/components/Layout';
+import { Icon } from '@/components/icons/Icon';
 import Footer from '@/components/Footer';
-import ChevronDown from '@/components/icons/ChevronDown';
 
 // Data
 import products from '@/public/assets/shopImages/products';
@@ -47,8 +47,9 @@ export default function Page() {
           >
             <div className={`flex gap-2 ${isOpen ? 'text-black' : ''}`}>
               <Label>Sort by</Label>
-              <ChevronDown
-                colorScheme={isOpen ? 'black' : 'gray'}
+              <Icon
+                name="chevron"
+                color={isOpen ? 'black' : 'gray'}
                 className={`color-grayscale-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
               />
             </div>
@@ -87,7 +88,7 @@ export default function Page() {
           {products.productsItems.map((product) => {
             return product.colors.map((color, key) => {
               return (
-                <LayoutColumn key={key} className='w-column-6 md:w-column-3'>
+                <LayoutColumn key={key} className="w-column-6 md:w-column-3">
                   <ProductCard
                     cardKey={key}
                     product={product}

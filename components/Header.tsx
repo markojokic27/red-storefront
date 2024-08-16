@@ -1,13 +1,11 @@
 'use client';
-
+// External packages
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+// Components
 import Logo from '@/components/Logo';
-import SearchIcon from '@/components/icons/SearchIcon';
-import UserIcon from '@/components/icons/UserIcon';
-import CartIcon from '@/components/icons/CartIcon';
-import MenuIcon from '@/components/icons/MenuIcon';
+import { Icon } from '@/components/icons/Icon';
 import { Link, Button } from 'react-aria-components';
 
 type HeaderProps = {
@@ -65,8 +63,9 @@ export default function Header({ theme }: HeaderProps) {
         <ul className="ml-auto flex items-center gap-8">
           <li className="hidden md:flex md:items-center">
             <Button className="focus:outline-none">
-              <SearchIcon
-                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              <Icon
+                name="search"
+                color={headerTheme === 'white' ? 'default' : 'white'}
               />
             </Button>
           </li>
@@ -87,22 +86,25 @@ export default function Header({ theme }: HeaderProps) {
           </li>
           <li className="hidden md:block">
             <Link href="/user" className="focus:outline-none">
-              <UserIcon
-                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              <Icon
+                name="user"
+                color={headerTheme === 'white' ? 'default' : 'white'}
               />
             </Link>
           </li>
           <li>
             <Link href="/cart" className="focus:outline-none">
-              <CartIcon
-                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              <Icon
+                name="bag"
+                color={headerTheme === 'white' ? 'default' : 'white'}
               />
             </Link>
           </li>
           <li className="flex items-center md:hidden">
             <Button className="focus:outline-none">
-              <MenuIcon
-                colorScheme={headerTheme === 'white' ? 'default' : 'white'}
+              <Icon
+                name="hamburger"
+                color={headerTheme === 'white' ? 'default' : 'white'}
               />
             </Button>
           </li>
