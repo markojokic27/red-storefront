@@ -1,6 +1,7 @@
 'use client';
-import * as React from 'react';
 
+// External packages
+import * as React from 'react';
 import {
   Button as AriaButton,
   ListBox,
@@ -11,12 +12,14 @@ import {
   SelectValue,
 } from 'react-aria-components';
 
+// Components
 import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
 import { Layout, LayoutColumn } from '@/components/Layout';
 import Footer from '@/components/Footer';
-import ChevronDown from '@/components/Icons/ChevronDown';
+import ChevronDown from '@/components/icons/ChevronDown';
 
+// Data
 import products from '@/public/assets/shopImages/products';
 
 export default function Page() {
@@ -84,7 +87,7 @@ export default function Page() {
           {products.productsItems.map((product) => {
             return product.colors.map((color, key) => {
               return (
-                <LayoutColumn span={6} mdSpan={3} key={key}>
+                <LayoutColumn key={key} className='w-column-6 md:w-column-3'>
                   <ProductCard
                     cardKey={key}
                     product={product}

@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge';
 
 // Components
 import { getButtonClassNames, ButtonOwnProps } from '@/components/Button';
-import Icon from '@/components/Icons/Icon';
+//import { Icon } from '@/components/icons/Icon';
 
 export const LinkAsButton: React.FC<
   React.ComponentPropsWithoutRef<'a'> & NextLinkProps & ButtonOwnProps
@@ -31,8 +31,8 @@ export const LinkAsButton: React.FC<
       className
     )}
   >
-    {Boolean(iconLeft) && <Icon src={iconLeft} className="mr-2" />}
+    {/*Boolean(iconLeft) && <Icon name={iconLeft} className="mr-2" />*/}
     {children}
-    {Boolean(iconRight) && <Icon src={iconRight} className="ml-2" />}
+    {/*Boolean(iconRight) && <Icon name={iconRight} className="ml-2" />*/}
   </NextLink>
 );

@@ -7,7 +7,7 @@ import {
   ButtonProps as AriaButtonProps,
 } from 'react-aria-components';
 import { twMerge, twJoin } from 'tailwind-merge';
-import Icon from './Icons/Icon';
+//import Icon from './icons/Icon';
 
 export const getButtonClassNames = ({
   size,
@@ -35,8 +35,7 @@ export const getButtonClassNames = ({
     size === 'sm' && 'px-6 py-2',
     size === 'md' && 'px-8 py-2',
     size === 'responsive' && 'px-6 py-2 lg:px-8 lg:py-2',
-    isVisuallyDisabled && 'hover:cursor-not-allowed'
-    /*imamo disabled vec?*/
+    isVisuallyDisabled && 'border-blue-100 text-blue-100 bg-gray-100'
   );
 
 export type ButtonOwnProps = {
@@ -69,8 +68,8 @@ export const Button: React.FC<
       className
     )}
   >
-    {Boolean(iconLeft) && <Icon src={iconLeft} className="mr-2" />}
+    {/*Boolean(iconLeft) && <Icon src={iconLeft} className="mr-2"/>*/}
     {children}
-    {Boolean(iconRight) && <Icon src={iconRight} className="ml-2" />}
+    {/*Boolean(iconRight) && <Icon src={iconRight} className="ml-2" />*/}
   </AriaButton>
 );

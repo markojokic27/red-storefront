@@ -1,11 +1,14 @@
 'use client';
 
+// External packages
 import Image from 'next/image';
 
+// Components
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Layout, LayoutColumn } from '@/components/Layout';
 
+// Assets
 import aboutBag from '@/public/assets/images/aboutBag.png';
 import HeaderImage from '@/public/assets/images/headerAbout.png';
 import aboutSide from '@/public/assets/images/aboutSide.png';
@@ -22,7 +25,7 @@ export default function Page() {
         ></Image>
         <div className="mx-auto w-full max-w-[1440px] px-8 text-white lg:px-24">
           <Layout>
-            <LayoutColumn span={12} smSpan={6} lgSpan={5}>
+            <LayoutColumn className="w-column-12 sm:w-colun-6 lg:w-column-5">
               <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 lg:mt-44 lg:text-4xl">
                 The world of red
               </h1>
@@ -45,7 +48,6 @@ export default function Page() {
               </p>
             </LayoutColumn>
           </Layout>
-          
         </div>
       </div>
       <div className="mx-auto mb-40 max-w-[1440px] px-8 lg:px-24">
@@ -56,7 +58,7 @@ export default function Page() {
         </div>
         <div className="mx-auto max-w-[1440px]">
           <Layout className="md:flex-row-reverse">
-            <LayoutColumn mdSpan={6} lgSpan={5} lgOffset={1}>
+            <LayoutColumn className="md:w-column-6 lg:w-column-5 lg:offset-1">
               <p className="mb-10 xl:mb-40">
                 At Red, we believe fashion should know no boundaries. Our
                 designs break free from traditional gender norms, offering
@@ -66,23 +68,22 @@ export default function Page() {
                 the city streets or dancing under the stars, our unisex
                 streetwear is made to fit your vibe effortlessly.
               </p>
-              <p className="mb-10 md:mb-0 text-md">
+              <p className="mb-10 text-md md:mb-0">
                 Red is more than just a brand; it's a community that embraces
                 uniqueness, and we invite you to join us in celebrating fashion
                 that knows no boundaries.
               </p>
             </LayoutColumn>
-            <LayoutColumn mdSpan={6}>
+            <LayoutColumn className="md:w-column-6">
               <Image src={aboutBag} alt="img"></Image>
             </LayoutColumn>
           </Layout>
-          
         </div>
       </div>
       <div className="relative w-full md:mb-32">
         <div className="z-20 mx-auto max-w-[1440px] px-8 lg:px-24">
           <Layout>
-            <LayoutColumn mdSpan={6} lgSpan={5}>
+            <LayoutColumn className="md:w-column-6 lg:w-column-5">
               <h3 className="mb-12 text-lg font-black italic text-blue-700 lg:text-4xl">
                 Slow Fashion Made with Love
               </h3>
@@ -98,7 +99,7 @@ export default function Page() {
                 not only make you look good but also make you feel good about
                 your choices.
               </p>
-              <p className='text-md'>
+              <p className="text-md">
                 With Red, you can be confident that your fashion statement goes
                 beyond aesthetics; it's a testament to your commitment to
                 sustainability and the wellbeing of our planet. Embrace slow

@@ -1,6 +1,5 @@
 'use client';
 
-import { off } from 'process';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -12,17 +11,13 @@ export const Layout: React.FC<LayoutProps> = ({
   ...rest
 }) => {
   return (
-    <div
-      {...rest}
-      className={twMerge('flex flex-wrap -mx-6', className)}
-    >
+    <div {...rest} className={twMerge('-mx-6 flex flex-wrap', className)}>
       {children}
     </div>
   );
 };
 
-
-type LayoutColumnProps = React.ComponentPropsWithoutRef<'div'> & {
+type LayoutColumnProps = React.ComponentPropsWithoutRef<'div'> /*& {
   span?: number;
   offset?: number;
   smSpan?: number;
@@ -40,8 +35,9 @@ const spanClasses = (span: number, prefix: string = '') => {
 const offsetClasses = (offset: number, prefix: string = '') => {
   return prefix ? `${prefix}:offset-${offset}` : `offset-${offset}`;
 };
-
+*/
 export const LayoutColumn: React.FC<LayoutColumnProps> = ({
+  /*
   span = 12,
   offset = 0,
   smSpan,
@@ -49,11 +45,11 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
   lgSpan,
   smOffset,
   mdOffset,
-  lgOffset,
+  lgOffset,*/
   className,
   children,
   ...rest
-}) => {
+}) => {/*
   const baseClasses = `${spanClasses(span)} ${offsetClasses(offset)}`;
   const smClasses = smSpan
     ? `${spanClasses(smSpan, 'sm')} ${smOffset ? offsetClasses(smOffset, 'sm') : ''}`
@@ -64,14 +60,13 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
   const lgClasses = lgSpan
     ? `${spanClasses(lgSpan, 'lg')} ${lgOffset ? offsetClasses(lgOffset, 'lg') : ''}`
     : '';
-
+*/
   return (
     <div
       {...rest}
-      className={`px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}`}
+      className={twMerge(`px-6` /*${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}*/, className)}
     >
       {children}
     </div>
   );
 };
-

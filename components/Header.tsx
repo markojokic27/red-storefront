@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import Logo from '@/components/Logo';
-import SearchIcon from '@/components/Icons/SearchIcon';
-import UserIcon from '@/components/Icons/UserIcon';
-import CartIcon from '@/components/Icons/CartIcon';
-import MenuIcon from '@/components/Icons/MenuIcon';
+import SearchIcon from '@/components/icons/SearchIcon';
+import UserIcon from '@/components/icons/UserIcon';
+import CartIcon from '@/components/icons/CartIcon';
+import MenuIcon from '@/components/icons/MenuIcon';
 import { Link, Button } from 'react-aria-components';
 
 type HeaderProps = {
