@@ -6,6 +6,16 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    ...Array.from({ length: 12 }, (_, i) => `w-column-${i + 1}`),
+    ...Array.from({ length: 12 }, (_, i) => `offset-${i}`),
+    ...['sm', 'md', 'lg', 'xl'].flatMap(bp => 
+      Array.from({ length: 12 }, (_, i) => [
+        `${bp}:w-column-${i + 1}`,
+        `${bp}:offset-${i}`,
+      ]).flat()
+    ),
+  ],
   theme: {
     extend: {
       colors: {

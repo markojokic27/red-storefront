@@ -49,7 +49,7 @@ export default function Page() {
       <div className="mx-auto max-w-[1440px]">
         <div className="mx-8 mb-8 mt-20 text-left font-black italic text-blue-700 lg:mx-24 lg:mb-16 lg:mt-40">
           <Layout>
-            <LayoutColumn className="w-column-12 sm:w-column-7">
+            <LayoutColumn span={12} smSpan={7}>
               <h2 className="text-md lg:text-xl">
                 Embrace the laid-back allure of street fashion, radiating cool
                 vibes and a dash of chill.
@@ -60,7 +60,7 @@ export default function Page() {
 
         <div className="mx-8 lg:mx-24">
           <Layout>
-            <LayoutColumn className="w-column-12 sm:w-column-4 relative mb-8 sm:mb-0">
+            <LayoutColumn span={12} smSpan={4} className="relative mb-8 sm:mb-0">
               <Link href={''}>
                 <Image src={BagCard} alt="img"></Image>
                 <p className="absolute left-8 top-2 text-xs font-light text-white lg:left-12 lg:top-8 lg:text-lg">
@@ -68,7 +68,7 @@ export default function Page() {
                 </p>
               </Link>
             </LayoutColumn>
-            <LayoutColumn className="w-column-12 sm:w-column-4 relative mb-8 sm:mb-0">
+            <LayoutColumn span={12} smSpan={4} className="relative mb-8 sm:mb-0">
               <Link href={''}>
                 <Image src={TshirtCard} alt="img"></Image>
                 <p className="absolute left-8 top-2 text-xs font-light text-white lg:left-12 lg:top-8 lg:text-lg">
@@ -76,7 +76,7 @@ export default function Page() {
                 </p>
               </Link>
             </LayoutColumn>
-            <LayoutColumn className="w-column-12 sm:w-column-4 relative">
+            <LayoutColumn span={12} smSpan={4} className="relative">
               <Link href={''}>
                 <Image
                   src={TshirtCard2}
@@ -105,28 +105,28 @@ export default function Page() {
         </div>
         <div className="mx-8 mb-20 lg:mx-24 lg:mb-40">
           <Layout>
-            <LayoutColumn className="w-column-12 sm:w-column-6 md:w-column-3">
+            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
               <ProductCard
                 imgPath={products.imgPath}
                 product={products.productsItems[2]}
                 color={products.productsItems[2].colors[1]}
               />
             </LayoutColumn>
-            <LayoutColumn className="w-column-12 sm:w-column-6 md:w-column-3">
+            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
               <ProductCard
                 imgPath={products.imgPath}
                 product={products.productsItems[2]}
                 color={products.productsItems[2].colors[2]}
               />
             </LayoutColumn>
-            <LayoutColumn className="w-column-12 sm:w-column-6 md:w-column-3">
+            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
               <ProductCard
                 imgPath={products.imgPath}
                 product={products.productsItems[9]}
                 color={products.productsItems[9].colors[0]}
               />
             </LayoutColumn>
-            <LayoutColumn className="w-column-12 sm:w-column-6 md:w-column-3">
+            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
               <ProductCard
                 imgPath={products.imgPath}
                 product={products.productsItems[0]}

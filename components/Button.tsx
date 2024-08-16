@@ -7,7 +7,6 @@ import {
   ButtonProps as AriaButtonProps,
 } from 'react-aria-components';
 import { twMerge, twJoin } from 'tailwind-merge';
-//import Icon from './icons/Icon';
 
 export const getButtonClassNames = ({
   size,
@@ -64,12 +63,13 @@ export const Button: React.FC<
     {...rest}
     isDisabled={rest.disabled}
     className={twMerge(
+      `${iconLeft || iconRight ? 'gap-2' : ''}`,
       getButtonClassNames({ size, colorScheme, variant, isVisuallyDisabled }),
       className
     )}
   >
-    {/*Boolean(iconLeft) && <Icon src={iconLeft} className="mr-2"/>*/}
+    {Boolean(iconLeft) && iconLeft}
     {children}
-    {/*Boolean(iconRight) && <Icon src={iconRight} className="ml-2" />*/}
+    {Boolean(iconRight) && iconRight}
   </AriaButton>
 );

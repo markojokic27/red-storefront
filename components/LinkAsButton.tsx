@@ -7,7 +7,6 @@ import { twMerge } from 'tailwind-merge';
 
 // Components
 import { getButtonClassNames, ButtonOwnProps } from '@/components/Button';
-//import { Icon } from '@/components/icons/Icon';
 
 export const LinkAsButton: React.FC<
   React.ComponentPropsWithoutRef<'a'> & NextLinkProps & ButtonOwnProps
@@ -27,12 +26,13 @@ export const LinkAsButton: React.FC<
     {...rest}
     href={href!}
     className={twMerge(
+      `${iconLeft || iconRight ? 'gap-2' : ''}`,
       getButtonClassNames({ size, colorScheme, variant, isVisuallyDisabled }),
       className
     )}
   >
-    {/*Boolean(iconLeft) && <Icon name={iconLeft} className="mr-2" />*/}
+    {Boolean(iconLeft) && iconLeft}
     {children}
-    {/*Boolean(iconRight) && <Icon name={iconRight} className="ml-2" />*/}
+    {Boolean(iconRight) && iconRight}
   </NextLink>
 );

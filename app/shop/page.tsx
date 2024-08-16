@@ -88,7 +88,7 @@ export default function Page() {
           {products.productsItems.map((product) => {
             return product.colors.map((color, key) => {
               return (
-                <LayoutColumn key={key} className="w-column-6 md:w-column-3">
+                <LayoutColumn key={key} span={6} mdSpan={3}>
                   <ProductCard
                     cardKey={key}
                     product={product}

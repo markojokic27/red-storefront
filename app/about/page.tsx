@@ -25,7 +25,7 @@ export default function Page() {
         ></Image>
         <div className="mx-auto w-full max-w-[1440px] px-8 text-white lg:px-24">
           <Layout>
-            <LayoutColumn className="w-column-12 sm:w-colun-6 lg:w-column-5">
+            <LayoutColumn span={12} smSpan={6} lgSpan={5}>
               <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 lg:mt-44 lg:text-4xl">
                 The world of red
               </h1>
@@ -58,7 +58,7 @@ export default function Page() {
         </div>
         <div className="mx-auto max-w-[1440px]">
           <Layout className="md:flex-row-reverse">
-            <LayoutColumn className="md:w-column-6 lg:w-column-5 lg:offset-1">
+            <LayoutColumn mdSpan={6} lgSpan={5} lgOffset={1}>
               <p className="mb-10 xl:mb-40">
                 At Red, we believe fashion should know no boundaries. Our
                 designs break free from traditional gender norms, offering
@@ -74,7 +74,7 @@ export default function Page() {
                 that knows no boundaries.
               </p>
             </LayoutColumn>
-            <LayoutColumn className="md:w-column-6">
+            <LayoutColumn mdSpan={6}>
               <Image src={aboutBag} alt="img"></Image>
             </LayoutColumn>
           </Layout>
@@ -83,7 +83,7 @@ export default function Page() {
       <div className="relative w-full md:mb-32">
         <div className="z-20 mx-auto max-w-[1440px] px-8 lg:px-24">
           <Layout>
-            <LayoutColumn className="md:w-column-6 lg:w-column-5">
+            <LayoutColumn mdSpan={6} lgSpan={5}>
               <h3 className="mb-12 text-lg font-black italic text-blue-700 lg:text-4xl">
                 Slow Fashion Made with Love
               </h3>
