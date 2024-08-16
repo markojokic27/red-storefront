@@ -3,7 +3,7 @@ import { TextField, Input } from 'react-aria-components';
 import { Button } from '@/components/Button';
 import Link from 'next/link';
 
-export default function Footer() {
+export const Footer = () => {
   return (
     <div className="bg-grayscale-20 text-blue-700">
       <div className="border-y-1 border-y-blue-700 py-8 text-left md:flex md:justify-between md:px-24 md:py-24">
@@ -22,11 +22,7 @@ export default function Footer() {
               className="w-full border-1 border-blue-700 px-2 py-3 text-sm"
             ></Input>
           </TextField>
-          <Button
-            size="sm"
-            className="border-1 py-3 text-sm md:ml-4"
-            onClick={() => console.log('hello world')}
-          >
+          <Button size="sm" className="border-2 h-11 text-sm md:ml-4">
             Suscribe
           </Button>
         </div>
@@ -90,4 +86,4 @@ export default function Footer() {
       </div>
     </div>
   );
-}
+};

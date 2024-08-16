@@ -1,22 +1,23 @@
-// external packages
+// External packages
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-// components
+// Components
 import { LinkAsButton } from '@/components/LinkAsButton';
 import { Layout, LayoutColumn } from '@/components/Layout';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { Button } from '@/components/Button';
+import { ProductCard } from '@/components/ProductCard';
+import { Tag } from '@/components/Tag';
 
-// assets
+// Assets
 import HeaderImage from '@/public/assets/images/header.png';
 import BagCard from '@/public/assets/images/bagCard.png';
 import TshirtCard2 from '@/public/assets/images/TshirtCard2.png';
 import TshirtCard from '@/public/assets/images/TshirtCard.png';
-import products from '@/public/assets/shopImages/products';
-import ProductCard from '@/components/ProductCard';
+import ImageProduct from '@/public/assets/shopImages/bag2blue.png';
 
 export const metadata: Metadata = {
   title: 'Red shop',
@@ -25,26 +26,28 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="h-screen text-center">
-      <Header />
-      <div className="-z-10 flex h-[100vh] w-full flex-col items-center justify-center overflow-hidden">
+    <>
+      <Header headerTheme="light" />
+      <div className="flex h-screen w-full flex-col items-center justify-center overflow-hidden px-8 text-center text-white lg:px-24">
         <Image
           alt="header"
           src={HeaderImage}
-          className="absolute -z-10 h-full w-full object-cover"
-        ></Image>
-        <h1 className="mt-12 w-full px-4 text-xl font-black italic text-white lg:mt-20 lg:text-8xl">
-          Crystal and shine with red
-        </h1>
-        <LinkAsButton
-          size="responsive"
-          variant="outline"
-          colorScheme="white"
-          className="mx-auto mt-7 lg:mt-12"
-          href="/shop"
-        >
-          Shop now
-        </LinkAsButton>
+          className="absolute h-full w-full object-cover"
+        />
+        <div className="relative">
+          <h1 className="mt-12 text-xl font-black italic lg:mt-20 lg:text-8xl">
+            Crystal and shine with red
+          </h1>
+          <LinkAsButton
+            size="sm"
+            variant="outline"
+            colorScheme="white"
+            className="mx-auto mt-7 lg:mt-12"
+            href="/shop"
+          >
+            Shop now
+          </LinkAsButton>
+        </div>
       </div>
       <div className="mx-auto max-w-[1440px]">
         <div className="mx-8 mb-8 mt-20 text-left font-black italic text-blue-700 lg:mx-24 lg:mb-16 lg:mt-40">
@@ -60,15 +63,19 @@ export default function Page() {
 
         <div className="mx-8 lg:mx-24">
           <Layout>
-            <LayoutColumn span={12} smSpan={4} className="relative mb-8 sm:mb-0">
-              <Link href={''}>
-                <Image src={BagCard} alt="img"></Image>
+            <LayoutColumn span={12} smSpan={4} className="mb-8 sm:mb-0">
+              <Link href={''} className="relative">
+                <Image src={BagCard} alt="Tote bag" />
                 <p className="absolute left-8 top-2 text-xs font-light text-white lg:left-12 lg:top-8 lg:text-lg">
                   Fresh new drops
                 </p>
               </Link>
             </LayoutColumn>
-            <LayoutColumn span={12} smSpan={4} className="relative mb-8 sm:mb-0">
+            <LayoutColumn
+              span={12}
+              smSpan={4}
+              className="relative mb-8 sm:mb-0"
+            >
               <Link href={''}>
                 <Image src={TshirtCard} alt="img"></Image>
                 <p className="absolute left-8 top-2 text-xs font-light text-white lg:left-12 lg:top-8 lg:text-lg">
@@ -105,38 +112,29 @@ export default function Page() {
         </div>
         <div className="mx-8 mb-20 lg:mx-24 lg:mb-40">
           <Layout>
-            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
-              <ProductCard
-                imgPath={products.imgPath}
-                product={products.productsItems[2]}
-                color={products.productsItems[2].colors[1]}
-              />
-            </LayoutColumn>
-            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
-              <ProductCard
-                imgPath={products.imgPath}
-                product={products.productsItems[2]}
-                color={products.productsItems[2].colors[2]}
-              />
-            </LayoutColumn>
-            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
-              <ProductCard
-                imgPath={products.imgPath}
-                product={products.productsItems[9]}
-                color={products.productsItems[9].colors[0]}
-              />
-            </LayoutColumn>
-            <LayoutColumn span={12} smSpan={6} mdSpan={3}>
-              <ProductCard
-                imgPath={products.imgPath}
-                product={products.productsItems[0]}
-                color={products.productsItems[0].colors[1]}
-              />
-            </LayoutColumn>
+            {[...Array(3)].map((_, index) => (
+              <LayoutColumn key={index} span={12} smSpan={6} mdSpan={3}>
+                <ProductCard
+                  image={
+                    <Image
+                      src={ImageProduct}
+                      alt="Product image"
+                      width={552}
+                      height={736}
+                      className="object-cover"
+                    />
+                  }
+                  name="Name"
+                  price="€30"
+                  originalPrice="€60"
+                  tag={<Tag>-50%</Tag>}
+                />
+              </LayoutColumn>
+            ))}
           </Layout>
         </div>
       </div>
       <Footer />
-    </main>
+    </>
   );
 }

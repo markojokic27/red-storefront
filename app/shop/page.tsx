@@ -13,7 +13,7 @@ import {
 } from 'react-aria-components';
 
 // Components
-import Header from '@/components/Header';
+import {Header} from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
 import { Layout, LayoutColumn } from '@/components/Layout';
 import { Icon } from '@/components/icons/Icon';
@@ -35,7 +35,7 @@ export default function Page() {
   };
   return (
     <main className="">
-      <Header theme="white" />
+      <Header headerTheme="dark"/>
       <div className="mx-auto mt-28 max-w-[1440px] px-8 sm:flex sm:justify-between md:mb-40 md:mt-40 lg:px-24">
         <div className="text-2xl font-black italic text-blue-700 lg:text-6xl">
           <h1>Shop</h1>

@@ -4,7 +4,7 @@
 import Image from 'next/image';
 
 // Components
-import Header from '@/components/Header';
+import {Header} from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Layout, LayoutColumn } from '@/components/Layout';
 
@@ -16,7 +16,7 @@ import aboutSide from '@/public/assets/images/aboutSide.png';
 export default function Page() {
   return (
     <main className="">
-      <Header />
+      <Header headerTheme='light'/>
       <div className="-z-10 h-[100vh] w-full justify-center overflow-hidden">
         <Image
           alt="header"

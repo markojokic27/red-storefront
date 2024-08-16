@@ -1,5 +1,6 @@
 'use client';
 // External packages
+import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,49 +9,47 @@ import Logo from '@/components/Logo';
 import { Icon } from '@/components/icons/Icon';
 import { Link, Button } from 'react-aria-components';
 
-type HeaderProps = {
-  theme?: string;
-};
+export const Header: React.FC<{
+  headerTheme?: 'light' | 'dark';
+}> = ({ headerTheme = 'dark' }) => {
+  const headerRef = React.useRef<HTMLDivElement | null>(null);
 
-export default function Header({ theme }: HeaderProps) {
-  const [headerTheme, setHeaderTheme] = useState(
-    theme === 'white' ? 'white' : 'transparent'
-  );
+  React.useEffect(() => {
+    const element = headerRef.current;
 
-  useEffect(() => {
-    if (theme !== 'white') {
-      const handleScroll = () => {
-        if (window.scrollY > window.innerHeight - 84) {
-          setHeaderTheme('white');
-        } else {
-          setHeaderTheme('transparent');
-        }
-      };
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+    if (element) {
+      element.dataset.theme = headerTheme;
     }
-  }, [theme]);
+
+    const handleScroll = () => {
+      if (element && headerTheme === 'light') {
+        if (window.scrollY > window.innerHeight - 85) {
+          element.dataset.theme = 'dark';
+        } else {
+          element.dataset.theme = 'light';
+        }
+      }
+    };
+  }, [headerTheme]);
 
   return (
     <div
       className={twMerge(
         `fixed z-50 w-full bg-${headerTheme} top-0`,
-        headerTheme === 'white' && 'border-b-1 border-b-blue-700'
+        headerTheme === 'dark' && 'border-b-1 border-b-blue-700'
       )}
     >
       <div className="mx-auto flex max-w-[1440px] justify-start px-8 py-6 lg:px-24">
         <Link href="/" className="focus:outline-none md:mr-28">
           <Logo
             className="lg:w-24"
-            colorScheme={headerTheme === 'white' ? 'blue' : 'white'}
+            colorScheme={headerTheme === 'dark' ? 'blue' : 'white'}
           />
         </Link>
         <div
           className={twMerge(
             'hidden gap-8 md:flex',
-            headerTheme === 'white' ? 'text-black' : 'text-white'
+            headerTheme === 'dark' ? 'text-black' : 'text-white'
           )}
         >
           <Link href="/shop" className="self-center focus:outline-none">
@@ -65,21 +64,21 @@ export default function Header({ theme }: HeaderProps) {
             <Button className="focus:outline-none">
               <Icon
                 name="search"
-                color={headerTheme === 'white' ? 'default' : 'white'}
+                color={headerTheme === 'dark' ? 'default' : 'white'}
               />
             </Button>
           </li>
           <li
             className={twMerge(
               'hidden md:flex',
-              headerTheme === 'white' ? 'text-black' : 'text-white'
+              headerTheme === 'dark' ? 'text-black' : 'text-white'
             )}
           >
             <Button className="uppercase focus:outline-none">hr</Button>
             <hr
               className={twMerge(
                 'mx-2 h-6 w-px border-0',
-                headerTheme === 'white' ? 'bg-black' : 'bg-white'
+                headerTheme === 'dark' ? 'bg-black' : 'bg-white'
               )}
             />
             <Button className="uppercase focus:outline-none">eur</Button>
@@ -88,7 +87,7 @@ export default function Header({ theme }: HeaderProps) {
             <Link href="/user" className="focus:outline-none">
               <Icon
                 name="user"
-                color={headerTheme === 'white' ? 'default' : 'white'}
+                color={headerTheme === 'dark' ? 'default' : 'white'}
               />
             </Link>
           </li>
@@ -96,7 +95,7 @@ export default function Header({ theme }: HeaderProps) {
             <Link href="/cart" className="focus:outline-none">
               <Icon
                 name="bag"
-                color={headerTheme === 'white' ? 'default' : 'white'}
+                color={headerTheme === 'dark' ? 'default' : 'white'}
               />
             </Link>
           </li>
@@ -104,7 +103,7 @@ export default function Header({ theme }: HeaderProps) {
             <Button className="focus:outline-none">
               <Icon
                 name="hamburger"
-                color={headerTheme === 'white' ? 'default' : 'white'}
+                color={headerTheme === 'dark' ? 'default' : 'white'}
               />
             </Button>
           </li>
