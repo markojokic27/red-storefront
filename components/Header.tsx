@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // Components
-import Logo from '@/components/Logo';
+import { Logo } from '@/components/Logo';
 import { Icon } from '@/components/icons/Icon';
 import { Link, Button } from 'react-aria-components';
+import { Layout } from '@/components/Layout';
 
 export const Header: React.FC<{
   headerTheme?: 'light' | 'dark';
@@ -44,7 +45,7 @@ export const Header: React.FC<{
         `group fixed top-0 z-50 w-full data-[theme=dark]:border-b-1 data-[theme=dark]:border-b-blue-700 data-[theme=dark]:bg-white data-[theme=light]:bg-transparent`
       )}
     >
-      <div className="mx-auto flex max-w-[1440px] justify-start px-8 py-6 lg:px-24">
+      <Layout className="flex justify-start py-6">
         <Link href="/" className="focus:outline-none md:mr-28">
           <Logo className="group-data-[theme=dark]:text-blue-700 group-data-[theme=light]:text-grayscale-10" />
         </Link>
@@ -104,7 +105,7 @@ export const Header: React.FC<{
             </Button>
           </li>
         </ul>
-      </div>
+      </Layout>
     </div>
   );
 };

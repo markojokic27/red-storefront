@@ -13,14 +13,17 @@ import {
 } from 'react-aria-components';
 
 // Components
+import Image from 'next/image';
+
 import { Header } from '@/components/Header';
 import { ProductCard } from '@/components/ProductCard';
-import { Layout, LayoutColumn } from '@/components/Layout';
+import { Layout, LayoutRow, LayoutColumn } from '@/components/Layout';
 import { Icon } from '@/components/icons/Icon';
 import { Footer } from '@/components/Footer';
+import { Tag } from '@/components/Tag';
 
-// Data
-import products from '@/public/assets/shopImages/products';
+// Assets
+import ImageProduct from '@/public/assets/shopImages/bag2blue.png';
 
 export default function Page() {
   const [selectedValue, setSelectedValue] = React.useState('Whatever');
@@ -36,7 +39,7 @@ export default function Page() {
   return (
     <main className="">
       <Header headerTheme="dark" />
-      <div className="mx-auto mt-28 max-w-[1440px] px-8 sm:flex sm:justify-between md:mb-40 md:mt-40 lg:px-24">
+      <Layout className=" mt-28 sm:flex sm:justify-between md:mb-40 md:mt-40">
         <div className="text-2xl font-black italic text-blue-700 lg:text-6xl">
           <h1>Shop</h1>
         </div>
@@ -81,13 +84,31 @@ export default function Page() {
             </ListBox>
           </Popover>
         </Select>
-      </div>
+      </Layout>
 
-      <div className="mx-auto mb-40 max-w-[1440px] px-8 lg:px-24">
-        <Layout>
-          
-        </Layout>
-      </div>
+      <Layout className="mb-40">
+      <LayoutRow>
+          {[...Array(16)].map((_, index) => (
+            <LayoutColumn key={index} span={12} smSpan={6} mdSpan={3}>
+              <ProductCard
+                image={
+                  <Image
+                    src={ImageProduct}
+                    alt="Product image"
+                    width={552}
+                    height={736}
+                    className="object-cover"
+                  />
+                }
+                name="Name"
+                price="€30"
+                originalPrice="€60"
+                tag={<Tag>-50%</Tag>}
+              />
+            </LayoutColumn>
+          ))}
+        </LayoutRow>
+      </Layout>
       <Footer />
     </main>
   );

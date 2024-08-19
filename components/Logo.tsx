@@ -5,7 +5,7 @@ type IconProps = React.ComponentPropsWithoutRef<'svg'> & {
   size?: 'sm' | 'md';
 };
 
-const LogoIcon: React.FC<IconProps> = ({
+export const Logo: React.FC<IconProps> = ({
   size = 'md',
   className = '',
   ...rest
@@ -32,4 +32,3 @@ const LogoIcon: React.FC<IconProps> = ({
   );
 };
 
-export default LogoIcon;

@@ -6,7 +6,7 @@ import Image from 'next/image';
 // Components
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Layout, LayoutColumn } from '@/components/Layout';
+import { Layout, LayoutRow, LayoutColumn } from '@/components/Layout';
 
 // Assets
 import aboutBag from '@/public/assets/images/aboutBag.png';
@@ -19,73 +19,72 @@ export default function Page() {
       <Header headerTheme="light" />
       <div className="-z-10 h-[100vh] w-full justify-center overflow-hidden">
         <Image
-          alt="header"
+          alt="header image"
           src={HeaderImage}
           className="absolute -z-10 h-full w-full object-cover"
         ></Image>
-        <div className="mx-auto w-full max-w-[1440px] px-8 text-white lg:px-24">
-          <Layout>
-            <LayoutColumn span={12} smSpan={6} lgSpan={5}>
-              <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 lg:mt-44 lg:text-4xl">
+        <Layout className="text-white">
+          <LayoutRow className='h-full'>
+            <LayoutColumn span={12} smSpan={6} lgSpan={5} >
+              <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 xl:mt-44 lg:text-4xl">
                 The world of red
               </h1>
-              <p className="mb-4 rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
-                Welcome to Red, where style meets substance. Red is not just a
-                street fashion brand; it's an attitude, a movement, and a way of
-                life. Our passion lies in creating cool, youthful, and chill
-                designs that resonate with the free spirits of today.
-              </p>
-              <p className="rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
-                But it doesn't stop there; Red is more than just a brand; it's a
-                philosophy that cherishes slow fashion and sustainability. We
-                are committed to producing fashion with love and care, staying
-                true to our core values of environmental responsibility and
-                ethical practices.
-              </p>
-              <p className="mt-4 rounded bg-black bg-opacity-15 backdrop-blur-sm sm:mt-24 md:text-md xl:mt-44">
-                Embrace the bold and step into the world of Red, where fashion
-                is not just an outfit but an expression of authenticity.
-              </p>
+                  <p className="mb-4 rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
+                    Welcome to Red, where style meets substance. Red is not just
+                    a street fashion brand; it's an attitude, a movement, and a
+                    way of life. Our passion lies in creating cool, youthful,
+                    and chill designs that resonate with the free spirits of
+                    today.
+                  </p>
+                  <p className="rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
+                    But it doesn't stop there; Red is more than just a brand;
+                    it's a philosophy that cherishes slow fashion and
+                    sustainability. We are committed to producing fashion with
+                    love and care, staying true to our core values of
+                    environmental responsibility and ethical practices.
+                  </p>
+                <p className="mt-4 rounded bg-black bg-opacity-15 backdrop-blur-sm  md:text-md ">
+                  Embrace the bold and step into the world of Red, where fashion
+                  is not just an outfit but an expression of authenticity.
+                </p>
             </LayoutColumn>
-          </Layout>
-        </div>
+          </LayoutRow>
+        </Layout>
       </div>
-      <div className="mx-auto mb-40 max-w-[1440px] px-8 lg:px-24">
+      <Layout className="mb-40">
         <div>
           <h2 className="mb-16 mt-24 text-lg font-black italic text-blue-700 lg:text-4xl">
             Breaking Boundaries <br /> Unisex Styles for All
           </h2>
         </div>
-        <div className="mx-auto max-w-[1440px]">
-          <Layout className="md:flex-row-reverse">
-            <LayoutColumn mdSpan={6} lgSpan={5} lgOffset={1}>
-              <p className="mb-10 xl:mb-40">
-                At Red, we believe fashion should know no boundaries. Our
-                designs break free from traditional gender norms, offering
-                unisex styles that empower everyone to express themselves
-                without limitations. Our collections are thoughtfully crafted,
-                celebrating diversity and individuality. Whether you're rocking
-                the city streets or dancing under the stars, our unisex
-                streetwear is made to fit your vibe effortlessly.
-              </p>
-              <p className="mb-10 text-md md:mb-0">
-                Red is more than just a brand; it's a community that embraces
-                uniqueness, and we invite you to join us in celebrating fashion
-                that knows no boundaries.
-              </p>
-            </LayoutColumn>
-            <LayoutColumn mdSpan={6}>
-              <Image src={aboutBag} alt="img"></Image>
-            </LayoutColumn>
-          </Layout>
-        </div>
-      </div>
+        <LayoutRow className="md:flex-row-reverse">
+          <LayoutColumn mdSpan={6} lgSpan={5} lgOffset={1}>
+            <p className="mb-10 xl:mb-40">
+              At Red, we believe fashion should know no boundaries. Our designs
+              break free from traditional gender norms, offering unisex styles
+              that empower everyone to express themselves without limitations.
+              Our collections are thoughtfully crafted, celebrating diversity
+              and individuality. Whether you're rocking the city streets or
+              dancing under the stars, our unisex streetwear is made to fit your
+              vibe effortlessly.
+            </p>
+            <p className="mb-10 text-md md:mb-0">
+              Red is more than just a brand; it's a community that embraces
+              uniqueness, and we invite you to join us in celebrating fashion
+              that knows no boundaries.
+            </p>
+          </LayoutColumn>
+          <LayoutColumn mdSpan={6}>
+            <Image src={aboutBag} alt="bag image"></Image>
+          </LayoutColumn>
+        </LayoutRow>
+      </Layout>
       <div className="relative w-full md:mb-32">
-        <div className="z-20 mx-auto max-w-[1440px] px-8 lg:px-24">
-          <Layout>
+        <Layout className="z-20">
+          <LayoutRow>
             <LayoutColumn mdSpan={6} lgSpan={5}>
               <h3 className="mb-12 text-lg font-black italic text-blue-700 lg:text-4xl">
-                Slow Fashion Made with Love
+                Slow Fashion <br /> Made with Love
               </h3>
               <p className="mb-4">
                 In a world of fast fashion, Red stands out as a beacon of
@@ -107,10 +106,10 @@ export default function Page() {
                 streetwear.
               </p>
             </LayoutColumn>
-          </Layout>
-        </div>
+          </LayoutRow>
+        </Layout>
         <div className="static z-10 -mb-6 ml-auto max-w-[400px] md:absolute md:right-0 md:top-0 lg:max-w-[500px] xl:max-w-[750px]">
-          <Image src={aboutSide} alt="img"></Image>
+          <Image src={aboutSide} alt="side image"></Image>
         </div>
       </div>
       <div className="w-full bg-blue-700 px-8 text-center text-white">

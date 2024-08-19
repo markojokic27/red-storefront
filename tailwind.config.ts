@@ -8,7 +8,11 @@ const config: Config = {
   ],
   safelist: [
     {
-      pattern: /^(w|offset)-column-\d{1,2}$/,
+      pattern: /w-column-(1|2|3|4|5|6|7|8|9|10|11|12)/,
+      variants: ['sm', 'md', 'lg', 'xl'],
+    },
+    {
+      pattern: /offset-(1|2|3|4|5|6|7|8|9|10|11)/,
       variants: ['sm', 'md', 'lg', 'xl'],
     },
   ],
@@ -61,6 +65,9 @@ const config: Config = {
       },
       borderWidth: {
         '1': '1px',
+      },
+      maxWidth: {
+        '8xl': '90rem',
       },
     },
   },

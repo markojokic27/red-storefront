@@ -3,9 +3,22 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type LayoutProps = React.ComponentPropsWithoutRef<'div'>;
+export const Layout: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
+  className,
+  children,
+  ...rest
+}) => {
+  return (
+    <div
+      {...rest}
+      className={twMerge('max-w-8xl mx-auto px-8 lg:px-24', className)}
+    >
+      {children}
+    </div>
+  );
+};
 
-export const Layout: React.FC<LayoutProps> = ({
+export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
   className,
   children,
   ...rest
