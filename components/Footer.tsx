@@ -10,7 +10,7 @@ export const Footer = () => {
       <div className="border-y-1 border-y-blue-700 py-8 text-left md:py-24">
         <Layout className="md:flex md:justify-between">
           <div className="max-w-xl">
-            <h3 className="mb-4 text-md font-black uppercase italic md:-mr-48 md:mb-6 md:text-lg lg:mr-0">
+            <h3 className="mb-4 text-md font-black uppercase italic md:-mr-48 md:mb-9 md:text-lg lg:mr-0">
               Don't be shy. we know you want those discount coupons.
             </h3>
             <p className="mb-8 text-sm md:mb-0">
@@ -21,10 +21,10 @@ export const Footer = () => {
             <TextField className="mb-6 max-w-80 md:mb-0 md:min-w-80">
               <Input
                 placeholder="Your email"
-                className="w-full border-1 border-blue-700 px-2 py-3 text-sm"
+                className="h-14 w-full border-1 border-blue-700 px-2 py-3 text-sm"
               ></Input>
             </TextField>
-            <Button size="sm" className="h-11 border-2 text-sm md:ml-4">
+            <Button size="sm" className="h-14 text-sm md:ml-4">
               Suscribe
             </Button>
           </div>

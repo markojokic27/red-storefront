@@ -37,7 +37,7 @@ export default function Page() {
     discount: 'Discount',
   };
   return (
-    <main className="">
+    <>
       <Header headerTheme="dark" />
       <Layout className=" mt-28 sm:flex sm:justify-between md:mb-40 md:mt-40">
         <div className="text-2xl font-black italic text-blue-700 lg:text-6xl">
@@ -110,6 +110,6 @@ export default function Page() {
         </LayoutRow>
       </Layout>
       <Footer />
-    </main>
+    </>
   );
 }
