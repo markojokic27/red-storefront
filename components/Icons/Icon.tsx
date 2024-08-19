@@ -22,19 +22,19 @@ export const Icon: React.FC<
 > = ({ name, className, color, ...rest }) => (
   <>
     {name === 'search' && (
-      <Icons.Search {...rest} color={color} className={twMerge(baseClasses, className)} />
+      <Icons.Search {...rest}  className={twMerge(baseClasses, className)} />
     )}
      {name === 'bag' && (
-      <Icons.Bag {...rest} color={color} className={twMerge(baseClasses, className)} />
+      <Icons.Bag {...rest}  className={twMerge(baseClasses, className)} />
     )}
     {name === 'chevron' && (
-      <Icons.Chevron {...rest} color={color} className={twMerge(baseClasses, className)} />
+      <Icons.Chevron {...rest}  className={twMerge(baseClasses, className)} />
     )}
     {name === 'hamburger' && (
-      <Icons.Hamburger {...rest} color={color} className={twMerge(baseClasses, className)} />
+      <Icons.Hamburger {...rest}  className={twMerge(baseClasses, className)} />
     )}
     {name === 'user' && (
-      <Icons.User {...rest} color={color} className={twMerge(baseClasses, className)} />
+      <Icons.User {...rest}  className={twMerge(baseClasses, className)} />
     )} 
   </>
 );

@@ -2,7 +2,6 @@
 import * as React from 'react';
 
 export const Chevron: React.FC<React.ComponentPropsWithoutRef<'svg'>> = ({
-  color,
   ...rest
 }) => (
   <svg
@@ -13,7 +12,7 @@ export const Chevron: React.FC<React.ComponentPropsWithoutRef<'svg'>> = ({
     fill="none"
   >
     <path
-      fill={color === 'gray' ? '#898A8D' : '#050505'}
+      fill="currentcolor"
       fillRule="evenodd"
       d="m5.4697 9.5304 1.0607-1.0607L12 13.9394l5.4696-5.4697 1.0607 1.0607-6.5303 6.5303-6.5304-6.5303Z"
       clipRule="evenodd"

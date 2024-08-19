@@ -13,11 +13,11 @@ import {
 } from 'react-aria-components';
 
 // Components
-import {Header} from '@/components/Header';
-import ProductCard from '@/components/ProductCard';
+import { Header } from '@/components/Header';
+import { ProductCard } from '@/components/ProductCard';
 import { Layout, LayoutColumn } from '@/components/Layout';
 import { Icon } from '@/components/icons/Icon';
-import Footer from '@/components/Footer';
+import { Footer } from '@/components/Footer';
 
 // Data
 import products from '@/public/assets/shopImages/products';
@@ -35,7 +35,7 @@ export default function Page() {
   };
   return (
     <main className="">
-      <Header headerTheme="dark"/>
+      <Header headerTheme="dark" />
       <div className="mx-auto mt-28 max-w-[1440px] px-8 sm:flex sm:justify-between md:mb-40 md:mt-40 lg:px-24">
         <div className="text-2xl font-black italic text-blue-700 lg:text-6xl">
           <h1>Shop</h1>
@@ -85,20 +85,7 @@ export default function Page() {
 
       <div className="mx-auto mb-40 max-w-[1440px] px-8 lg:px-24">
         <Layout>
-          {products.productsItems.map((product) => {
-            return product.colors.map((color, key) => {
-              return (
-                <LayoutColumn key={key} span={6} mdSpan={3}>
-                  <ProductCard
-                    cardKey={key}
-                    product={product}
-                    color={color}
-                    imgPath={products.imgPath}
-                  />
-                </LayoutColumn>
-              );
-            });
-          })}
+          
         </Layout>
       </div>
       <Footer />
