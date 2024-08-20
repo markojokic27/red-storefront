@@ -3,9 +3,10 @@ import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // Components
-import { RadioGroup, Radio, Label } from 'react-aria-components';
-import { RadioGroupSize } from '@/components/RadioGroupSize';
+import { RadioColor, RadioGroupProduct, RadioSize } from '@/components/RadioGroupSize';
 import { Button } from '@/components/Button';
+
+
 
 export const ShopProductCard: React.FC<
   React.ComponentPropsWithoutRef<'div'> & {
@@ -35,24 +36,28 @@ export const ShopProductCard: React.FC<
       <div className="my-10 leading-10">{description}</div>
       <div className="mb-8">
         <p className="mb-4">Color</p>
-        <RadioGroup name="color" className="flex gap-2">
-          <Radio value="blue">
-            <div className="mr-2 h-6 w-6 rounded-full bg-blue-700"></div>
-          </Radio>
-          <Radio value="yellow">
-            <div className="mr-2 h-6 w-6 rounded-full bg-yellow-700"></div>
-          </Radio>
-          <Radio value="green">
-            <div className="mr-2 h-6 w-6 rounded-full bg-green-700"></div>
-          </Radio>
-        </RadioGroup>
+        <RadioGroupProduct value='white'>
+          {['white', 'grayscale-400', 'black', 'blue-700'].map((color) => (
+            <RadioColor
+              key={color}
+              value={color}
+            />
+          ))}
+        </RadioGroupProduct>
       </div>
       <div className="mb-8">
         <p className="mb-4">Size</p>
-        <RadioGroupSize />
+        <RadioGroupProduct value='M'>
+          {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+            <RadioSize
+              key={size}
+              value={size}
+            />
+          ))}
+        </RadioGroupProduct>
       </div>
       <div className="mb-8">
-        <p>Quantity</p>
+        <p className="mb-4">Quantity</p>
         <div className="flex items-center">
           <button
             onClick={() => {

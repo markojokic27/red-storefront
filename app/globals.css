@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .article h1 {
+    @apply text-2xl font-bold;
+  }
+}
+
 @layer utilities {
   .w-column-1 {
     width: calc((1 / 12) * 100%);

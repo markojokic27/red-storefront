@@ -14,6 +14,8 @@ import Image from 'next/image';
 // Assets
 import ImageProduct1 from '@/public/assets/images/productSingle1.png';
 import ImageProduct2 from '@/public/assets/images/productSingle2.png';
+import TshirtCard2 from '@/public/assets/images/TshirtCard2.png';
+import TshirtCard from '@/public/assets/images/TshirtCard.png';
 
 export default function Page() {
   return (
@@ -55,6 +57,18 @@ export default function Page() {
             <Image
               src={ImageProduct2}
               alt="Product image 2"
+              width={600}
+              height={800}
+            />
+            <Image
+              src={TshirtCard}
+              alt="Product image 3"
+              width={600}
+              height={800}
+            />
+            <Image
+              src={TshirtCard2}
+              alt="Product image 4"
               width={600}
               height={800}
             />
