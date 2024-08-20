@@ -1,10 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @layer components {
+  .article {
+    @apply mb-48 mt-44;
+  }
   .article h1 {
-    @apply text-2xl font-bold;
+    @apply mb-28 text-4xl font-black;
+  }
+  .article h2 {
+    @apply mb-8 mt-16 text-lg font-black;
+  }
+  .article ul {
+    @apply my-4 list-disc pl-6;
+  }
+  .article div {
+    @apply mt-10;
+  }
+  .article p {
+    @apply my-4;
   }
 }
 

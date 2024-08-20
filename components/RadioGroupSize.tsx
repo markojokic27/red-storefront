@@ -23,7 +23,8 @@ export const RadioGroupProduct: React.FC<
       {(children ?? []).map((child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child as React.ReactElement<any>, {
-            isSelected: selected === (child as React.ReactElement<any>).props.value,
+            isSelected:
+              selected === (child as React.ReactElement<any>).props.value,
           });
         }
         return null;
@@ -60,7 +61,7 @@ export const RadioColor: React.FC<
     isSelected?: boolean;
     className?: string;
   }
-> = ({ variant = 'unselected', value,isSelected, className, ...rest }) => (
+> = ({ variant = 'unselected', value, isSelected, className, ...rest }) => (
   <Radio
     {...rest}
     value={value}
