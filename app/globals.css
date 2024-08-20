@@ -17,9 +17,59 @@
   }
   .article div {
     @apply mt-10;
-  }
+  } 
   .article p {
     @apply my-4;
+  }
+  .help-article {
+    @apply mb-48 mt-44;
+  }
+  .help-article h1 {
+    @apply mb-28 text-4xl font-black;
+  }
+  .help-article h3 {
+    @apply text-base font-black;
+  }
+  .help-article ul{
+    @apply mt-6 mb-8 list-disc pl-6;
+  }
+  .help-article li {
+    @apply my-4;
+  }
+  .help-article .trigger {
+    @apply flex w-full items-center justify-between border-t border-t-gray-200 px-2 py-8;
+  }
+  .help-article .trigger .chevron {
+    @apply transition-transform transform duration-300;
+  }
+  .help-article .trigger[data-state='open'] .chevron {
+    @apply  rotate-180;
+  }
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  .accordion-content {
+    @apply overflow-hidden;
+  }
+  .accordion-content[data-state='open'] {
+    animation: slideDown 300ms ease-out;
+  }
+  .accordion-content[data-state='closed'] {
+    animation: slideUp 300ms ease-out;
   }
 }
 

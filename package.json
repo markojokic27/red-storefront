@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.0",
     "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
     "eslint-config-prettier": "^9.1.0",
