@@ -39,10 +39,10 @@
   .help-article .trigger {
     @apply flex w-full items-center justify-between border-t border-t-gray-200 px-2 py-8;
   }
-  .help-article .trigger .chevron {
+  .trigger .chevron {
     @apply transition-transform transform duration-300;
   }
-  .help-article .trigger[data-state='open'] .chevron {
+  .trigger[data-state='open'] .chevron {
     @apply  rotate-180;
   }
   @keyframes slideDown {

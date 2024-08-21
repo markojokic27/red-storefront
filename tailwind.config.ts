@@ -49,7 +49,7 @@ const config: Config = {
         },
       },
       fontSize: {
-        xs2: '12px',
+        '2xs': '12px',
         xs: '14px',
         base: '16px',
         md: '20px',
@@ -71,6 +71,9 @@ const config: Config = {
       },
       spacing: {
         21: '5.25rem',
+      },
+      height: {
+        18: '4.5rem',
       },
       keyframes: {
         slideDown: {

@@ -15,8 +15,8 @@ export const Logo: React.FC<IconProps> = ({
       {...rest}
       className={twMerge('', className)}
       xmlns="http://www.w3.org/2000/svg"
-      width={size === 'sm' ? '40' : '95'}
-      height={size === 'sm' ? '15' : '36'}
+      width={size === 'sm' ? '62' : '95'}
+      height={size === 'sm' ? '24' : '36'}
       viewBox="0 0 95 36"
       fill="currentcolor"
     >
