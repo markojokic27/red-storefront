@@ -21,10 +21,10 @@ export const Footer = () => {
             <TextField className="mb-6 max-w-80 md:mb-0 md:min-w-80">
               <Input
                 placeholder="Your email"
-                className="h-14 w-full border-1 border-blue-700 px-2 py-3 text-sm"
-              ></Input>
+                className="h-14 w-full border-1 border-blue-700 px-2 py-3"
+              />
             </TextField>
-            <Button size="sm" className="h-14 text-sm md:ml-4">
+            <Button size="sm" className="h-14 md:ml-4">
               Suscribe
             </Button>
           </div>

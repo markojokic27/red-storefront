@@ -69,6 +69,9 @@ const config: Config = {
       maxWidth: {
         '8xl': '90rem',
       },
+      spacing: {
+        21: '5.25rem',
+      },
       keyframes: {
         slideDown: {
           from: { height: '0' },
