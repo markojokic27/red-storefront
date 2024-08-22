@@ -9,7 +9,7 @@ export const Tag: React.FC<
   <p
     {...rest}
     className={twMerge(
-      'rounded-full px-4 leading-6 w-fit',
+      'w-fit rounded-full px-4 leading-6',
       colorScheme === 'blue' && 'bg-blue-100',
       colorScheme === 'yellow' && 'bg-yellow-400',
       colorScheme === 'gray' && 'bg-grayscale-100',

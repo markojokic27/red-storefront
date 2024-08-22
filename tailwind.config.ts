@@ -67,6 +67,7 @@ const config: Config = {
         '1': '1px',
       },
       maxWidth: {
+        "xl":"37.5rem",
         '8xl': '90rem',
       },
       spacing: {
