@@ -7,28 +7,21 @@ export const Layout: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
   className,
   children,
   ...rest
-}) => {
-  return (
-    <div
-      {...rest}
-      className={twMerge('max-w-8xl mx-auto px-8 lg:px-24', className)}
-    >
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div {...rest} className={twMerge('container mx-auto px-6', className)}>
+    {children}
+  </div>
+);
 
 export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
   className,
   children,
   ...rest
-}) => {
-  return (
-    <div {...rest} className={twMerge('-mx-6 flex flex-wrap', className)}>
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div {...rest} className={twMerge('-mx-6 flex flex-wrap', className)}>
+    {children}
+  </div>
+);
 
 type LayoutColumnProps = React.ComponentPropsWithoutRef<'div'> & {
   span?: number;
@@ -76,7 +69,7 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
     <div
       {...rest}
       className={twMerge(
-        `px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}`
+        `relative px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}`
       )}
     >
       {children}

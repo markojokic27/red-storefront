@@ -8,7 +8,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Layout, LayoutRow, LayoutColumn } from '@/components/Layout';
-import { Icon } from '@/components/icons/Icon';
+import { Icon } from '@/components/Icon';
 
 export default function Page() {
   return (

@@ -9,7 +9,7 @@ import {
 } from 'react-aria-components';
 
 export const RadioGroupProduct: React.FC<
-  RadioGroupProps & { className?: string; children?: React.ReactElement[] }
+  React.ComponentPropsWithoutRef<'div'> & RadioGroupProps
 > = ({ className, value, children, ...rest }) => {
   const [selected, setSelected] = React.useState(value);
 
@@ -20,7 +20,7 @@ export const RadioGroupProduct: React.FC<
       defaultValue={selected}
       onChange={setSelected}
     >
-      {(children ?? []).map((child) => {
+      {Array.isArray(children) ? children.map((child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child as React.ReactElement<any>, {
             isSelected:
@@ -28,7 +28,7 @@ export const RadioGroupProduct: React.FC<
           });
         }
         return null;
-      })}
+      }) : children}
     </RadioGroup>
   );
 };

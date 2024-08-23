@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 
 // Components
 import { Logo } from '@/components/Logo';
-import { Icon } from '@/components/icons/Icon';
+import { Icon } from '@/components/Icon';
 import { Link, Button } from 'react-aria-components';
 import { Layout } from '@/components/Layout';
 

@@ -3,21 +3,49 @@
 @import 'tailwindcss/utilities';
 
 @layer components {
+  /* Pulled background */
+  .pulled-background::after {
+    width: calc((100% + 48px) + ((100vw - 1248px) / 2));
+    margin-left: -48px;
+  }
+
+  @media (min-width: 1024px) {
+    .pulled-background::after {
+      width: calc((100% + 48px) + ((100vw - 1024px) / 2));
+      margin-left: -48px;
+    }
+  }
+
+  @media (min-width: 1296px) {
+    .pulled-background::after {
+      width: calc((100% + 48px) + ((100vw - 1296px) / 2));
+      margin-left: -48px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .pulled-background::after {
+      width: calc((100% + 48px) + ((100vw - 1536px) / 2));
+      margin-left: -48px;
+    }
+  }
+
+  /* Article */
   .article {
     @apply mb-48 mt-44;
   }
   .article h1 {
-    @apply mb-28 text-4xl font-black;
+    @apply mb-28 text-2xl font-black lg:text-4xl;
   }
   .article h2 {
     @apply mb-8 mt-16 text-lg font-black;
   }
   .article ul {
-    @apply my-4 list-disc pl-6;
+    @apply my-4 list-disc pl-6 text-left;
   }
   .article div {
     @apply mt-10;
-  } 
+  }
   .article p {
     @apply my-4;
   }
@@ -25,25 +53,25 @@
     @apply mb-48 mt-44;
   }
   .help-article h1 {
-    @apply mb-28 text-4xl font-black;
+    @apply mb-28 text-2xl font-black lg:text-4xl;
   }
   .help-article h3 {
     @apply text-base font-black;
   }
-  .help-article ul{
-    @apply mt-6 mb-8 list-disc pl-6;
+  .help-article ul {
+    @apply mb-8 mt-6 list-disc pl-6;
   }
   .help-article li {
     @apply my-4;
   }
   .help-article .trigger {
-    @apply flex w-full items-center justify-between border-t border-t-gray-200 px-2 py-8;
+    @apply flex w-full items-center justify-between border-t border-t-gray-200 px-2 py-8 text-left;
   }
   .trigger .chevron {
-    @apply transition-transform transform duration-300;
+    @apply transform transition-transform duration-300;
   }
   .trigger[data-state='open'] .chevron {
-    @apply  rotate-180;
+    @apply rotate-180;
   }
   @keyframes slideDown {
     from {
@@ -70,6 +98,9 @@
   }
   .accordion-content[data-state='closed'] {
     animation: slideUp 300ms ease-out;
+  }
+  .react-aria-Popover[data-trigger='Select'] {
+    width: var(--trigger-width);
   }
 }
 

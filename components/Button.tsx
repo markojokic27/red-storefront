@@ -33,11 +33,13 @@ export const getButtonClassNames = ({
       'border-1 bg-transparent hover:bg-transparent hover:border-blue-900 hover:text-blue-900 disabled:bg-transparent disabled:border-blue-100 disabled:text-blue-100',
     size === 'sm' && 'px-6 py-2 lg:px-8 lg:py-2',
     size === 'md' && 'px-8 py-2',
-    isVisuallyDisabled && 'border-blue-100 text-blue-100 bg-gray-100'
+    isVisuallyDisabled && 'border-blue-100 text-blue-100 bg-gray-100',
+    variant === 'link' &&
+      'border-0 bg-transparent hover:bg-transparent underline underline-offset-4  disabled:bg-transparent disabled:text-blue-100 text-black p-0 m-0 h-auto font-normal not-italic focus:outline-none'
   );
 
 export type ButtonOwnProps = {
-  variant?: 'solid' | 'outline';
+  variant?: 'solid' | 'outline' | 'link';
   colorScheme?: 'blue' | 'gray' | 'white';
   size?: 'sm' | 'md';
   isVisuallyDisabled?: boolean;

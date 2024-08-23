@@ -18,7 +18,7 @@ import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { ProductCard } from '@/components/ProductCard';
 import { Layout, LayoutRow, LayoutColumn } from '@/components/Layout';
-import { Icon } from '@/components/icons/Icon';
+import { Icon } from '@/components/Icon';
 import { Footer } from '@/components/Footer';
 import { Tag } from '@/components/Tag';
 
@@ -39,7 +39,7 @@ export default function Page() {
   return (
     <>
       <Header headerTheme="dark" />
-      <Layout className=" mt-28 sm:flex sm:justify-between md:mb-40 md:mt-40">
+      <Layout className="mt-28 sm:flex sm:justify-between md:mb-40 md:mt-40">
         <div className="text-2xl font-black italic text-blue-700 lg:text-6xl">
           <h1>Shop</h1>
         </div>
@@ -87,7 +87,7 @@ export default function Page() {
       </Layout>
 
       <Layout className="mb-40">
-      <LayoutRow>
+        <LayoutRow>
           {[...Array(16)].map((_, index) => (
             <LayoutColumn key={index} span={12} smSpan={6} mdSpan={3}>
               <ProductCard

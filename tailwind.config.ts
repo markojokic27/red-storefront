@@ -18,6 +18,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xl: '1296px',
+      },
       colors: {
         blue: {
           100: '#DFE2F2',
@@ -67,7 +70,7 @@ const config: Config = {
         '1': '1px',
       },
       maxWidth: {
-        "xl":"37.5rem",
+        150: '37.5rem',
         '8xl': '90rem',
       },
       spacing: {
@@ -76,20 +79,20 @@ const config: Config = {
       height: {
         18: '4.5rem',
       },
-      keyframes: {
-        slideDown: {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        slideUp: {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-        },
-      },
-      animation: {
-        slideDown: 'slideDown 300ms ease-out',
-        slideUp: 'slideUp 300ms ease-out',
-      },
+      // keyframes: {
+      //   slideDown-accordion: {
+      //     from: { height: '0' },
+      //     to: { height: 'var(--radix-accordion-content-height)' },
+      //   },
+      //   slideUp-accordion: {
+      //     from: { height: 'var(--radix-accordion-content-height)' },
+      //     to: { height: '0' },
+      //   },
+      // },
+      // animation: {
+      //   slideDown-accordion: 'slideDown 300ms ease-out',
+      //   slideUp: 'slideUp 300ms ease-out',
+      // },
     },
   },
   plugins: [],
