@@ -29,7 +29,9 @@
       margin-left: -48px;
     }
   }
-
+  .listBoxItem {
+    @apply mx-4 flex h-12 items-center border-b border-b-gray-200;
+  }
   /* Article */
   .article {
     @apply mb-48 mt-44;
@@ -98,6 +100,32 @@
   }
   .accordion-content[data-state='closed'] {
     animation: slideUp 300ms ease-out;
+  }
+  @keyframes slideDownCollapsible {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes slideUpCollapsible {
+    from {
+      height: var(--radix-collapsible-content-heightt);
+    }
+    to {
+      height: 0;
+    }
+  }
+  .collapsible-content {
+    @apply overflow-hidden;
+  }
+  .collapsible-content[data-state='open'] {
+    animation: slideDownCollapsible 300ms ease-out;
+  }
+  .collapsible-content[data-state='closed'] {
+    animation: slideUpCollapsible 300ms ease-out;
   }
   .react-aria-Popover[data-trigger='Select'] {
     width: var(--trigger-width);

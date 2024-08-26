@@ -3,7 +3,7 @@ import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // Components
-import { RadioColor, RadioGroupProduct, RadioSize } from '@/components/RadioGroupSize';
+import { RadioColor, RadioGroupProduct, RadioSize } from '@/components/RadioGroupProduct';
 import { Button } from '@/components/Button';
 
 

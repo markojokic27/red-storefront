@@ -11,15 +11,15 @@ import { OrderContent } from '@/components/checkout/OrderContent';
 
 export const Collapsible = () => {
   return (
-    <RadixCollapsible.Root className="lg:hidden mt-21">
-      <RadixCollapsible.Trigger className="trigger h-18  flex w-full items-center justify-between bg-grayscale-50 px-8">
+    <RadixCollapsible.Root className="mt-21 group lg:hidden">
+      <RadixCollapsible.Trigger className="trigger h-18 flex w-full items-center justify-between bg-grayscale-50 px-8">
         <p>Order Summary</p>
         <div className="flex gap-4">
           <p>€45</p>
           <Icon name="chevron" className="chevron"></Icon>
         </div>
       </RadixCollapsible.Trigger>
-      <RadixCollapsible.Content className="accordion-content">
+      <RadixCollapsible.Content className="collapsible-content">
         <OrderContent />
       </RadixCollapsible.Content>
     </RadixCollapsible.Root>

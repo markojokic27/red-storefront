@@ -68,6 +68,7 @@ const config: Config = {
       },
       borderWidth: {
         '1': '1px',
+        '5': '5px',
       },
       maxWidth: {
         150: '37.5rem',

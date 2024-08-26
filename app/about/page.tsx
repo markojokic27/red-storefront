@@ -15,7 +15,7 @@ import aboutSide from '@/public/assets/images/aboutSide.png';
 
 export default function Page() {
   return (
-    <main className="">
+    <>
       <Header headerTheme="light" />
       <div className="-z-10 h-[100vh] w-full justify-center overflow-hidden">
         <Image
@@ -123,6 +123,6 @@ export default function Page() {
         </p>
       </div>
       <Footer />
-    </main>
+    </>
   );
 }

@@ -33,12 +33,12 @@ export default function Page() {
               Hey gorgeous , welcome to red
             </h2>
             <div className="gap-6 md:flex">
-              <Input placeholder="First name" className="md:w-1/2"/>
-              <Input placeholder="Last name" className="md:w-1/2"/>
+              <Input label="First name" className="md:w-1/2"/>
+              <Input label="Last name" className="md:w-1/2"/>
             </div>
-            <Input placeholder="Email" />
-            <Input placeholder="Password" />
-            <Input placeholder="Confirm password" />
+            <Input label="Email" />
+            <Input label="Password" />
+            <Input label="Confirm password" />
             <Button className="w-full py-4">Register</Button>
             <p className="pt-16 text-grayscale-400">
               Already red? No worrier, just{' '}
