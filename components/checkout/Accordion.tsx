@@ -11,37 +11,28 @@ import {
   SelectValue,
   Form,
   Select,
+  RadioGroup,
+  FieldError,
 } from 'react-aria-components';
+import Image from 'next/image';
 
 // Components
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { Icon } from '@/components/Icon';
 import { Checkbox } from '@/components/Checkbox';
-import { RadioButton } from '@/components/RadioButton';
-import Link from 'next/link';
+import { RadioButton, RadioButtonVissualy } from '@/components/RadioButton';
+
+// Assets
+import ImagePayment from '@/public/assets/icons/Pay-pal.svg';
 
 export const Accordion = () => {
   const [visibleInput, setVisibleInput] = React.useState('item1');
 
-  const [email, setEmail] = React.useState('');
-  const [validEmail, setValidEmail] = React.useState('');
-
-  const handleEmailSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (event: React.FormEvent, item: string) => {
     event.preventDefault();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setValidEmail(emailPattern.test(email) ? 'true' : 'false');
-    setVisibleInput(emailPattern.test(email) ? 'item2' : 'item1');
+    setVisibleInput(item);
   };
-  const handleAddresSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setVisibleInput('item3');
-  };
-  const handleShippingSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setVisibleInput('item4');
-  };
-
   return (
     <>
       <RadixAccordion.Root
@@ -50,49 +41,46 @@ export const Accordion = () => {
         className="lg:mt-21"
       >
         <RadixAccordion.Item value="item1" className="group w-full border-b">
-          <RadixAccordion.Trigger className="trigger h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {validEmail === 'true' ? (
+          <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
+            {visibleInput !== 'item1' ? (
               <div>
                 <div className="flex justify-between">
                   <p>1. Email</p>
-                  <a
-                    className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
-                    onClick={() => {
-                      setVisibleInput('item1');
-                      setValidEmail('');
-                    }}
-                  >
-                    Change
-                  </a>
+                  <RadixAccordion.Trigger>
+                    <a
+                      className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
+                      onClick={() => {
+                        setVisibleInput('item1');
+                      }}
+                    >
+                      Change
+                    </a>
+                  </RadixAccordion.Trigger>
                 </div>
                 <div className="mt-6 flex-wrap items-center justify-start sm:flex sm:gap-16">
                   <p className="text-2xs text-gray-400">Email</p>
-                  <p className="">{email}</p>
+                  <p className="">jovana.jerimic@gmail.com</p>
                 </div>
               </div>
             ) : (
-              '1. Email'
+              <p>1. Email</p>
             )}
-          </RadixAccordion.Trigger>
+          </RadixAccordion.Header>
           <RadixAccordion.Content className="accordion-content">
-            {validEmail !== 'true' && (
-              <Form onSubmit={handleEmailSubmit}>
+            {visibleInput === 'item1' && (
+              <Form
+                onSubmit={(event: React.FormEvent<Element>) =>
+                  handleSubmit(event, 'item2')
+                }
+              >
                 <Input
-                  label="Email"
-                  className={`mb-4 ${validEmail === 'false' ? 'border-red-500' : ''}`} //nope
+                  isRequired
                   inputProps={{
-                    value: email,
-                    onChange: (e) => {
-                      setEmail(e.target.value);
-                      setValidEmail('');
-                    },
-                    validationError:
-                      email === '' && validEmail === 'false'
-                        ? 'You forgot your email'
-                        : validEmail === 'false'
-                          ? 'Invalid email address'
-                          : undefined,
+                    type: 'email',
+                    validationError: 'Email is required',
                   }}
+                  className="mb-8"
+                  label="Email"
                 />
                 <div className="mb-10 flex items-start gap-2">
                   <Checkbox className="mb-2" />
@@ -109,19 +97,21 @@ export const Accordion = () => {
           </RadixAccordion.Content>
         </RadixAccordion.Item>
         <RadixAccordion.Item value="item2" className="group w-full border-b">
-          <RadixAccordion.Trigger className="trigger h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {visibleInput === 'item3' || visibleInput === 'item4' ? (
+          <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
+            {visibleInput !== 'item1' && visibleInput !== 'item2' ? (
               <div>
                 <div className="flex justify-between">
                   <p>2. Shipping Address</p>
-                  <a
-                    className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
-                    onClick={() => {
-                      setVisibleInput('item2');
-                    }}
-                  >
-                    Change
-                  </a>
+                  <RadixAccordion.Trigger>
+                    <a
+                      className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
+                      onClick={() => {
+                        setVisibleInput('item2');
+                      }}
+                    >
+                      Change
+                    </a>
+                  </RadixAccordion.Trigger>
                 </div>
                 <div className="mt-6 flex-wrap items-center justify-start sm:flex sm:gap-16">
                   <p className="text-2xs text-gray-400">Name</p>
@@ -137,41 +127,101 @@ export const Accordion = () => {
                 </div>
               </div>
             ) : (
-              '2. Shipping Address'
+              <p>2. Shipping Address</p>
             )}
-          </RadixAccordion.Trigger>
+          </RadixAccordion.Header>
           <RadixAccordion.Content className="accordion-content">
-            <Form onSubmit={handleAddresSubmit}>
-              <Select className="data-[data-trigger=Select]: relative mb-8">
-                <AriaButton className="relative flex w-full items-center justify-between border border-grayscale-50 px-4">
+            <Form
+              onSubmit={(event: React.FormEvent<Element>) =>
+                handleSubmit(event, 'item3')
+              }
+            >
+              <Select
+                isRequired
+                aria-label="Choose an option"
+                className="group relative mb-8 outline-none focus:outline-none active:outline-none"
+              >
+                <AriaButton className="relative flex w-full items-center justify-between border border-grayscale-50 px-4 hover:border-blue-700 group-data-[invalid]:border-red-700">
                   <SelectValue className="pb-3 pt-5" />
                   <Icon name="chevron" />
-                  <label className="text-2xs absolute top-1.5 text-sm text-gray-400">
+                  <label className="absolute top-1.5 text-2xs text-sm text-gray-400">
                     Country
                   </label>
                 </AriaButton>
-                <Popover className="react-aria-Popover w-full">
+                <Popover className="react-aria-Popover w-full border">
                   <ListBox className="w-full bg-white hover:cursor-pointer">
                     <ListBoxItem className="listBoxItem">Croatia</ListBoxItem>
                     <ListBoxItem className="listBoxItem">Slovenia</ListBoxItem>
                     <ListBoxItem className="listBoxItem">Germany</ListBoxItem>
                   </ListBox>
                 </Popover>
+
+                <FieldError className="absolute hidden text-2xs text-red-500 group-data-[invalid=true]:block">
+                  Country is required
+                </FieldError>
               </Select>
               <div className="lg:flex lg:gap-12">
-                <Input className="mb-8" label="First name" />
-                <Input className="mb-8" label="Last name" />
+                <Input
+                  isRequired
+                  inputProps={{
+                    type: 'text',
+                    validationError: 'First name is required',
+                  }}
+                  className="mb-8"
+                  label="First name"
+                />
+                <Input
+                  isRequired
+                  inputProps={{
+                    type: 'text',
+                    validationError: 'Last name is required',
+                  }}
+                  className="mb-8"
+                  label="Last name"
+                />
               </div>
-              <Input label="Address" className="mb-4" />
+              <Input
+                isRequired
+                inputProps={{
+                  type: 'text',
+                  validationError: 'Address is required',
+                }}
+                label="Address"
+                className="mb-8"
+              />
               <Input
                 label="Apartment, suite, etc. (Optional)"
-                className="mb-4"
+                className="mb-8"
               />
               <div className="lg:flex lg:gap-12">
-                <Input className="mb-8" label="Postal Code" />
-                <Input className="mb-8" label="City" />
+                <Input
+                  isRequired
+                  inputProps={{
+                    type: 'text',
+                    validationError: 'Postal Code is required',
+                  }}
+                  className="mb-8"
+                  label="Postal Code"
+                />
+                <Input
+                  isRequired
+                  inputProps={{
+                    type: 'text',
+                    validationError: 'City is required',
+                  }}
+                  className="mb-8"
+                  label="City"
+                />
               </div>
-              <Input className="mb-8" label="Phone" />
+              <Input
+                isRequired
+                inputProps={{
+                  type: 'text',
+                  validationError: 'Phone is required',
+                }}
+                className="mb-8"
+                label="Phone"
+              />
 
               <Button type="submit" className="mb-8 py-3">
                 Next
@@ -180,19 +230,21 @@ export const Accordion = () => {
           </RadixAccordion.Content>
         </RadixAccordion.Item>
         <RadixAccordion.Item value="item3" className="group w-full border-b">
-          <RadixAccordion.Trigger className="trigger h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {visibleInput === 'item4' ? (
+          <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
+            {visibleInput === 'item4' || visibleInput === 'finish' ? (
               <div>
                 <div className="flex justify-between">
                   <p>3. Shipping Method</p>
-                  <a
-                    className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
-                    onClick={() => {
-                      setVisibleInput('item3');
-                    }}
-                  >
-                    Change
-                  </a>
+                  <RadixAccordion.Trigger>
+                    <a
+                      className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
+                      onClick={() => {
+                        setVisibleInput('item3');
+                      }}
+                    >
+                      Change
+                    </a>
+                  </RadixAccordion.Trigger>
                 </div>
                 <div className="mt-6 flex-wrap items-center justify-start sm:flex sm:gap-16">
                   <p className="text-2xs text-gray-400">Shipping</p>
@@ -200,20 +252,159 @@ export const Accordion = () => {
                 </div>
               </div>
             ) : (
-              '3. Shipping method'
+              <p>3. Shipping method</p>
             )}
-          </RadixAccordion.Trigger>
+          </RadixAccordion.Header>
           <RadixAccordion.Content className="accordion-content">
-            <Form onSubmit={handleShippingSubmit}>
-              {/*<RadioButton value="a" />*/}
+            <Form
+              onSubmit={(event: React.FormEvent<Element>) =>
+                handleSubmit(event, 'item4')
+              }
+            >
+              <RadioGroup
+                isRequired
+                aria-label="Shipping options"
+                className="flex flex-col gap-2"
+              >
+                <RadioButton
+                  value="€5"
+                  labelLeft={<p>Stand delivery 3 — 5 days</p>}
+                  labelRight={<p>€5</p>}
+                />
+                <RadioButton
+                  value="€10"
+                  labelLeft={<p>Fast delivery 1 — 2 days</p>}
+                  labelRight={<p>€10</p>}
+                />
+              </RadioGroup>
 
-              <Button type="submit" className="mb-8 py-3">
+              <Button type="submit" className="mb-8 mt-10 py-3">
                 Next
               </Button>
             </Form>
           </RadixAccordion.Content>
         </RadixAccordion.Item>
+        <RadixAccordion.Item value="item4" className="group w-full">
+          <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
+            {visibleInput === 'item4' ? (
+              <p className="color-blue-700 font-black">4. Paymant</p>
+            ) : (
+              <p>4. Payment</p>
+            )}
+          </RadixAccordion.Header>
+          <RadixAccordion.Content className="accordion-content">
+            <RadixAccordion.Root
+              type="single"
+              collapsible
+              className="group w-full"
+            >
+              <RadioGroup
+                aria-label="Shipping options"
+                className="flex flex-col gap-2"
+              >
+                <RadixAccordion.Item value="item41" className="mb-2">
+                  <RadixAccordion.Header>
+                    <RadixAccordion.Trigger className="trigger w-full">
+                      <RadioButtonVissualy
+                        labelLeft={<p>Card</p>}
+                        labelRight={
+                          <Image src={ImagePayment} alt="PayPal icon" />
+                        }
+                      />
+                    </RadixAccordion.Trigger>
+                  </RadixAccordion.Header>
+                  <RadixAccordion.Content className="accordion-content">
+                    <div className="flex h-20 w-full items-center justify-center border">
+                      <Button
+                        onPress={() => {
+                          setVisibleInput('finish');
+                        }}
+                      >
+                        Next
+                      </Button>
+                    </div>
+                  </RadixAccordion.Content>
+                </RadixAccordion.Item>
+                <RadixAccordion.Item value="item42" className="mb-2">
+                  <RadixAccordion.Header>
+                    <RadixAccordion.Trigger className="trigger w-full">
+                      <RadioButtonVissualy
+                        labelLeft={<p>Google Pay</p>}
+                        labelRight={
+                          <Image src={ImagePayment} alt="PayPal icon" />
+                        }
+                      />
+                    </RadixAccordion.Trigger>
+                  </RadixAccordion.Header>
+                  <RadixAccordion.Content className="accordion-content">
+                    <div className="flex h-20 w-full items-center justify-center border">
+                      <Button
+                        onPress={() => {
+                          setVisibleInput('finish');
+                        }}
+                      >
+                        Next
+                      </Button>
+                    </div>
+                  </RadixAccordion.Content>
+                </RadixAccordion.Item>
+                <RadixAccordion.Item value="item43" className="mb-2">
+                  <RadixAccordion.Header>
+                    <RadixAccordion.Trigger className="trigger w-full">
+                      <RadioButtonVissualy
+                        labelLeft={<p>Apple Pay</p>}
+                        labelRight={
+                          <Image src={ImagePayment} alt="PayPal icon" />
+                        }
+                      />
+                    </RadixAccordion.Trigger>
+                  </RadixAccordion.Header>
+                  <RadixAccordion.Content className="accordion-content">
+                    <div className="flex h-20 w-full items-center justify-center border">
+                      <Button
+                        onPress={() => {
+                          setVisibleInput('finish');
+                        }}
+                      >
+                        Next
+                      </Button>
+                    </div>
+                  </RadixAccordion.Content>
+                </RadixAccordion.Item>
+                <RadixAccordion.Item value="item44">
+                  <RadixAccordion.Header>
+                    <RadixAccordion.Trigger className="trigger w-full">
+                      <RadioButtonVissualy
+                        labelLeft={<p>Pay Pal</p>}
+                        labelRight={
+                          <Image src={ImagePayment} alt="PayPal icon" />
+                        }
+                      />
+                    </RadixAccordion.Trigger>
+                  </RadixAccordion.Header>
+                  <RadixAccordion.Content className="accordion-content">
+                    <div className="flex h-20 w-full items-center justify-center border">
+                      <Button
+                        onPress={() => {
+                          setVisibleInput('finish');
+                        }}
+                      >
+                        Next
+                      </Button>
+                    </div>
+                  </RadixAccordion.Content>
+                </RadixAccordion.Item>
+              </RadioGroup>
+            </RadixAccordion.Root>
+          </RadixAccordion.Content>
+        </RadixAccordion.Item>
       </RadixAccordion.Root>
+      <Button
+        className="mb-24 mt-10 w-full py-4"
+        isVisuallyDisabled={visibleInput === 'finish' ? false : true}
+      >
+        Place an order
+      </Button>
     </>
   );
 };

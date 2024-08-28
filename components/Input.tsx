@@ -18,7 +18,7 @@ export const Input: React.FC<
       inputProps?: React.ComponentPropsWithoutRef<'input'> &
         InputProps & { validationError?: string };
     }
-> = ({ label, inputProps = {}, className }) => {
+> = ({ label, inputProps = {}, className, ...rest }) => {
   const labelRef = React.useRef<HTMLLabelElement | null>(null);
   const {
     validationError,
@@ -29,21 +29,21 @@ export const Input: React.FC<
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-
     if (labelRef.current) {
       labelRef.current.setAttribute(
         'data-label-floating',
         value ? 'true' : 'false'
       );
     }
-    onChange?.(event); 
+    onChange?.(event);
   };
 
   return (
     <TextField
-      className={twMerge('w-full text-base text-gray-400', className)}
+      {...rest}
+      className={twMerge('group w-full text-base text-gray-400', className)}
     >
-      <div className="relative">
+      <div className="relative mb-2">
         <Label
           ref={labelRef}
           className="peer absolute left-4 top-1/2 origin-left -translate-y-1/2 transition-transform data-[label-floating=true]:-translate-y-[22px] data-[label-floating=true]:scale-75"
@@ -53,14 +53,18 @@ export const Input: React.FC<
         <AriaInput
           {...restInputProps}
           className={twMerge(
-            'h-[56px] w-full border border-gray-200 px-4 text-gray-900 outline-none hover:border-blue-700 focus:border-blue-700 active:border-blue-700 peer-data-[label-floating=true]:pt-3',
+            'h-[56px] w-full border px-4 text-gray-900 outline-none hover:border-blue-700 focus:border-blue-700 active:border-blue-700 group-data-[invalid=true]:border-red-700 peer-data-[label-floating=true]:pt-3',
+
             inputClassName
           )}
           onChange={handleChange}
         />
       </div>
+
       {validationError && (
-        <p className="mt-2 text-red-500">{validationError}</p>
+        <FieldError className="absolute hidden text-2xs text-red-500 group-data-[invalid=true]:block">
+          {validationError}
+        </FieldError>
       )}
     </TextField>
   );

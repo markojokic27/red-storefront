@@ -1,23 +1,64 @@
 // External packages
 import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Label, Radio, RadioProps } from 'react-aria-components';
+import { Label, Radio as AriaRadio, RadioProps } from 'react-aria-components';
 
 export const RadioButton: React.FC<
   RadioProps &
-    React.ComponentPropsWithoutRef<'div'> & {
+    React.ComponentPropsWithoutRef<'label'> & {
       labelLeft?: React.ReactNode;
       labelRight?: React.ReactNode;
       value: string;
     }
-> = ({ value, labelLeft, labelRight, className, ...rest }) => (
-  <Radio
-    {...rest}
-    value={value}
-    className={twMerge('group flex justify-start px-4 py-5', className)}
-  >
-    <div className="group-data-[selected=true]:border-5 h-4 w-4 rounded-full border border-black group-hover:border-blue-700" />
-    {labelLeft && <Label>{labelLeft}</Label>}
-    {labelRight && <Label>{labelRight}</Label>}
-  </Radio>
-);
+> = ({ value, labelLeft, labelRight, className, ...rest }) => {
+  return (
+    <AriaRadio
+      {...rest}
+      value={value}
+      className={twMerge(
+        'group flex items-center justify-start gap-3 border px-4 py-5 hover:cursor-pointer hover:border-blue-700',
+        className
+      )}
+    >
+      <Radio />
+      {labelLeft && <Label>{labelLeft}</Label>}
+      {labelRight && <Label className="ml-auto">{labelRight}</Label>}
+    </AriaRadio>
+  );
+};
+
+export const Radio: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
+  className,
+  ...rest
+}) => {
+  return (
+    <div
+      {...rest}
+      className={twMerge(
+        'h-4 w-4 rounded-full border border-black transition-all duration-300 group-hover:border-blue-700 group-data-[selected=true]:border-5',
+        className
+      )}
+    ></div>
+  );
+};
+
+export const RadioButtonVissualy: React.FC<
+  React.ComponentPropsWithoutRef<'div'> & {
+    labelLeft?: React.ReactNode;
+    labelRight?: React.ReactNode;
+  }
+> = ({ labelLeft, labelRight, className, ...rest }) => {
+  return (
+    <div
+      {...rest}
+      className={twMerge(
+        'group flex items-center justify-start gap-3 border px-4 py-5 hover:cursor-pointer hover:border-blue-700',
+        className
+      )}
+    >
+      <Radio />
+      {labelLeft && <Label>{labelLeft}</Label>}
+      {labelRight && <Label className="ml-auto">{labelRight}</Label>}
+    </div>
+  );
+};

@@ -30,7 +30,7 @@
     }
   }
   .listBoxItem {
-    @apply mx-4 flex h-12 items-center border-b border-b-gray-200;
+    @apply mx-4 flex h-12 items-center border-b border-b-gray-200 hover:outline-none outline-none;
   }
   /* Article */
   .article {
@@ -93,7 +93,7 @@
     }
   }
   .accordion-content {
-    @apply overflow-hidden;
+    @apply overflow-hidden w-full;
   }
   .accordion-content[data-state='open'] {
     animation: slideDown 300ms ease-out;
