@@ -8,11 +8,17 @@
     width: calc((100% + 48px) + ((100vw - 1248px) / 2));
     margin-left: -48px;
   }
+  .pulled-background-account::after {
+    width: 100vw;
+  }
 
   @media (min-width: 1024px) {
     .pulled-background::after {
       width: calc((100% + 48px) + ((100vw - 1024px) / 2));
       margin-left: -48px;
+    }
+    .pulled-background-account::after {
+      width: calc((100% + 48px) + ((100vw - 1024px) / 2));
     }
   }
 
@@ -21,6 +27,9 @@
       width: calc((100% + 48px) + ((100vw - 1296px) / 2));
       margin-left: -48px;
     }
+    .pulled-background-account::after {
+      width: calc((100% + 48px) + ((100vw - 1296px) / 2));
+    }
   }
 
   @media (min-width: 1536px) {
@@ -28,9 +37,12 @@
       width: calc((100% + 48px) + ((100vw - 1536px) / 2));
       margin-left: -48px;
     }
+    .pulled-background-account::after {
+      width: calc((100% + 48px) + ((100vw - 1536px) / 2));
+    }
   }
   .listBoxItem {
-    @apply mx-4 flex h-12 items-center border-b border-b-gray-200 hover:outline-none outline-none;
+    @apply mx-4 flex h-12 items-center border-b border-b-gray-200 outline-none hover:outline-none;
   }
   /* Article */
   .article {
@@ -93,7 +105,7 @@
     }
   }
   .accordion-content {
-    @apply overflow-hidden w-full;
+    @apply w-full overflow-hidden;
   }
   .accordion-content[data-state='open'] {
     animation: slideDown 300ms ease-out;
