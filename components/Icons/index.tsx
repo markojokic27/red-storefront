@@ -3,4 +3,5 @@ import { Chevron } from './Chevron';
 import { Hamburger } from './Hamburger';
 import { Search } from './Search';
 import { User } from './User';
-export { Bag, Chevron, Hamburger, Search, User };
+import {Trash} from './Trash';
+export { Bag, Chevron, Hamburger, Search, User, Trash };

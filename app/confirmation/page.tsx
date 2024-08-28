@@ -33,7 +33,7 @@ export default function Page() {
             <b>7 Aug - 8 Aug</b>
           </LayoutColumn>
         </LayoutRow>
-        <LayoutRow>
+        <LayoutRow className='text-grayscale-600'>
           <LayoutColumn span={12} lgOffset={3} lgSpan={3} className="mb-16">
             <p>Shipping adress:</p>
             <p>Jovana Jerimic</p>

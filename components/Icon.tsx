@@ -10,6 +10,7 @@ export type IconNames =
   | 'chevron'
   | 'hamburger'
   | 'search'
+  | 'trash'
   | 'user';
 
 const baseClasses = 'w-6 h-6 flex-shrink-0';
@@ -19,7 +20,7 @@ export const Icon: React.FC<
     name: IconNames;
     color?: string;
   }
-> = ({ name, className, color, ...rest }) => (
+> = ({ name, className, ...rest }) => (
   <>
     {name === 'search' && (
       <Icons.Search {...rest}  className={twMerge(baseClasses, className)} />
@@ -36,5 +37,8 @@ export const Icon: React.FC<
     {name === 'user' && (
       <Icons.User {...rest}  className={twMerge(baseClasses, className)} />
     )} 
+    {name === 'trash' && (
+      <Icons.Trash {...rest}  className={twMerge(baseClasses, className)} />
+    )}
   </>
 );

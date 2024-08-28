@@ -20,7 +20,6 @@ export const Header: React.FC<{
 
     if (element) {
       element.dataset.theme = headerTheme;
-      console.log('Initial theme:', element.dataset.theme);
     }
 
     const handleScroll = () => {
@@ -30,7 +29,6 @@ export const Header: React.FC<{
         } else {
           element.dataset.theme = 'light';
         }
-        console.log('Updated theme:', element.dataset.theme);
       }
     };
 
