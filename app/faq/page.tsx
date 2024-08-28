@@ -1,5 +1,3 @@
-'use client';
-
 // External packages
 import * as React from 'react';
 import * as Accordion from '@radix-ui/react-accordion';
