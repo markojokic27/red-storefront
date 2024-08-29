@@ -1,5 +1,3 @@
-'use client';
-
 // External packages
 import Image from 'next/image';
 
@@ -17,46 +15,49 @@ export default function Page() {
   return (
     <>
       <Header headerTheme="light" />
-      <div className="-z-10 h-[100vh] w-full justify-center overflow-hidden">
+      <div className="h-screen w-full justify-center overflow-hidden bg-black">
         <Image
           alt="header image"
           src={HeaderImage}
-          className="absolute -z-10 h-full w-full object-cover"
-        ></Image>
+          className="absolute h-full w-full object-cover"
+        />
         <Layout className="text-white">
-          <LayoutRow className='h-full'>
-            <LayoutColumn span={12} smSpan={6} lgSpan={5} >
-              <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 xl:mt-44 lg:text-4xl">
+          <LayoutRow className="h-full">
+            <LayoutColumn span={12} smSpan={6} lgSpan={5}>
+              <h1 className="mb-4 mt-16 text-xl font-black italic sm:mb-12 sm:mt-20 md:mt-32 lg:text-4xl xl:mt-44">
                 The world of red
               </h1>
-                  <p className="mb-4 rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
-                    Welcome to Red, where style meets substance. Red is not just
-                    a street fashion brand; it's an attitude, a movement, and a
-                    way of life. Our passion lies in creating cool, youthful,
-                    and chill designs that resonate with the free spirits of
-                    today.
-                  </p>
-                  <p className="rounded bg-black bg-opacity-15 text-base backdrop-blur-sm">
-                    But it doesn't stop there; Red is more than just a brand;
-                    it's a philosophy that cherishes slow fashion and
-                    sustainability. We are committed to producing fashion with
-                    love and care, staying true to our core values of
-                    environmental responsibility and ethical practices.
-                  </p>
-                <p className="mt-4 rounded bg-black bg-opacity-15 backdrop-blur-sm  md:text-md ">
+              <div className="text-base">
+                <p className="mb-4">
+                  Welcome to Red, where style meets substance. Red is not just a
+                  street fashion brand; it's an attitude, a movement, and a way
+                  of life. Our passion lies in creating cool, youthful, and
+                  chill designs that resonate with the free spirits of today.
+                </p>
+                <p className="mb-4">
+                  But it doesn't stop there; Red is more than just a brand; it's
+                  a philosophy that cherishes slow fashion and sustainability.
+                  We are committed to producing fashion with love and care,
+                  staying true to our core values of environmental
+                  responsibility and ethical practices.
+                </p>
+                <p className="md:text-md">
                   Embrace the bold and step into the world of Red, where fashion
                   is not just an outfit but an expression of authenticity.
                 </p>
+              </div>
             </LayoutColumn>
           </LayoutRow>
         </Layout>
       </div>
       <Layout className="mb-40">
-        <div>
-          <h2 className="mb-16 mt-24 text-lg font-black italic text-blue-700 lg:text-4xl">
-            Breaking Boundaries <br /> Unisex Styles for All
-          </h2>
-        </div>
+        <LayoutRow>
+          <LayoutColumn>
+            <h2 className="mb-16 mt-24 text-lg font-black italic text-blue-700 lg:text-4xl">
+              Breaking Boundaries <br /> Unisex Styles for All
+            </h2>
+          </LayoutColumn>
+        </LayoutRow>
         <LayoutRow className="md:flex-row-reverse">
           <LayoutColumn mdSpan={6} lgSpan={5} lgOffset={1}>
             <p className="mb-10 xl:mb-40">
@@ -80,7 +81,7 @@ export default function Page() {
         </LayoutRow>
       </Layout>
       <div className="relative w-full md:mb-32">
-        <Layout className="z-20">
+        <Layout>
           <LayoutRow>
             <LayoutColumn mdSpan={6} lgSpan={5}>
               <h3 className="mb-12 text-lg font-black italic text-blue-700 lg:text-4xl">

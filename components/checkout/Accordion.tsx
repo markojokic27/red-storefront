@@ -27,12 +27,15 @@ import { RadioButton, RadioButtonVissualy } from '@/components/RadioButton';
 import ImagePayment from '@/public/assets/icons/Pay-pal.svg';
 
 export const Accordion = () => {
+  // Preimenovat u state, setState
   const [visibleInput, setVisibleInput] = React.useState('item1');
 
+  // TODO: Uzet setState i stavit ga na botun onClick
   const handleSubmit = (event: React.FormEvent, item: string) => {
     event.preventDefault();
     setVisibleInput(item);
   };
+
   return (
     <>
       <RadixAccordion.Root

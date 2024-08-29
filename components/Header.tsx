@@ -40,7 +40,7 @@ export const Header: React.FC<{
     <div
       ref={headerRef}
       className={twMerge(
-        `group fixed top-0 z-50 w-full data-[theme=dark]:border-b-1 data-[theme=dark]:border-b-blue-700 data-[theme=dark]:bg-white data-[theme=light]:bg-transparent`
+        `group fixed top-0 z-40 w-full data-[theme=dark]:border-b-1 data-[theme=dark]:border-b-blue-700 data-[theme=dark]:bg-white data-[theme=light]:bg-transparent`
       )}
     >
       <Layout className="flex justify-start py-6">
