@@ -1,7 +1,4 @@
-'use client';
-
 // External packages
-import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,14 +16,16 @@ export default function Page() {
     <>
       <Header headerTheme="dark" />
       <Layout className="mt-21">
-        <LayoutRow className="">
-          <Image
-            height={816}
-            width={720}
-            src={ImageAuthentication}
-            alt="authentication image"
-            className="fixed left-0 top-21 hidden h-auto w-1/2 object-cover md:block"
-          />
+        <LayoutRow>
+          <LayoutColumn>
+            <Image
+              height={816}
+              width={720}
+              src={ImageAuthentication}
+              alt="authentication image"
+              className="fixed left-0 top-21 hidden h-auto w-1/2 object-cover md:block"
+            />
+          </LayoutColumn>
           <LayoutColumn
             mdSpan={5}
             mdOffset={7}

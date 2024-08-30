@@ -11,8 +11,8 @@ import { OrderContent } from '@/components/checkout/OrderContent';
 
 export const Collapsible = () => {
   return (
-    <RadixCollapsible.Root className="mt-21 group lg:hidden">
-      <RadixCollapsible.Trigger className="trigger h-18 flex w-full items-center justify-between bg-grayscale-50 px-8">
+    <RadixCollapsible.Root className="group mt-21 lg:hidden">
+      <RadixCollapsible.Trigger className="trigger flex h-18 w-full items-center justify-between bg-grayscale-50 px-8">
         <p>Order Summary</p>
         <div className="flex gap-4">
           <p>€45</p>

@@ -1,7 +1,5 @@
-'use client';
-
 // External packages
-import * as React from 'react';
+import Image from 'next/image';
 
 // Components
 import { Header } from '@/components/Header';
@@ -9,7 +7,6 @@ import { Footer } from '@/components/Footer';
 import { Layout, LayoutRow, LayoutColumn } from '@/components/Layout';
 import { ShopProductCard } from '@/components/ShopProductCard';
 import { Tag } from '@/components/Tag';
-import Image from 'next/image';
 
 // Assets
 import ImageProduct1 from '@/public/assets/images/productSingle1.png';

@@ -11,6 +11,7 @@ import {
   SelectValue,
   Form,
   Select,
+  SelectProps,
   RadioGroup,
   FieldError,
 } from 'react-aria-components';
@@ -27,25 +28,13 @@ import { RadioButton, RadioButtonVissualy } from '@/components/RadioButton';
 import ImagePayment from '@/public/assets/icons/Pay-pal.svg';
 
 export const Accordion = () => {
-  // Preimenovat u state, setState
-  const [visibleInput, setVisibleInput] = React.useState('item1');
-
-  // TODO: Uzet setState i stavit ga na botun onClick
-  const handleSubmit = (event: React.FormEvent, item: string) => {
-    event.preventDefault();
-    setVisibleInput(item);
-  };
-
+  const [state, setState] = React.useState('item1');
   return (
     <>
-      <RadixAccordion.Root
-        type="single"
-        value={visibleInput}
-        className="lg:mt-21"
-      >
+      <RadixAccordion.Root type="single" value={state} className="lg:mt-21">
         <RadixAccordion.Item value="item1" className="group w-full border-b">
           <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {visibleInput !== 'item1' ? (
+            {state !== 'item1' ? (
               <div>
                 <div className="flex justify-between">
                   <p>1. Email</p>
@@ -53,7 +42,7 @@ export const Accordion = () => {
                     <a
                       className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
                       onClick={() => {
-                        setVisibleInput('item1');
+                        setState('item1');
                       }}
                     >
                       Change
@@ -70,12 +59,8 @@ export const Accordion = () => {
             )}
           </RadixAccordion.Header>
           <RadixAccordion.Content className="accordion-content">
-            {visibleInput === 'item1' && (
-              <Form
-                onSubmit={(event: React.FormEvent<Element>) =>
-                  handleSubmit(event, 'item2')
-                }
-              >
+            {state === 'item1' && (
+              <Form onSubmit={() => setState('item2')}>
                 <Input
                   isRequired
                   inputProps={{
@@ -101,7 +86,7 @@ export const Accordion = () => {
         </RadixAccordion.Item>
         <RadixAccordion.Item value="item2" className="group w-full border-b">
           <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {visibleInput !== 'item1' && visibleInput !== 'item2' ? (
+            {state !== 'item1' && state !== 'item2' ? (
               <div>
                 <div className="flex justify-between">
                   <p>2. Shipping Address</p>
@@ -109,7 +94,7 @@ export const Accordion = () => {
                     <a
                       className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
                       onClick={() => {
-                        setVisibleInput('item2');
+                        setState('item2');
                       }}
                     >
                       Change
@@ -134,35 +119,8 @@ export const Accordion = () => {
             )}
           </RadixAccordion.Header>
           <RadixAccordion.Content className="accordion-content">
-            <Form
-              onSubmit={(event: React.FormEvent<Element>) =>
-                handleSubmit(event, 'item3')
-              }
-            >
-              <Select
-                isRequired
-                aria-label="Choose an option"
-                className="group relative mb-8 outline-none focus:outline-none active:outline-none"
-              >
-                <AriaButton className="relative flex w-full items-center justify-between border border-grayscale-50 px-4 hover:border-blue-700 group-data-[invalid]:border-red-700">
-                  <SelectValue className="pb-3 pt-5" />
-                  <Icon name="chevron" />
-                  <label className="absolute top-1.5 text-2xs text-sm text-gray-400">
-                    Country
-                  </label>
-                </AriaButton>
-                <Popover className="react-aria-Popover w-full border">
-                  <ListBox className="w-full bg-white hover:cursor-pointer">
-                    <ListBoxItem className="listBoxItem">Croatia</ListBoxItem>
-                    <ListBoxItem className="listBoxItem">Slovenia</ListBoxItem>
-                    <ListBoxItem className="listBoxItem">Germany</ListBoxItem>
-                  </ListBox>
-                </Popover>
-
-                <FieldError className="absolute hidden text-2xs text-red-500 group-data-[invalid=true]:block">
-                  Country is required
-                </FieldError>
-              </Select>
+            <Form onSubmit={() => setState('item3')}>
+              <SelectCountry />
               <div className="lg:flex lg:gap-12">
                 <Input
                   isRequired
@@ -234,7 +192,7 @@ export const Accordion = () => {
         </RadixAccordion.Item>
         <RadixAccordion.Item value="item3" className="group w-full border-b">
           <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {visibleInput === 'item4' || visibleInput === 'finish' ? (
+            {state === 'item4' || state === 'finish' ? (
               <div>
                 <div className="flex justify-between">
                   <p>3. Shipping Method</p>
@@ -242,7 +200,7 @@ export const Accordion = () => {
                     <a
                       className="m-0 h-auto border-0 bg-transparent p-0 font-normal not-italic text-black underline underline-offset-4 hover:cursor-pointer hover:bg-transparent focus:outline-none disabled:bg-transparent disabled:text-blue-100"
                       onClick={() => {
-                        setVisibleInput('item3');
+                        setState('item3');
                       }}
                     >
                       Change
@@ -259,11 +217,7 @@ export const Accordion = () => {
             )}
           </RadixAccordion.Header>
           <RadixAccordion.Content className="accordion-content">
-            <Form
-              onSubmit={(event: React.FormEvent<Element>) =>
-                handleSubmit(event, 'item4')
-              }
-            >
+            <Form onSubmit={() => setState('item4')}>
               <RadioGroup
                 isRequired
                 aria-label="Shipping options"
@@ -289,7 +243,7 @@ export const Accordion = () => {
         </RadixAccordion.Item>
         <RadixAccordion.Item value="item4" className="group w-full">
           <RadixAccordion.Header className="h-full w-full py-8 text-left hover:cursor-default group-data-[state=open]:font-black group-data-[state=open]:text-blue-700">
-            {visibleInput === 'item4' ? (
+            {state === 'item4' ? (
               <p className="color-blue-700 font-black">4. Paymant</p>
             ) : (
               <p>4. Payment</p>
@@ -320,7 +274,7 @@ export const Accordion = () => {
                     <div className="flex h-20 w-full items-center justify-center border">
                       <Button
                         onPress={() => {
-                          setVisibleInput('finish');
+                          setState('finish');
                         }}
                       >
                         Next
@@ -343,7 +297,7 @@ export const Accordion = () => {
                     <div className="flex h-20 w-full items-center justify-center border">
                       <Button
                         onPress={() => {
-                          setVisibleInput('finish');
+                          setState('finish');
                         }}
                       >
                         Next
@@ -366,7 +320,7 @@ export const Accordion = () => {
                     <div className="flex h-20 w-full items-center justify-center border">
                       <Button
                         onPress={() => {
-                          setVisibleInput('finish');
+                          setState('finish');
                         }}
                       >
                         Next
@@ -389,7 +343,7 @@ export const Accordion = () => {
                     <div className="flex h-20 w-full items-center justify-center border">
                       <Button
                         onPress={() => {
-                          setVisibleInput('finish');
+                          setState('finish');
                         }}
                       >
                         Next
@@ -404,10 +358,41 @@ export const Accordion = () => {
       </RadixAccordion.Root>
       <Button
         className="mb-24 mt-10 w-full py-4"
-        isVisuallyDisabled={visibleInput === 'finish' ? false : true}
+        isVisuallyDisabled={state === 'finish' ? false : true}
       >
         Place an order
       </Button>
     </>
+  );
+};
+
+export const SelectCountry: React.FC<
+  SelectProps<object> & React.ComponentPropsWithoutRef<'div'>
+> = ({ ...rest }) => {
+  return (
+    <Select
+      {...rest}
+      aria-label="Country"
+      className="group relative mb-8 outline-none focus:outline-none active:outline-none"
+    >
+      <AriaButton className="relative flex w-full items-center justify-between border border-grayscale-50 px-4 hover:border-blue-700 group-data-[invalid]:border-red-700">
+        <SelectValue className="pb-3 pt-5" />
+        <Icon name="chevron" />
+        <label className="absolute top-1.5 text-2xs text-sm text-gray-400">
+          Country
+        </label>
+      </AriaButton>
+      <Popover className="react-aria-Popover w-full border">
+        <ListBox className="w-full bg-white hover:cursor-pointer">
+          <ListBoxItem className="listBoxItem">Croatia</ListBoxItem>
+          <ListBoxItem className="listBoxItem">Slovenia</ListBoxItem>
+          <ListBoxItem className="listBoxItem">Germany</ListBoxItem>
+        </ListBox>
+      </Popover>
+
+      <FieldError className="absolute hidden text-2xs text-red-500 group-data-[invalid=true]:block">
+        Country is required
+      </FieldError>
+    </Select>
   );
 };

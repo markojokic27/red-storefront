@@ -76,12 +76,12 @@ export default function Page() {
             </p>
           </LayoutColumn>
           <LayoutColumn mdSpan={6}>
-            <Image src={aboutBag} alt="bag image"></Image>
+            <Image src={aboutBag} alt="bag image" />
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <div className="relative w-full md:mb-32">
-        <Layout>
+      <div className="w-full overflow-hidden">
+        <Layout className="relative md:pb-32">
           <LayoutRow>
             <LayoutColumn mdSpan={6} lgSpan={5}>
               <h3 className="mb-12 text-lg font-black italic text-blue-700 lg:text-4xl">
@@ -107,22 +107,23 @@ export default function Page() {
                 streetwear.
               </p>
             </LayoutColumn>
+            <div className="static z-30 -mb-6 ml-auto max-w-[400px] md:absolute md:-right-1/4 md:top-0 lg:top-16 lg:max-w-[500px] xl:max-w-[750px]">
+              <Image src={aboutSide} alt="side image" />
+            </div>
           </LayoutRow>
         </Layout>
-        <div className="static z-10 -mb-6 ml-auto max-w-[400px] md:absolute md:right-0 md:top-0 lg:max-w-[500px] xl:max-w-[750px]">
-          <Image src={aboutSide} alt="side image"></Image>
+        <div className="w-full bg-blue-700 px-8 text-center text-white">
+          <h3 className="mb-12 pt-28 text-lg font-black italic lg:text-4xl">
+            Welcome to red
+          </h3>
+          <p className="mx-auto max-w-[492px] pb-32 text-md">
+            Where boldness meets passion, and style becomes your compass to
+            self-expression. Join us, explore our collections, and be a part of
+            our authentic fashion community.
+          </p>
         </div>
       </div>
-      <div className="w-full bg-blue-700 px-8 text-center text-white">
-        <h3 className="mb-12 pt-28 text-lg font-black italic lg:text-4xl">
-          Welcome to red
-        </h3>
-        <p className="mx-auto max-w-[492px] pb-32 text-md">
-          Where boldness meets passion, and style becomes your compass to
-          self-expression. Join us, explore our collections, and be a part of
-          our authentic fashion community.
-        </p>
-      </div>
+
       <Footer />
     </>
   );

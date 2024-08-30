@@ -1,12 +1,16 @@
+'use client';
+
 // External packages
 import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // Components
-import { RadioColor, RadioGroupProduct, RadioSize } from '@/components/RadioGroupProduct';
+import {
+  RadioColor,
+  RadioGroupProduct,
+  RadioSize,
+} from '@/components/RadioGroupProduct';
 import { Button } from '@/components/Button';
-
-
 
 export const ShopProductCard: React.FC<
   React.ComponentPropsWithoutRef<'div'> & {
@@ -36,23 +40,17 @@ export const ShopProductCard: React.FC<
       <div className="my-10 leading-10">{description}</div>
       <div className="mb-8">
         <p className="mb-4">Color</p>
-        <RadioGroupProduct value='white'>
+        <RadioGroupProduct value="white">
           {['white', 'grayscale-400', 'black', 'blue-700'].map((color) => (
-            <RadioColor
-              key={color}
-              value={color}
-            />
+            <RadioColor key={color} value={color} />
           ))}
         </RadioGroupProduct>
       </div>
       <div className="mb-8">
         <p className="mb-4">Size</p>
-        <RadioGroupProduct value='M'>
+        <RadioGroupProduct value="M">
           {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size) => (
-            <RadioSize
-              key={size}
-              value={size}
-            />
+            <RadioSize key={size} value={size} />
           ))}
         </RadioGroupProduct>
       </div>

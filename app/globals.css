@@ -15,6 +15,9 @@
   .pulled-background-account::after {
     width: 100vw;
   }
+  .pulled-background-account::before {
+    width: 100vw;
+  }
 
   @media (min-width: 1024px) {
     .pulled-background::after {
@@ -55,10 +58,6 @@
 
   .listBoxItem {
     @apply mx-4 flex h-12 items-center border-b border-b-gray-200 outline-none hover:outline-none;
-  }
-
-  .half-screen {
-    width: calc(100vw / 2);
   }
   /*
    * Article

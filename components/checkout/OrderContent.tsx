@@ -10,8 +10,8 @@ import { Input } from '@/components/Input';
 import { Tag } from '@/components/Tag';
 
 export const OrderContent = () => (
-  <div className='p-8 lg:p-0 bg-grayscale-50 '>
-    <div className="mb-8 flex justify-between text-sm md:text-base lg:mb-16 ">
+  <div className="bg-grayscale-50 p-8 lg:p-0">
+    <div className="mb-8 flex justify-between text-sm md:text-base lg:mb-16">
       <p>Order - 1 item</p>
       <Button variant="link">Edit card</Button>
     </div>
@@ -21,12 +21,16 @@ export const OrderContent = () => (
         <Tag className="absolute bottom-2 right-2 text-xs">-50%</Tag>
       </div>
       <div className="flex w-full justify-between sm:flex-row sm:justify-between">
-        <div className='flex flex-col justify-between'>
+        <div className="flex flex-col justify-between">
           <h4 className="text-sm font-black md:text-md">Name</h4>
           <div>
-            <p className="text-2xs text-grayscale-400 md:text-base">Color: white</p>
+            <p className="text-2xs text-grayscale-400 md:text-base">
+              Color: white
+            </p>
             <p className="text-2xs text-grayscale-400 md:text-base">Size: S</p>
-            <p className="text-2xs text-grayscale-400 md:text-base">Quantity: 1</p>
+            <p className="text-2xs text-grayscale-400 md:text-base">
+              Quantity: 1
+            </p>
           </div>
         </div>
         <div className="text-right">
@@ -38,7 +42,7 @@ export const OrderContent = () => (
     <div className="lg:flex lg:gap-8">
       <Input
         label="Discount code"
-        className="h-12 bg-grayscale-50 leading-none mb-8"
+        className="mb-8 h-12 bg-grayscale-50 leading-none"
         inputProps={{ className: 'h-12' }}
       />
       <Button
