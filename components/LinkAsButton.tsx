@@ -6,7 +6,10 @@ import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
 // Components
-import { getButtonClassNames, ButtonOwnProps } from '@/components/Button';
+import { ButtonOwnProps } from '@/components/Button';
+
+// Utilities
+import { getButtonClassNames } from '@/utils/getButtonClassNames';
 
 export const LinkAsButton: React.FC<
   React.ComponentPropsWithoutRef<'a'> & NextLinkProps & ButtonOwnProps

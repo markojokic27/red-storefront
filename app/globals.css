@@ -16,7 +16,7 @@
     width: 100vw;
   }
   .pulled-background-account::before {
-    width: 100vw;
+    width: calc(100vw);
   }
 
   @media (min-width: 1024px) {
