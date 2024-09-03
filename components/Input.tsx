@@ -14,11 +14,12 @@ import { twMerge } from 'tailwind-merge';
 export const Input: React.FC<
   React.ComponentPropsWithoutRef<'div'> &
     TextFieldProps & {
+      icon?: React.ReactNode;
       label: string;
       inputProps?: React.ComponentPropsWithoutRef<'input'> &
         InputProps & { validationError?: string };
     }
-> = ({ label, inputProps = {}, className, ...rest }) => {
+> = ({ label, inputProps = {}, icon, className, ...rest }) => {
   const labelRef = React.useRef<HTMLLabelElement | null>(null);
   const {
     validationError,
@@ -59,6 +60,9 @@ export const Input: React.FC<
           )}
           onChange={handleChange}
         />
+        {Boolean(icon) && (
+          <div className="top-[18px] absolute right-4 hover:cursor-pointer">{icon}</div>
+        )}
       </div>
 
       {validationError && (

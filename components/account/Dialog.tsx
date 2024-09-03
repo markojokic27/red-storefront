@@ -4,7 +4,7 @@ import * as RadixDialog from '@radix-ui/react-dialog';
 
 export const Dialog: React.FC<
   React.ComponentPropsWithoutRef<'div'> & {
-    title: string;
+    title?: string;
     footer?: React.ReactNode;
     trigger: React.ReactNode;
   }

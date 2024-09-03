@@ -1,6 +1,3 @@
-// External packages
-import * as React from 'react';
-
 export const Search: React.FC<React.ComponentPropsWithoutRef<'svg'>> = ({
   ...rest
 }) => (

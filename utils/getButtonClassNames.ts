@@ -2,7 +2,7 @@ import { ButtonOwnProps } from '@/components/Button';
 import { twJoin } from 'tailwind-merge';
 
 export const getButtonClassNames = ({
-  size="md",
+  size = 'md',
   colorScheme,
   variant,
   isVisuallyDisabled,
@@ -27,7 +27,11 @@ export const getButtonClassNames = ({
     size === 'sm' && 'px-6 py-2 lg:px-8 lg:py-3',
     size === 'md' && 'px-8 py-4',
     isVisuallyDisabled &&
+      variant === 'solid' &&
       'border-blue-100 text-blue-100 bg-blue-100 hover:bg-blue-100 text-white',
+    isVisuallyDisabled &&
+      variant === 'outline' &&
+      'border-blue-100 text-blue-100  hover:bg-blue-100 hover:text-white',
     variant === 'link' &&
       'border-0 bg-transparent hover:bg-transparent underline underline-offset-4  disabled:bg-transparent disabled:text-blue-100 text-black p-0 m-0 h-auto font-normal not-italic focus:outline-none'
   );

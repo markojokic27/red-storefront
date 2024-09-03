@@ -15,7 +15,7 @@ import { getButtonClassNames } from '@/utils/getButtonClassNames';
 export default function Page() {
   return (
     <div className="mb-20">
-      <h2 className="mb-10 mt-16 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
+      <h2 className="mb-6 mt-16 text-lg font-black italic text-blue-700 lg:mb-10 lg:mt-24 lg:text-xl">
         Personal & security
       </h2>
       <p className="text-md">Personal information</p>
@@ -129,7 +129,7 @@ export default function Page() {
                   colorScheme: 'blue',
                   variant: 'outline',
                   isVisuallyDisabled: false,
-                })}
+                })+ " h-12" }
               >
                 Change
               </RadixDialog.Trigger>
@@ -206,12 +206,14 @@ export default function Page() {
         <p className="w-96 text-grayscale-500">
           We have sent an email with instructions on how to change the password.
         </p>
-        <Button
-          variant="link"
-          className="absolute right-4 top-4 h-6 w-6 rotate-45 text-3xl text-black no-underline"
-        >
-          +
-        </Button>
+        <RadixDialog.Close asChild>
+          <Button
+            variant="link"
+            className="absolute right-4 top-4 h-6 w-6 rotate-45 text-3xl text-black no-underline"
+          >
+            +
+          </Button>
+        </RadixDialog.Close>
       </Dialog>
     </div>
   );

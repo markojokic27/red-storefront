@@ -29,10 +29,10 @@ export default function layout({ children }: { children: React.ReactNode }) {
               <AccountLink route="person-security" active={active ?? ''}>
                 Personal & security
               </AccountLink>
-              <AccountLink route="payment" active={active ?? ''}>
+              <AccountLink route="payment-methods" active={active ?? ''}>
                 Payment method
               </AccountLink>
-              <AccountLink route="orders" active={active ?? ''}>
+              <AccountLink route="my-orders" active={active ?? ''}>
                 My orders
               </AccountLink>
             </div>

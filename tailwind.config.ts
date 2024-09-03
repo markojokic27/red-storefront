@@ -72,6 +72,7 @@ const config: Config = {
       },
       maxWidth: {
         150: '37.5rem',
+        176: '44rem',
         '8xl': '90rem',
       },
       spacing: {
@@ -80,20 +81,10 @@ const config: Config = {
       height: {
         18: '4.5rem',
       },
-      // keyframes: {
-      //   slideDown-accordion: {
-      //     from: { height: '0' },
-      //     to: { height: 'var(--radix-accordion-content-height)' },
-      //   },
-      //   slideUp-accordion: {
-      //     from: { height: 'var(--radix-accordion-content-height)' },
-      //     to: { height: '0' },
-      //   },
-      // },
-      // animation: {
-      //   slideDown-accordion: 'slideDown 300ms ease-out',
-      //   slideUp: 'slideUp 300ms ease-out',
-      // },
+      minWidth: {
+        150: '37.5rem',
+        176: '44rem',
+      },
     },
   },
   plugins: [],

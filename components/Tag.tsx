@@ -2,11 +2,11 @@
 import { twMerge } from 'tailwind-merge';
 
 export const Tag: React.FC<
-  React.ComponentPropsWithoutRef<'p'> & {
+  React.ComponentPropsWithoutRef<'div'> & {
     colorScheme?: 'blue' | 'yellow' | 'gray' | 'red';
   }
 > = ({ colorScheme = 'red', className, children, ...rest }) => (
-  <p
+  <div
     {...rest}
     className={twMerge(
       'w-fit rounded-full px-4 leading-6',
@@ -18,5 +18,5 @@ export const Tag: React.FC<
     )}
   >
     {children}
-  </p>
+  </div>
 );

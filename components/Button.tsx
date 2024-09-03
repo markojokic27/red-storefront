@@ -6,7 +6,7 @@ import {
   Button as AriaButton,
   ButtonProps as AriaButtonProps,
 } from 'react-aria-components';
-import { twMerge, twJoin } from 'tailwind-merge';
+import { twMerge } from 'tailwind-merge';
 
 // Utilities
 import { getButtonClassNames } from '@/utils/getButtonClassNames';
