@@ -6,11 +6,12 @@ export const Dialog: React.FC<
   React.ComponentPropsWithoutRef<'div'> & {
     title?: string;
     footer?: React.ReactNode;
-    trigger: React.ReactNode;
+    trigger?: React.ReactNode;
+    open?: boolean;
   }
-> = ({ title, children, footer, trigger, className, ...rest }) => {
+> = ({ title, children, footer, trigger, open, className, ...rest }) => {
   return (
-    <RadixDialog.Root {...rest}>
+    <RadixDialog.Root {...rest} open={open}>
       {trigger}
       <RadixDialog.Portal>
         <RadixDialog.Overlay className="fixed inset-0 z-50 bg-black bg-opacity-10" />

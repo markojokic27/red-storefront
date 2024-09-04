@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Tag } from '@/components/Tag';
 import { Icon } from '@/components/Icon';
 import { Button } from '@/components/Button';
+import { MyOrderDialogs } from '@/components/account/MyOrderDialogs';
 
 // Assets
 import ImageOrder from '@/public/assets/images/MyOrder.png';
@@ -262,7 +263,50 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="xl:min-w-176 mb-4 flex flex-col items-center rounded-sm border px-1 py-4"></div>
+      <div className="xl:min-w-176 mb-4 flex flex-col items-center rounded-sm border px-4 py-5 md:flex-row md:justify-between">
+        <div className="mb-4 md:mb-0">
+          <div className="mb-4 flex flex-col items-center gap-4 md:flex-row">
+            <Icon name="credit-card" />
+            <p className="text-grayscale-400">Payment</p>
+          </div>
+          <div className="flex flex-col items-center md:flex-row md:items-start md:gap-4">
+            <Icon name="visa-card" className="w-8" />
+            <div className="mb-2 text-center md:mb-0 md:text-left">
+              <p>Jovana Jerimic</p>
+              <p>**** 0002</p>
+              <p>Exp: 04/26</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-1 md:min-w-64">
+          <div className="flex items-center justify-between">
+            <p className="text-grayscale-400">Subtotal</p>
+            <p>€120</p>
+          </div>
+          <div className="flex items-center justify-between">
+            <p className="text-grayscale-400">Shipping</p>
+            <p>€15</p>
+          </div>
+          <div className="flex items-center justify-between text-md">
+            <p>Total</p>
+            <p>€120</p>
+          </div>
+          <p className="text-xs text-grayscale-400">Including 11.25 tax</p>
+        </div>
+      </div>
+      <div className="xl:min-w-176 mb-4 flex flex-col items-center rounded-sm border px-4 py-5 md:items-start">
+        <div className="mb-4 flex flex-col items-center gap-4 md:mb-8 md:flex-row">
+          <Icon name="undo" />
+          <p className="text-grayscale-400">Return</p>
+        </div>
+        <div className="flex w-full flex-col items-center text-center md:flex-row md:items-start md:justify-between md:text-left">
+          <p className="mb-4 text-xs text-grayscale-500 md:mb-0 md:max-w-96">
+            Fit not right or it doesn’t go with your ascetic? No worries, we
+            have 30 day return policy.
+          </p>
+          <MyOrderDialogs />
+        </div>
+      </div>
     </div>
   );
 }

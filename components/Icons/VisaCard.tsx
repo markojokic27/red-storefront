@@ -3,7 +3,9 @@ export const VisaCard: React.FC<React.ComponentPropsWithoutRef<'svg'>> = ({
 }) => (
   <svg
     {...rest}
-    viewBox="0 0 34 24"
+    //viewBox="0 0 34 24"
+    height={24}
+    width={34}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >

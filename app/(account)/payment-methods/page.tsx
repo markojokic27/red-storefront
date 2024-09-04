@@ -11,7 +11,14 @@ import { Dialog } from '@/components/account/Dialog';
 // Utilities
 import { getButtonClassNames } from '@/utils/getButtonClassNames';
 
+import { headers } from 'next/headers';
+
 export default function Page() {
+  const headersList = headers();
+  const referer = headersList.entries();
+
+  console.log('BBBBB: ', referer);
+
   return (
     <div className="mb-20">
       <h2 className="mb-16 mt-16 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">

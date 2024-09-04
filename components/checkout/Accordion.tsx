@@ -28,7 +28,7 @@ import { RadioButton, RadioButtonVissualy } from '@/components/RadioButton';
 import ImagePayment from '@/public/assets/icons/Pay-pal.svg';
 
 export const Accordion = () => {
-  const [state, setState] = React.useState('item1');
+  const [state, setState] = React.useState('item3');
   return (
     <>
       <RadixAccordion.Root type="single" value={state} className="lg:mt-21">

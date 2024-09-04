@@ -54,7 +54,7 @@ export default function Page() {
             </div>
           </div>
           <div>
-            <LinkAsButton href="/my-orders/order" variant="outline">
+            <LinkAsButton href="/my-orders/order" variant="outline" size="sm">
               Check status
             </LinkAsButton>
           </div>
@@ -114,7 +114,7 @@ export default function Page() {
             </div>
           </div>
           <div>
-            <LinkAsButton href="/my-orders/order" variant="outline">
+            <LinkAsButton href="/my-orders/order" variant="outline" size="sm">
               Check status
             </LinkAsButton>
           </div>
@@ -181,7 +181,7 @@ export default function Page() {
             </div>
           </div>
           <div>
-            <LinkAsButton href="/my-orders/order" variant="outline">
+            <LinkAsButton href="/my-orders/order" variant="outline" size="sm">
               Check status
             </LinkAsButton>
           </div>
@@ -257,7 +257,7 @@ export default function Page() {
             </div>
           </div>
           <div>
-            <LinkAsButton href="/my-orders/order" variant="outline">
+            <LinkAsButton href="/my-orders/order" variant="outline" size="sm">
               Check status
             </LinkAsButton>
           </div>

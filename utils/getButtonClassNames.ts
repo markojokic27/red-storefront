@@ -10,10 +10,10 @@ export const getButtonClassNames = ({
   size: ButtonOwnProps['size'];
   colorScheme: ButtonOwnProps['colorScheme'];
   variant: ButtonOwnProps['variant'];
-  isVisuallyDisabled: ButtonOwnProps['isVisuallyDisabled'];
+  isVisuallyDisabled?: ButtonOwnProps['isVisuallyDisabled'];
 }): string =>
   twJoin(
-    'rounded-sm text-base font-bold italic weight-700 border-20 flex items-center justify-center leading-none w-fit disabled:hover:cursor-not-allowed focus:outline-none',
+    'rounded-sm text-base font-bold italic weight-700 border-20 flex items-center justify-center leading-none w-fit disabled:hover:cursor-not-allowed focus:outline-none text-center',
     colorScheme === 'blue'
       ? 'border-blue-700 text-blue-700 bg-blue-700 hover:bg-blue-900 hover:border-blue-900 disabled:bg-blue-100'
       : colorScheme === 'gray'
@@ -24,7 +24,7 @@ export const getButtonClassNames = ({
     variant === 'solid' && 'text-white',
     variant === 'outline' &&
       'border-1 bg-transparent hover:bg-transparent hover:border-blue-900 hover:text-blue-900 disabled:bg-transparent disabled:border-blue-100 disabled:text-blue-100',
-    size === 'sm' && 'px-6 py-2 lg:px-8 lg:py-3',
+    size === 'sm' && 'px-6 py-3',
     size === 'md' && 'px-8 py-4',
     isVisuallyDisabled &&
       variant === 'solid' &&
