@@ -27,7 +27,7 @@ export const MyOrderDialogs: React.FC<
       <Dialog
         {...rest}
         title="Select items you liked to return."
-        className="md:min-w-176 top-[55%] max-h-[80%] overflow-y-scroll"
+        className="top-[55%] max-h-[80%] min-w-[80%] overflow-y-scroll md:min-w-176"
         footer={
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <RadixDialog.Close asChild>
@@ -213,11 +213,10 @@ const ReturnDialog: React.FC<{
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ open, setOpen }) => {
-  console.log('openAA', open);
   return (
     <Dialog
       open={open}
-      className="md:max-w-176 w-[80%] md:pr-[20%]"
+      className="w-[80%] md:max-w-176 md:pr-[20%]"
       title="We received your return and it is  getting processed"
     >
       <p className="max-w-96 text-xs text-grayscale-500">

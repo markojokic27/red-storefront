@@ -76,6 +76,7 @@ const config: Config = {
         '8xl': '90rem',
       },
       spacing: {
+        18: '4.5rem',
         21: '5.25rem',
         22: '5.5rem',
       },

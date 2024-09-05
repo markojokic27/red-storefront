@@ -12,7 +12,7 @@ import ImageOrder from '@/public/assets/images/Order.png';
 export default function Page() {
   return (
     <div className="mb-20">
-      <h2 className="mb-8 mt-16 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
+      <h2 className="mb-8 mt-22 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
         My orders
       </h2>
       <div className="xl:min-w-176 mb-4 rounded-sm border p-4">

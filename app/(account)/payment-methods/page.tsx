@@ -17,11 +17,10 @@ export default function Page() {
   const headersList = headers();
   const referer = headersList.entries();
 
-  console.log('BBBBB: ', referer);
 
   return (
     <div className="mb-20">
-      <h2 className="mb-16 mt-16 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
+      <h2 className="mb-16 mt-22 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
         Payment methods
       </h2>
       <p className="mb-6 text-md">Credit and debit cards</p>

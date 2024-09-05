@@ -19,6 +19,10 @@
     width: calc(100vw);
   }
 
+  .hamburger-menu {
+    width: calc(100% - 72px);
+  }
+
   @media (min-width: 1024px) {
     .pulled-background::after {
       width: calc((100% + 48px) + ((100vw - 1024px) / 2));

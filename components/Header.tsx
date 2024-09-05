@@ -1,14 +1,14 @@
 'use client';
 // External packages
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // Components
 import { Logo } from '@/components/Logo';
 import { Icon } from '@/components/Icon';
 import { Link, Button } from 'react-aria-components';
-import { Layout } from '@/components/Layout';
+import { HamburgerMenu } from './HamburgerMenu';
 
 export const Header: React.FC<{
   headerTheme?: 'light' | 'dark';
@@ -43,7 +43,7 @@ export const Header: React.FC<{
         `group fixed top-0 z-40 w-full data-[theme=dark]:border-b-1 data-[theme=dark]:border-b-blue-700 data-[theme=dark]:bg-white data-[theme=light]:bg-transparent`
       )}
     >
-      <Layout className="flex justify-start py-6">
+      <div className="mx-auto flex justify-start px-6 py-[18px] md:container md:p-6">
         <Link href="/" className="focus:outline-none md:mr-28">
           <Logo className="group-data-[theme=dark]:text-blue-700 group-data-[theme=light]:text-grayscale-10" />
         </Link>
@@ -62,10 +62,7 @@ export const Header: React.FC<{
         <ul className="ml-auto flex items-center gap-8 group-data-[theme=dark]:text-black group-data-[theme=light]:text-white">
           <li className="hidden md:flex md:items-center">
             <Button className="focus:outline-none">
-              <Icon
-                name="search"
-                color={headerTheme === 'dark' ? 'default' : 'white'}
-              />
+              <Icon name="search" />
             </Button>
           </li>
           <li
@@ -79,31 +76,20 @@ export const Header: React.FC<{
             <Button className="uppercase focus:outline-none">eur</Button>
           </li>
           <li className="hidden md:block">
-            <Link href="/user" className="focus:outline-none">
-              <Icon
-                name="user"
-                color={headerTheme === 'dark' ? 'default' : 'white'}
-              />
+            <Link href="/person-security" className="focus:outline-none">
+              <Icon name="user" />
             </Link>
           </li>
           <li>
-            <Link href="/cart" className="focus:outline-none">
-              <Icon
-                name="bag"
-                color={headerTheme === 'dark' ? 'default' : 'white'}
-              />
+            <Link href="/my-orders" className="h-6 w-6 focus:outline-none">
+              <Icon name="bag" />
             </Link>
           </li>
-          <li className="flex items-center md:hidden">
-            <Button className="focus:outline-none">
-              <Icon
-                name="hamburger"
-                color={headerTheme === 'dark' ? 'default' : 'white'}
-              />
-            </Button>
+          <li className="flex h-6 w-6 items-center md:hidden">
+            <HamburgerMenu headerTheme={headerTheme} />
           </li>
         </ul>
-      </Layout>
+      </div>
     </div>
   );
 };

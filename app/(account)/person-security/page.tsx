@@ -18,11 +18,10 @@ export default function Page() {
   const headersList = headers();
   const referer = headersList.entries();
 
-  console.log('AAAAAAA: ', referer);
 
   return (
     <div className="mb-20">
-      <h2 className="mb-6 mt-16 text-lg font-black italic text-blue-700 lg:mb-10 lg:mt-24 lg:text-xl">
+      <h2 className="mb-6 mt-22 text-lg font-black italic text-blue-700 lg:mb-10 lg:mt-24 lg:text-xl">
         Personal & security
       </h2>
       <p className="text-md">Personal information</p>
