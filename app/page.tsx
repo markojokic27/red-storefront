@@ -62,7 +62,6 @@ export default function Page() {
           </LayoutRow>
         </div>
       </Layout>
-
       <Layout>
         <LayoutRow>
           <LayoutColumn span={12} smSpan={4} className="mb-8 sm:mb-0">
@@ -77,7 +76,9 @@ export default function Page() {
             <Link href={''}>
               <NavigationCard
                 label="Matz digs red"
-                image={<Image src={TshirtCard} alt="Navigation card image"></Image>}
+                image={
+                  <Image src={TshirtCard} alt="Navigation card image"></Image>
+                }
               ></NavigationCard>
             </Link>
           </LayoutColumn>
@@ -85,7 +86,9 @@ export default function Page() {
             <Link href={''}>
               <NavigationCard
                 label="Collectors essentials"
-                image={<Image src={TshirtCard2} alt="Navigation card image"></Image>}
+                image={
+                  <Image src={TshirtCard2} alt="Navigation card image"></Image>
+                }
               ></NavigationCard>
             </Link>
           </LayoutColumn>

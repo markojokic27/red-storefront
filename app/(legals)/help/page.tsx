@@ -3,11 +3,9 @@ import * as Accordion from '@radix-ui/react-accordion';
 
 // Components
 import { Icon } from '@/components/Icon';
-import { LegalsLayout } from '@/components/LagalsLayout';
 
 export default function Page() {
   return (
-    <LegalsLayout>
       <div className="help-article">
         <h1>Help</h1>
         <p className="mb-16">
@@ -318,6 +316,5 @@ export default function Page() {
           will be glad to assist you.
         </p>
       </div>
-    </LegalsLayout>
   );
 }

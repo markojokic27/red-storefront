@@ -1,32 +1,26 @@
 // External packages
 import * as RadixDialog from '@radix-ui/react-dialog';
+import { twJoin } from 'tailwind-merge';
 
 // Components
 import { Button } from '@/components/Button';
 import { Icon } from '@/components/Icon';
 import { Input } from '@/components/Input';
-import { SelectCountry } from '@/components/checkout/Accordion';
 import { Dialog } from '@/components/account/Dialog';
 
 // Utilities
 import { getButtonClassNames } from '@/utils/getButtonClassNames';
 
-import { headers } from 'next/headers';
-
 export default function Page() {
-  const headersList = headers();
-  const referer = headersList.entries();
-
-
   return (
     <div className="mb-20">
-      <h2 className="mb-16 mt-22 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
+      <h2 className="mt-22 mb-16 text-lg font-black italic text-blue-700 lg:mb-16 lg:mt-24 lg:text-xl">
         Payment methods
       </h2>
       <p className="mb-6 text-md">Credit and debit cards</p>
-      <div className="md:min-w-150 mb-6 flex flex-col items-center border p-4 md:flex-row md:items-start">
+      <div className="mb-6 flex flex-col items-center border p-4 md:min-w-150 md:flex-row md:items-start">
         <div className="mb-3 md:mb-0">
-          <Icon name="visa-card" />
+          <Icon name="visa-card" className="w-8" />
         </div>
         <div className="gap-3 text-center md:ml-16 md:gap-0 md:text-left">
           <p className="mb-3 md:mb-0">Jovana Jerimic</p>
@@ -52,14 +46,15 @@ export default function Page() {
             }
             trigger={
               <RadixDialog.Trigger
-                className={
+                className={twJoin(
+                  'h-12',
                   getButtonClassNames({
                     size: 'md',
                     colorScheme: 'blue',
                     variant: 'outline',
                     isVisuallyDisabled: false,
-                  }) + ' h-12'
-                }
+                  })
+                )}
               >
                 Change
               </RadixDialog.Trigger>
@@ -85,9 +80,9 @@ export default function Page() {
           </Dialog>
         </div>
       </div>
-      <div className="md:min-w-150 mb-10 flex flex-col items-center border p-4 md:flex-row md:items-start">
+      <div className="mb-10 flex flex-col items-center border p-4 md:min-w-150 md:flex-row md:items-start">
         <div className="mb-3 md:mb-0">
-          <Icon name="visa-card" />
+          <Icon name="visa-card" className="w-8" />
         </div>
         <div className="gap-3 text-center md:ml-16 md:gap-0 md:text-left">
           <p className="mb-3 md:mb-0">Jovana Jerimic</p>
@@ -113,14 +108,15 @@ export default function Page() {
             }
             trigger={
               <RadixDialog.Trigger
-                className={
+                className={twJoin(
                   getButtonClassNames({
                     size: 'md',
                     colorScheme: 'blue',
                     variant: 'outline',
                     isVisuallyDisabled: false,
-                  }) + ' h-12'
-                }
+                  }),
+                  'h-12'
+                )}
               >
                 Change
               </RadixDialog.Trigger>
@@ -158,14 +154,15 @@ export default function Page() {
         }
         trigger={
           <RadixDialog.Trigger
-            className={
+            className={twJoin(
               getButtonClassNames({
                 size: 'md',
                 colorScheme: 'blue',
                 variant: 'solid',
                 isVisuallyDisabled: false,
-              }) + ' h-12'
-            }
+              }),
+              'h-12'
+            )}
           >
             Add card
           </RadixDialog.Trigger>

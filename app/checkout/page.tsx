@@ -1,3 +1,6 @@
+//External packages
+import Link from 'next/link';
+
 // Components
 import { Layout, LayoutColumn, LayoutRow } from '@/components/Layout';
 import { Logo } from '@/components/Logo';
@@ -13,7 +16,9 @@ export default function Page() {
           <LayoutRow>
             <LayoutColumn>
               <div className="flex items-center justify-between">
-                <Logo />
+                <Link href={"/"}>
+                  <Logo />
+                </Link>
                 <h3 className="text-md font-black italic lg:hidden">
                   Checkout
                 </h3>

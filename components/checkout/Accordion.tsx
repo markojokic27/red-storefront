@@ -28,7 +28,7 @@ import { RadioButton, RadioButtonVissualy } from '@/components/RadioButton';
 import ImagePayment from '@/public/assets/icons/Pay-pal.svg';
 
 export const Accordion = () => {
-  const [state, setState] = React.useState('item3');
+  const [state, setState] = React.useState('item4');
   return (
     <>
       <RadixAccordion.Root type="single" value={state} className="lg:mt-21">
@@ -71,11 +71,12 @@ export const Accordion = () => {
                   label="Email"
                 />
                 <div className="mb-10 flex items-start gap-2">
-                  <Checkbox className="mb-2" />
-                  <p className="text-2xs text-gray-400">
-                    What to get news and offers? Ok, yes and some discounts. But
-                    only if you subscribe.
-                  </p>
+                  <Checkbox className="mb-2">
+                    <p className="text-2xs text-gray-400">
+                      What to get news and offers? Ok, yes and some discounts.
+                      But only if you subscribe.
+                    </p>
+                  </Checkbox>
                 </div>
                 <Button type="submit" className="mb-8 py-3">
                   Next
@@ -260,16 +261,14 @@ export const Accordion = () => {
                 className="flex flex-col gap-2"
               >
                 <RadixAccordion.Item value="item41" className="mb-2">
-                  <RadixAccordion.Header>
-                    <RadixAccordion.Trigger className="trigger w-full">
-                      <RadioButtonVissualy
-                        labelLeft={<p>Card</p>}
-                        labelRight={
-                          <Image src={ImagePayment} alt="PayPal icon" />
-                        }
-                      />
-                    </RadixAccordion.Trigger>
-                  </RadixAccordion.Header>
+                  <RadixAccordion.Trigger className="trigger group/trigger w-full">
+                    <RadioButtonVissualy
+                      labelLeft={<p>Card</p>}
+                      labelRight={
+                        <Image src={ImagePayment} alt="PayPal icon" />
+                      }
+                    />
+                  </RadixAccordion.Trigger>
                   <RadixAccordion.Content className="accordion-content">
                     <div className="flex h-20 w-full items-center justify-center border">
                       <Button
@@ -284,7 +283,7 @@ export const Accordion = () => {
                 </RadixAccordion.Item>
                 <RadixAccordion.Item value="item42" className="mb-2">
                   <RadixAccordion.Header>
-                    <RadixAccordion.Trigger className="trigger w-full">
+                    <RadixAccordion.Trigger className="trigger group/trigger w-full">
                       <RadioButtonVissualy
                         labelLeft={<p>Google Pay</p>}
                         labelRight={
@@ -307,7 +306,7 @@ export const Accordion = () => {
                 </RadixAccordion.Item>
                 <RadixAccordion.Item value="item43" className="mb-2">
                   <RadixAccordion.Header>
-                    <RadixAccordion.Trigger className="trigger w-full">
+                    <RadixAccordion.Trigger className="trigger group/trigger w-full">
                       <RadioButtonVissualy
                         labelLeft={<p>Apple Pay</p>}
                         labelRight={
@@ -330,7 +329,7 @@ export const Accordion = () => {
                 </RadixAccordion.Item>
                 <RadixAccordion.Item value="item44">
                   <RadixAccordion.Header>
-                    <RadixAccordion.Trigger className="trigger w-full">
+                    <RadixAccordion.Trigger className="trigger group/trigger w-full">
                       <RadioButtonVissualy
                         labelLeft={<p>Pay Pal</p>}
                         labelRight={

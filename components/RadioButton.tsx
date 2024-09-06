@@ -35,10 +35,10 @@ export const Radio: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
     <div
       {...rest}
       className={twMerge(
-        'h-4 w-4 rounded-full border border-black transition-all duration-300 group-hover/radio:border-blue-700 group-data-[selected=true]/radio:border-5',
+        'h-4 w-4 rounded-full border border-black transition-all duration-300 group-hover/radio:border-blue-700 group-data-[selected=true]/radio:border-5 group-data-[state=open]/trigger:border-5',
         className
       )}
-    ></div>
+    />
   );
 };
 

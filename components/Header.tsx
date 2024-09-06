@@ -1,13 +1,13 @@
 'use client';
+
 // External packages
 import * as React from 'react';
-import { useEffect } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Link, Button } from 'react-aria-components';
 
 // Components
 import { Logo } from '@/components/Logo';
 import { Icon } from '@/components/Icon';
-import { Link, Button } from 'react-aria-components';
 import { HamburgerMenu } from './HamburgerMenu';
 
 export const Header: React.FC<{
@@ -15,7 +15,7 @@ export const Header: React.FC<{
 }> = ({ headerTheme = 'dark' }) => {
   const headerRef = React.useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const element = headerRef.current;
 
     if (element) {
@@ -32,24 +32,24 @@ export const Header: React.FC<{
       }
     };
 
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [headerTheme]);
+  }, []);
 
   return (
     <div
       ref={headerRef}
-      className={twMerge(
-        `group fixed top-0 z-40 w-full data-[theme=dark]:border-b-1 data-[theme=dark]:border-b-blue-700 data-[theme=dark]:bg-white data-[theme=light]:bg-transparent`
-      )}
+      className="group fixed top-0 z-40 w-full border-b-1 border-b-blue-700 bg-white data-[theme=light]:border-b-0 data-[theme=light]:bg-transparent"
     >
       <div className="mx-auto flex justify-start px-6 py-[18px] md:container md:p-6">
         <Link href="/" className="focus:outline-none md:mr-28">
-          <Logo className="group-data-[theme=dark]:text-blue-700 group-data-[theme=light]:text-grayscale-10" />
+          <Logo className="text-blue-700 group-data-[theme=light]:text-grayscale-10" />
         </Link>
         <div
           className={twMerge(
-            'hidden gap-8 group-data-[theme=dark]:text-black group-data-[theme=light]:text-white md:flex'
+            'hidden gap-8 text-black group-data-[theme=light]:text-white md:flex'
           )}
         >
           <Link href="/shop" className="self-center focus:outline-none">
@@ -59,7 +59,7 @@ export const Header: React.FC<{
             About
           </Link>
         </div>
-        <ul className="ml-auto flex items-center gap-8 group-data-[theme=dark]:text-black group-data-[theme=light]:text-white">
+        <ul className="ml-auto flex items-center gap-8 text-black group-data-[theme=light]:text-white">
           <li className="hidden md:flex md:items-center">
             <Button className="focus:outline-none">
               <Icon name="search" />
@@ -67,12 +67,12 @@ export const Header: React.FC<{
           </li>
           <li
             className={twMerge(
-              'hidden group-data-[theme=dark]:text-black group-data-[theme=light]:text-white md:flex',
+              'hidden text-black group-data-[theme=light]:text-white md:flex',
               headerTheme === 'dark' ? 'text-black' : 'text-white'
             )}
           >
             <Button className="uppercase focus:outline-none">hr</Button>
-            <hr className="mx-2 h-6 w-px border-0 group-data-[theme=dark]:bg-black group-data-[theme=light]:bg-white md:flex" />
+            <hr className="mx-2 h-6 w-px border-0 bg-black group-data-[theme=light]:bg-white md:flex" />
             <Button className="uppercase focus:outline-none">eur</Button>
           </li>
           <li className="hidden md:block">

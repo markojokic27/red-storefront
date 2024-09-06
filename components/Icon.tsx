@@ -20,6 +20,8 @@ export type IconNames =
   | 'receipt'
   | 'undo'
   | 'truck'
+  | 'checkbox'
+  | 'x'
   | 'user';
 
 const baseClasses = 'w-6 h-6 flex-shrink-0';
@@ -27,7 +29,6 @@ const baseClasses = 'w-6 h-6 flex-shrink-0';
 export const Icon: React.FC<
   React.ComponentPropsWithoutRef<'svg'> & {
     name: IconNames;
-    color?: string;
   }
 > = ({ name, className, ...rest }) => (
   <>
@@ -75,6 +76,12 @@ export const Icon: React.FC<
     )}
     {name === 'truck' && (
       <Icons.Truck {...rest} className={twMerge(baseClasses, className)} />
+    )}
+    {name === 'checkbox' && (
+      <Icons.Checkbox {...rest} className={twMerge(baseClasses, className)} />
+    )}
+    {name === 'x' && (
+      <Icons.X {...rest} className={twMerge(baseClasses, className)} />
     )}
   </>
 );

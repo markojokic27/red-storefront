@@ -12,16 +12,10 @@ import { Dialog } from '@/components/account/Dialog';
 // Utilities
 import { getButtonClassNames } from '@/utils/getButtonClassNames';
 
-import { headers } from 'next/headers';
-
 export default function Page() {
-  const headersList = headers();
-  const referer = headersList.entries();
-
-
   return (
     <div className="mb-20">
-      <h2 className="mb-6 mt-22 text-lg font-black italic text-blue-700 lg:mb-10 lg:mt-24 lg:text-xl">
+      <h2 className="mt-22 mb-6 text-lg font-black italic text-blue-700 lg:mb-10 lg:mt-24 lg:text-xl">
         Personal & security
       </h2>
       <p className="text-md">Personal information</p>
@@ -130,14 +124,15 @@ export default function Page() {
             }
             trigger={
               <RadixDialog.Trigger
-                className={
+                className={twJoin(
                   getButtonClassNames({
                     size: 'md',
                     colorScheme: 'blue',
                     variant: 'outline',
                     isVisuallyDisabled: false,
-                  }) + ' h-12'
-                }
+                  }),
+                  'h-12'
+                )}
               >
                 Change
               </RadixDialog.Trigger>
@@ -168,12 +163,15 @@ export default function Page() {
         }
         trigger={
           <RadixDialog.Trigger
-            className={getButtonClassNames({
-              size: 'md',
-              colorScheme: 'blue',
-              variant: 'solid',
-              isVisuallyDisabled: false,
-            })+ " mx-auto md:mx-0"}
+            className={twJoin(
+              getButtonClassNames({
+                size: 'md',
+                colorScheme: 'blue',
+                variant: 'solid',
+                isVisuallyDisabled: false,
+              }),
+              'mx-auto md:mx-0'
+            )}
           >
             Add address
           </RadixDialog.Trigger>

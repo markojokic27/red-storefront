@@ -76,7 +76,6 @@ export default function Page() {
         </p>
         <p className="md:ml-auto">29 June, 2023</p>
       </div>
-
       <div className="xl:min-w-176 mb-4 flex flex-col gap-4 md:flex-row">
         <div className="flex flex-col items-center rounded-sm border p-4 md:flex-1 md:flex-row md:items-start">
           <Icon name="map-pin" className="h-4 w-4" />

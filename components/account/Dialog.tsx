@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import * as RadixDialog from '@radix-ui/react-dialog';
 
 export const Dialog: React.FC<
-  React.ComponentPropsWithoutRef<'div'> & {
+  React.ComponentPropsWithoutRef<'button'> & {
     title?: string;
     footer?: React.ReactNode;
     trigger?: React.ReactNode;

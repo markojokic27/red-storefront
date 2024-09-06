@@ -1,7 +1,12 @@
 export const Hamburger: React.FC<React.ComponentPropsWithoutRef<'svg'>> = ({
   ...rest
 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <svg
+    {...rest}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
     <path
       fill="currentcolor"
       fillRule="evenodd"

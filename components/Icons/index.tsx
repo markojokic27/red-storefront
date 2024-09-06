@@ -13,6 +13,8 @@ import { Receipt } from './Receipt';
 import { Undo } from './Undo';
 import { Calendar } from './Calendar';
 import { Truck } from './Truck';
+import { Checkbox } from './Checkbox';
+import { X } from './X';
 
 export {
   Bag,
@@ -30,4 +32,6 @@ export {
   Receipt,
   Undo,
   Truck,
+  Checkbox,
+  X
 };

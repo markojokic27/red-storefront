@@ -9,6 +9,7 @@ import { Layout, LayoutRow, LayoutColumn } from '@/components/Layout';
 import { Tag } from '@/components/Tag';
 import { LinkAsButton } from '@/components/LinkAsButton';
 import { Icon } from '@/components/Icon';
+import { Counter } from '@/components/cart/Counter';
 
 // Assets
 import ImageOrder from '@/public/assets/images/OrderCard.png';
@@ -117,48 +118,12 @@ const CartProductCard: React.FC<
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <Counter quantity={1} />
+          <Counter value={1} />
           <div className="hover:cursor-pointer hover:text-blue-700">
             <Icon name="trash" />
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export const Counter: React.FC<
-  React.ComponentPropsWithoutRef<'div'> & {
-    quantity: number;
-    //setQuantity: React.Dispatch<React.SetStateAction<number>>;
-  }
-> = ({ quantity, className, ...rest }) => {
-  return (
-    <div
-      {...rest}
-      className={twMerge(
-        'flex items-center rounded-full bg-grayscale-50',
-        className
-      )}
-    >
-      <button
-        // onClick={() => {
-        //   quantity > 1 && setQuantity(quantity - 1);
-        // }}
-        className={twMerge(
-          'm-3 flex h-4 w-4 items-center justify-center text-xs',
-          quantity === 1 && 'text-grayscale-200 hover:cursor-not-allowed'
-        )}
-      >
-        -
-      </button>
-      <div className="h-5 w-5 text-center">{quantity}</div>
-      <button
-        // onClick={() => setQuantity(quantity + 1)}
-        className="m-3 flex h-4 w-4 items-center justify-center text-xs"
-      >
-        +
-      </button>
     </div>
   );
 };
